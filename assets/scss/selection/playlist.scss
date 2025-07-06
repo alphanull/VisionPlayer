@@ -1,0 +1,142 @@
+@use '../lib/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .icon.shuffle { @include icon-masked('player/shuffle.svg', var(--vip-icon-height-small), var(--vip-icon-color)); }
+    .icon.loop { @include icon-masked('player/loop.svg', var(--vip-icon-height-small), var(--vip-icon-color)); }
+    .icon.continue { @include icon-masked('player/continue.svg', var(--vip-icon-height-small), var(--vip-icon-color)); }
+
+    .vip-playlist-controller {
+        .icon.playlist { @include icon-masked('player/playlist.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        .icon.play-prev { @include icon-masked('player/playlist-prev.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        .icon.play-next { @include icon-masked('player/playlist-next.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+    }
+
+    &.width-low .vip-playlist-controller.has-menu.has-buttons {
+        .icon.play-prev,
+        .icon.play-next { display: none; }
+    }
+
+    .vip-playlist-popup {
+        .pu-box {
+            width: 80%;
+            min-width: 22em;
+            max-width: 28em;
+        }
+    }
+
+    &.width-med .vip-playlist-popup .pu-box { max-width: 31em; }
+    &.width-low .vip-playlist-popup .pu-box { min-width: 18em; }
+
+    .vip-playlist-menu {
+
+        menu {
+            gap: var(--spacing3);
+        }
+
+        p {
+            width: 100%;
+            margin: 0;
+            font-size: var(--vip-font-size-small);
+        }
+
+        h3 {
+            @include text-ellipsis;
+
+            flex-shrink: 1;
+            margin: 0;
+        }
+
+        .vip-playlist-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-block);
+        }
+
+        .vip-playlist-menu-buttons {
+            display: flex;
+            flex-shrink: 0;
+            gap: var(--spacing2);
+        }
+
+        .vip-playlist-item:not(.icon) {
+            @include transition('border-color, background');
+
+            width: 100%;
+            min-height: 1.2em;
+            padding: 0;
+            border: inherit;
+            border-right: em(5) solid transparent;
+            border-radius: 0 !important;
+            background: none;
+            text-align: left;
+
+            &.is-active {
+                background: transparent;
+            }
+
+            @media (hover: hover) {
+                &:active, &:hover {
+                    background: var(--color-contrast3);
+                }
+            }
+
+            &:active, &:hover, &.is-active {
+                border-right: em(5) solid var(--color-1st);
+                color: inherit;
+                cursor: pointer;
+            }
+        }
+
+        .vip-playlist-item-header,
+        .vip-playlist-item-text {
+            @include text-ellipsis;
+
+            display: block;
+            text-align: start;
+            pointer-events: none;
+        }
+
+        .vip-playlist-item-text {
+            font-size: var(--vip-font-size-small);
+        }
+
+        .vip-playlist-img,
+        .vip-playlist-img-placeholder {
+            float: left;
+            width: 20%;
+            min-height: 2em;
+            margin-right: var(--spacing3);
+            border-radius: var(--border-radius-small);
+        }
+
+        &.has-no-poster .vip-playlist-img-placeholder { display: none; }
+    }
+
+    &.is-rtl {
+        .vip-playlist-item-header,
+        .vip-playlist-item-text,
+        .vip-playlist-menu-header {
+            direction: rtl;
+        }
+
+        .vip-playlist-img,
+        .vip-playlist-img-placeholder {
+            float: right;
+            margin-left: var(--spacing3);
+            margin-right: 0;
+        }
+
+        .vip-playlist-item:not(.icon) {
+            border-left: em(5) solid transparent;
+            border-right: none;
+
+            &:active, &:hover, &.is-active {
+                border-left: em(5) solid var(--color-1st);
+                border-right: none;
+            }
+        }
+    }
+}

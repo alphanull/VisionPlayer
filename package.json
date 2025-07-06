@@ -1,0 +1,132 @@
+{
+    "name": "@alphanull/visionplayer",
+    "license": "MIT",
+    "version": "1.0.0",
+    "description": "VisionPlayer is a highly modular, lightweight, and feature-rich JavaScript video player for the modern web.",
+    "keywords": [
+        "media",
+        "audio",
+        "video",
+        "player",
+        "media-player",
+        "video-player",
+        "media player",
+        "video player",
+        "javascript",
+        "streaming",
+        "web",
+        "html5"
+    ],
+    "author": {
+        "name": "Frank Kudermann",
+        "email": "kudermann@alphanull.de",
+        "url": "https://alphanull.de"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/alphanull/VisionPlayer.git"
+    },
+    "homepage": "https://visionplayer.io",
+    "bugs": {
+        "url": "https://github.com/alphanull/VisionPlayer/issues"
+    },
+    "type": "module",
+    "main": "./dist/js/VisionPlayer.min.js",
+    "module": "./dist/mjs/VisionPlayer.mjs",
+    "exports": {
+        ".": {
+            "import": "./dist/mjs/VisionPlayer.mjs",
+            "default": "./dist/js/VisionPlayer.min.js"
+        },
+        "./headless": {
+            "import": "./dist/mjs/VisionPlayer.headless.mjs",
+            "default": "./dist/js/VisionPlayer.headless.min.js"
+        },
+        "./basic": {
+            "import": "./dist/mjs/VisionPlayer.basic.mjs",
+            "default": "./dist/js/VisionPlayer.basic.min.js"
+        },
+        "./secure": {
+            "import": "./dist/mjs/VisionPlayer.secure.mjs",
+            "default": "./dist/js/VisionPlayer.secure.min.js"
+        }
+    },
+    "files": [
+        "assets/images",
+        "assets/svg/logo/VisionPlayerIcon.svg",
+        "dist",
+        "!VisionPlayer.dev.*",
+        "!VisionPlayer.streaming.*",
+        "docs/guides",
+        "docs/components",
+        "README.md",
+        "LICENSE"
+    ],
+    "engines": {
+        "node": "^20.19.0 || ^22.12.0 || >=23.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "sideEffects": false,
+    "browserslist": [
+        "Firefox >= 75",
+        "Chrome >= 79",
+        "Safari >= 13",
+        "iOS >= 13",
+        "Edge >= 79",
+        "last 2 versions",
+        "not node > 0",
+        "not dead",
+        "not op_mini all"
+    ],
+    "devDependencies": {
+        "@alphanull/jsdoc-plugin-esnext": "^1.0.0",
+        "@alphanull/jsdoc-vision-theme": "^1.0.0",
+        "@stylistic/eslint-plugin": "^5.1.0",
+        "@stylistic/stylelint-plugin": "^3.1.3",
+        "@vitejs/plugin-basic-ssl": "^2.1.0",
+        "acorn": "^8.15.0",
+        "autoprefixer": "^10.4.21",
+        "browserslist": "^4.25.1",
+        "cssnano": "^7.0.7",
+        "dashjs": "^5.0.3",
+        "eslint": "^9.30.1",
+        "eslint-plugin-jsdoc": "^51.3.3",
+        "globals": "^16.3.0",
+        "hls.js": "^1.6.6",
+        "jsdoc": "^4.0.4",
+        "postcss": "^8.5.6",
+        "postcss-combine-duplicated-selectors": "^10.0.3",
+        "postcss-combine-media-query": "^2.0.0",
+        "postcss-inline-svg": "^6.0.0",
+        "postcss-input-range": "^6.0.0",
+        "postcss-reporter": "^7.1.0",
+        "postcss-scss": "^4.0.9",
+        "rimraf": "^6.0.1",
+        "sass": "^1.89.2",
+        "stylelint": "^16.21.1",
+        "stylelint-config-standard-scss": "^15.0.1",
+        "stylelint-order": "^7.0.0",
+        "stylelint-scss": "^6.12.1",
+        "vite": "^7.0.1",
+        "vite-plugin-css-injected-by-js": "^3.5.2",
+        "vite-plugin-eslint": "^1.8.1",
+        "vite-plugin-rate-limiter": "^1.0.1"
+    },
+    "scripts": {
+        "dev": "vite --config ./scripts/build/vite.config.js",
+        "debug": "vite --debug --config ./scripts/build/vite.config.js",
+        "clean": "node -e \"if (require('fs').existsSync('./dist')) require('fs').rmSync('./dist', { recursive: true, force: true })\"",
+        "build": "npm run clean && npm run build:headless && npm run build:basic && npm run build:default && npm run build:secure && npm run build:dev",
+        "build:headless": "vite build --mode headless:mjs --config ./scripts/build/vite.config.js && vite build --mode headless:iife --config ./scripts/build/vite.config.js",
+        "build:basic": "vite build --mode basic:mjs --config ./scripts/build/vite.config.js && vite build --mode basic:iife --config ./scripts/build/vite.config.js",
+        "build:default": "vite build --mode default:mjs --config ./scripts/build/vite.config.js && vite build --mode default:iife --config ./scripts/build/vite.config.js",
+        "build:secure": "vite build --mode secure:mjs --config ./scripts/build/vite.config.js && vite build --mode secure:iife --config ./scripts/build/vite.config.js",
+        "build:streaming": "vite build --mode streaming:mjs --config ./scripts/build/vite.config.js && vite build --mode streaming:iife --config ./scripts/build/vite.config.js",
+        "build:dev": "vite build --mode dev:mjs --config ./scripts/build/vite.config.js && vite build --mode dev:iife --config ./scripts/build/vite.config.js",
+        "lint": "echo 'Running ESLint...' && eslint src/** lib/** && echo 'Running Stylelint...' && stylelint assets/scss/**/*.scss",
+        "lint:fix": "echo 'Running ESLint FIX...' && eslint src/** lib/** --fix && echo 'Running Stylelint FIX...' && stylelint assets/scss/**/*.scss --fix",
+        "doc": "rimraf ./docs/jsdoc && jsdoc --configure ./scripts/docs/jsdoc.conf.json"
+    }
+}

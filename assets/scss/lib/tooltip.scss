@@ -1,0 +1,122 @@
+@use 'mixins' as *;
+
+.tt {
+    @include font-small;
+
+    --tt-backdrop-filter: var(--backdrop-filter);
+    --tt-shadow: var(--tooltip-shadow, 0 0 0.8em rgba(0, 0, 0, 0.7));
+    --tt-pointer-shadow: var(--tooltip-pointer-shadow, 0 0 0.5em rgba(0, 0, 0, 0.4));
+    --tt-bg: var(--tooltip-bg, rgba(222, 222, 222, 0.8));
+    --tt-border-radius: var(--tooltip-border-radius, 0.3em);
+    --tt-padding: var(--tooltip-padding, 0.3em 0.5em);
+    --tt-pointer-bg: var(--tooltip-pointer-bg, var(--tt-bg));
+    --tt-pointer-width: var(--tooltip-pointer-width, 1.4em);
+    --tt-pointer-height: var(--tooltip-pointer-height, 0.6em);
+
+    position: absolute;
+    z-index: 999;
+    min-width: 20em;
+    max-width: 50em;
+    opacity: 1;
+    transform: scale(1);
+    transition: 0.2s opacity ease-in-out;
+    transition-property: opacity, transform, filter;
+    pointer-events: none;
+
+    @include respond(phablet) { max-width: 80%; }
+    @include respond(phone) { max-width: 90%; }
+
+    &.showing { opacity: 0; }
+
+    &.hiding {
+        opacity: 0;
+        filter: blur(em(5));
+        transform: scale(1);
+        transition-duration: 0.3s;
+    }
+
+    &.showing.top,
+    &.showing.bottom,
+    &.showing.left,
+    &.showing.right { transition-duration: 0s; }
+
+    // orientations
+    &.showing.top { transform: scale(1, 0.1); }
+    &.showing.bottom { transform: scale(1, 0.1); }
+    &.showing.left { transform: scale(0.1, 1); }
+    &.showing.right { transform: scale(0.1, 1); }
+
+    &.top {
+        padding-bottom: var(--tt-pointer-height);
+        transform-origin: center bottom;
+    }
+
+    &.bottom {
+        padding-top: var(--tt-pointer-height);
+        transform-origin: center top;
+    }
+
+    &.left {
+        padding-right: var(--tt-pointer-height);
+        transform-origin: right center;
+    }
+
+    &.right {
+        padding-left: var(--tt-pointer-height);
+        transform-origin: left center;
+    }
+}
+
+.tt-cnt {
+    position: relative;
+    overflow: hidden;
+    padding: var(--tt-padding);
+    border-radius: var(--tt-border-radius);
+    background: var(--tt-bg);
+    text-align: center;
+    box-shadow: var(--tt-shadow);
+    hyphens: auto;
+    backdrop-filter: var(--tt-backdrop-filter);
+}
+
+.tt-pointer {
+    position: absolute;
+    z-index: 1;
+    width: var(--tt-pointer-width);
+    height: var(--tt-pointer-width);
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: var(--tt-pointer-width);
+        height: var(--tt-pointer-width);
+        background: var(--tt-pointer-bg);
+        box-shadow: var(--tt-pointer-shadow);
+        transform: rotate(45deg);
+        backdrop-filter: var(--tt-backdrop-filter);
+    }
+
+    &.top {
+        bottom: -0.01em;
+        clip-path: inset(50% -50% -50% -50%);
+        &::before { border-bottom-right-radius: var(--tt-border-radius); }
+    }
+
+    &.bottom {
+        top: -0.01em;
+        clip-path: inset(-50% -50% 50% -50%);
+        &::before { border-top-left-radius: var(--tt-border-radius); }
+    }
+
+    &.left {
+        right: -0.01em;
+        clip-path: inset(-50% -50% -50% 50%);
+        &::before { border-top-right-radius: var(--tt-border-radius); }
+    }
+
+    &.right {
+        left: -0.01em;
+        clip-path: inset(-50% 50% -50% -50%);
+        &::before { border-bottom-left-radius: var(--tt-border-radius); }
+    }
+}

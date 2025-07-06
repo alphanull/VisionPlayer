@@ -1,0 +1,142 @@
+{
+    "de": {
+        "commands": {
+            "OK": "OK",
+            "cancel": "Abbrechen",
+            "reset": "Zurücksetzen",
+            "play": "Abspielen",
+            "pause": "Pause"
+        },
+        "misc": {
+            "audiovideo": "Ton & Bild",
+            "audio": "Audio",
+            "auto": "Auto",
+            "chapter": "Kapitel",
+            "isLive": "Live",
+            "error": "Fehler",
+            "fullscreen": "Vollbild",
+            "language": "Sprache",
+            "languagesub": "Sprachen & Untertitel",
+            "loop": "Endlosschleife",
+            "on": "Ein",
+            "off": "Aus",
+            "playbackrate": "Abspielgeschwindigkeit",
+            "quality": "Qualität",
+            "scrubber": "Zeitleiste",
+            "settings": "Einstellungen",
+            "subtitles": "Untertitel",
+            "unavailable": "Nicht verfügbar",
+            "unknownLang": "Unbekannte Sprache",
+            "time": "Zeit",
+            "video": "Video",
+            "volume": "Lautstärke",
+            "volumeSlider": "Lautstärke Regler",
+            "uiScale": "UI Skalierung"
+        },
+        "time": {
+            "hour": "Stunde",
+            "hour_plural": "Stunden",
+            "minute": "Minute",
+            "minute_plural": "Minuten",
+            "second": "Sekunde",
+            "second_plural": "Sekunden"
+        },
+        "errors": {
+            "data": {
+                "header": "Fehler in Mediendaten",
+                "unknown": "Beim Bearbeiten der Player Daten ist ein Fehler aufgetreten",
+                "CONFIG_LOAD_ERROR": "Die Konfigurationsdatei konnte nicht geladen werden (das Medium ist möglicherweise trotzdem abspielbar).",
+                "DATA_ERR_MEDIA_DATA_DENIED": "Die Mediendaten konnten nicht geladen werden.",
+                "DATA_ERR_MEDIA_NOT_FOUND": "Es wurden keine Mediendaten gefunden.",
+                "DATA_ERR_STREAM_NOT_FOUND": "Es wurden keine Streamdaten in den Mediendaten gefunden.",
+                "DATA_ERR_STREAM_NOT_PLAYABLE": "Es wurde kein abspielbares Medium gefunden. Wahrscheinlich unterstützt der Player das Format nicht.",
+                "DATA_ERR_INVALID_PLAYLIST_ITEM": "Ein oder mehrere Elemente der Wiedergabeliste konnten nicht geladen werden und wurden übersprungen.",
+                "DATA_ERR_INVALID_INDEX": "Ungültiger Wiedergabelistenindex."
+            },
+            "media": {
+                "header": "Medien Fehler",
+                "aborted": "Die Wiedergabe wurde abgebrochen.",
+                "alternateStreamHint": "Versuchen Sie es eventuell mit einer anderen Qualitäts- oder Spracheinstellung.",
+                "unsupported": "Das Medium konnte nicht abgespielt werden. Eventuell wird das Medienformat nicht unterstützt oder die Datei ist möglicherweise beschädigt.",
+                "decodingError": "Das Medium konnte nicht abgespielt werden und ist möglicherweise beschädigt.",
+                "fileWithError": "Datei:",
+                "networkFailed": "Die Datei konnte wegen eines Netzwerkfehlers nicht abgespielt werden.",
+                "notFound": "Die angeforderte Mediendatei wurde nicht gefunden.",
+                "unknown": "Ein Fehler ist aufgetreten.",
+                "drmError": "Es gab ein Problem mit dem Kopierschutz (DRM) dieses Mediums.",
+                "serverError": "Der Server konnte nicht erreicht werden.",
+                "accessError": "Auf das Medium konnte nicht zugegriffen werden."
+            },
+            "library": {
+                "header": "Bibliotheksfehler",
+                "dashLoadError": "Die Dash.js-Bibliothek konnte nicht geladen werden.",
+                "hlsLoadError": "Die Hls.js-Bibliothek konnte nicht geladen werden."
+            },
+            "supportMessage": ""
+        },
+        "airplay": {
+            "airplay": "AirPlay",
+            "available": "AirPlay benutzen",
+            "unavailable": "AirPlay nicht verfügbar"
+        },
+        "audioControls": {
+            "freqBand": "Frequenzband"
+        },
+        "chapter": {
+            "next": "Nächstes Kapitel",
+            "prev": "Voriges Kapitel"
+        },
+        "chromecast": {
+            "chromecast": "Chromecast",
+            "available": "Chromecast benutzen",
+            "unavailable": "Chromecast nicht verfügbar",
+            "connected": "Verbunden mit ",
+            "device": "entferntem Gerät",
+            "cancel": "Übertragung stoppen",
+            "play": "Übertragung fortsetzen",
+            "pause": "Übertragung pausieren",
+            "choose": "Gerät wählen ...",
+            "isPaused": "Übertragung ist pausiert",
+            "isPlaying": "Übertragung ist aktiv",
+            "isBuffering": "Puffern ...",
+            "castError": "Konnte nicht mit dem Gerät verbinden"
+        },
+        "file": {
+            "select": "Datei(en) auswählen",
+            "drop": "Datei(en) hierher ziehen, um sie abzuspielen",
+            "unsupported": "Diese Datei kann nicht abgespielt werden"
+        },
+        "pip": {
+            "title": "Bild-in-Bild-Modus",
+            "placeholder": "Dieses Video wird gerade im „Bild-in-Bild“-Modus abgespielt.",
+            "cancel": "Bild-in-Bild-Modus verlassen"
+        },
+        "playlist": {
+            "playlist": "Abspielliste",
+            "open": "Öffne Abspielliste",
+            "prev": "Voriger Titel",
+            "next": "Nächster Titel",
+            "loop": "Abspielliste in Endlosschleife",
+            "shuffle": "Zufällige Wiedergabe",
+            "continuous": "Kontinuierliche Wiedergabe"
+        },
+        "subtitles": {
+            "fontSize": "Schriftgrösse",
+            "fontSize_big": "Große Schrift",
+            "fontSize_medium": "Mittlere Schrift",
+            "fontSize_small": "Kleine Schrift",
+            "header": "Untertitel"
+        },
+        "videoControls": {
+            "brightness": "Helligkeit",
+            "contrast": "Kontrast",
+            "saturate": "Sättigung",
+            "sharpen": "Bildschärfe",
+            "hue": "Farbton"
+        },
+        "visualizerAmbient": {
+            "header": "Hintergrundbeleuchtung",
+            "slider": "Intensität einstellen"
+        }
+    }
+}

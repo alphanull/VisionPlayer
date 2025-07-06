@@ -1,0 +1,30 @@
+@use '../lib/mixins' as *;
+
+vision-player {
+
+    .vip-visualizer-audio {
+        @include transition('opacity, top, bottom');
+
+        position: absolute;
+        z-index: 15;
+        top: calc(5% + var(--vip-ui-blocked-top, 0px)); /* stylelint-disable-line unit-disallowed-list */
+        right: 10%;
+        bottom: calc(5% + var(--vip-ui-blocked-bottom, 0px)); /* stylelint-disable-line unit-disallowed-list */
+        left: 10%;
+        opacity: 0;
+        pointer-events: none;
+
+        > .vip-visualizer-audio-canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.8;
+        }
+    }
+
+    &.has-audio-analyser .vip-visualizer-audio {
+        opacity: 1;
+    }
+}

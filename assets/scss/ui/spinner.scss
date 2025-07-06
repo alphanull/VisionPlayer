@@ -1,0 +1,68 @@
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .vip-spinner-item {
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        top: 15%;
+        left: 15%;
+        border-radius: 50%;
+        outline: 0.4em solid var(--color-contrast9);
+        animation: spinner-anim infinite;
+        animation-duration: 1.5s;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+        animation-fill-mode: both;
+
+        &:nth-of-type(1) { animation-delay: 0s; }
+        &:nth-of-type(2) { animation-delay: 1.5s; }
+
+        @keyframes spinner-anim {
+            0% {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                opacity: 0.5;
+                transform: rotateY(90deg);
+            }
+        }
+    }
+
+    .vip-spinner {
+        @include transition('opacity');
+        @include inset;
+
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 19;
+        transition-duration: 0.5s;
+        pointer-events: none;
+
+        &.is-hidden {
+            opacity: 0;
+
+            .vip-spinner-item {
+                animation-play-state: paused;
+            }
+        }
+    }
+
+    .vip-spinner-wrapper {
+        @include ui-bg;
+
+        position: relative;
+        min-width: 7em;
+        min-height: 7em;
+        max-width: 18em;
+        max-height: 18em;
+        border-radius: 50%;
+    }
+}

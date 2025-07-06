@@ -1,0 +1,142 @@
+{
+    "hi": {
+        "commands": {
+            "OK": "ठीक",
+            "cancel": "रद्द करें",
+            "reset": "रीसेट",
+            "play": "चलाएँ",
+            "pause": "विराम"
+        },
+        "misc": {
+            "audiovideo": "ऑडियो और वीडियो",
+            "audio": "ऑडियो",
+            "auto": "ऑटो",
+            "chapter": "अध्याय",
+            "isLive": "लाइव",
+            "error": "त्रुटि",
+            "fullscreen": "पूर्ण स्क्रीन",
+            "language": "भाषा",
+            "languagesub": "भाषा और उपशीर्षक",
+            "loop": "लूप",
+            "playbackrate": "प्लेबैक गति",
+            "on": "चालू",
+            "off": "बंद",
+            "quality": "गुणवत्ता",
+            "scrubber": "समय पट्टी",
+            "settings": "सेटिंग्स",
+            "subtitles": "उपशीर्षक",
+            "unavailable": "उपलब्ध नहीं",
+            "unknownLang": "अज्ञात",
+            "time": "समय",
+            "video": "वीडियो",
+            "volume": "आवाज़",
+            "volumeSlider": "वॉल्यूम नियंत्रण",
+            "uiScale": "UI स्केल"
+        },
+        "time": {
+            "hour": "घंटा",
+            "hour_plural": "घंटे",
+            "minute": "मिनट",
+            "minute_plural": "मिनट",
+            "second": "सेकंड",
+            "second_plural": "सेकंड"
+        },
+        "errors": {
+            "data": {
+                "header": "मीडिया डेटा त्रुटि",
+                "unknown": "प्लेयर डेटा को संसाधित करते समय त्रुटि हुई",
+                "CONFIG_LOAD_ERROR": "कॉन्फ़िगरेशन फ़ाइल लोड नहीं हो सकी (मीडिया फिर भी चल सकता है)।",
+                "DATA_ERR_MEDIA_DATA_DENIED": "मीडिया डेटा लोड नहीं हो सका।",
+                "DATA_ERR_MEDIA_NOT_FOUND": "कोई मीडिया डेटा नहीं मिला।",
+                "DATA_ERR_STREAM_NOT_FOUND": "मीडिया डेटा में कोई स्ट्रीम निर्दिष्ट नहीं है।",
+                "DATA_ERR_STREAM_NOT_PLAYABLE": "कोई चलाने योग्य स्ट्रीम नहीं मिली, हो सकता है प्रारूप समर्थित न हो।",
+                "DATA_ERR_INVALID_PLAYLIST_ITEM": "प्लेलिस्ट में से एक या एक से अधिक आइटम लोड नहीं हो सके और छोड़ दिए गए।",
+                "DATA_ERR_INVALID_INDEX": "अमान्य प्लेलिस्ट अनुक्रमांक."
+            },
+            "media": {
+                "header": "मीडिया त्रुटि",
+                "aborted": "प्लेबैक रद्द कर दिया गया।",
+                "alternateStreamHint": "कृपया अलग गुणवत्ता या भाषा सेटिंग आज़माएँ।",
+                "decodingError": "चयनित मीडिया फ़ाइल चल नहीं सकी; फ़ाइल क्षतिग्रस्त हो सकती है।",
+                "fileWithError": "फ़ाइल:",
+                "networkFailed": "नेटवर्क त्रुटि के कारण फ़ाइल नहीं चल सकी।",
+                "notFound": "चयनित मीडिया फ़ाइल नहीं मिली।",
+                "unknown": "अज्ञात त्रुटि हुई",
+                "unsupported": "चयनित मीडिया फ़ाइल समर्थित नहीं है।",
+                "drmError": "इस मीडिया की DRM सुरक्षा में समस्या है।",
+                "serverError": "सर्वर तक पहुँच नहीं सका।",
+                "accessError": "मीडिया तक पहुँच नहीं सका।"
+            },
+            "library": {
+                "header": "लाइब्रेरी त्रुटि",
+                "dashLoadError": "Dash.js लाइब्रेरी लोड नहीं हो सकी.",
+                "hlsLoadError": "Hls.js लाइब्रेरी लोड नहीं हो सकी."
+            },
+            "supportMessage": ""
+        },
+        "airplay": {
+            "airplay": "AirPlay",
+            "available": "AirPlay इस्तेमाल करें",
+            "unavailable": "AirPlay उपलब्ध नहीं"
+        },
+        "audioControls": {
+            "freqBand": "आवृत्ति बैंड"
+        },
+        "chapter": {
+            "next": "अगला अध्याय",
+            "prev": "पिछला अध्याय"
+        },
+        "chromecast": {
+            "chromecast": "Chromecast",
+            "available": "Chromecast इस्तेमाल करें",
+            "unavailable": "Chromecast उपलब्ध नहीं",
+            "connected": "से जुड़ा ",
+            "device": "रिमोट डिवाइस",
+            "choose": "डिवाइस चुनें…",
+            "pause": "कास्टिंग रोकें",
+            "play": "कास्टिंग फिर से शुरू करें",
+            "cancel": "कास्ट बंद करें",
+            "isPaused": "कास्ट रुका है",
+            "isPlaying": "कास्ट सक्रिय है",
+            "isBuffering": "बफर कर रहा है…",
+            "castError": "डिवाइस से कनेक्ट नहीं हो पाया"
+        },
+        "file": {
+            "select": "फ़ाइल चुनें",
+            "drop": "फ़ाइल यहाँ डालें",
+            "unsupported": "फ़ाइल प्रारूप असमर्थित"
+        },
+        "pip": {
+            "title": "पिक्चर‑इन‑पिक्चर",
+            "placeholder": "दिखाने के लिए कोई वीडियो नहीं",
+            "cancel": "PiP बंद करें"
+        },
+        "playlist": {
+            "playlist": "प्लेलिस्ट",
+            "open": "प्लेलिस्ट खोलें",
+            "prev": "पिछला शीर्षक",
+            "next": "अगला शीर्षक",
+            "loop": "प्लेलिस्ट दोहराएँ",
+            "shuffle": "शफल प्लेबैक",
+            "continuous": "निरंतर प्लेबैक"
+        },
+        "subtitles": {
+            "fontSize": "फ़ॉन्ट आकार",
+            "fontSize_big": "बड़ा फ़ॉन्ट",
+            "fontSize_medium": "मध्यम फ़ॉन्ट",
+            "fontSize_small": "छोटा फ़ॉन्ट",
+            "header": "उपशीर्षक"
+        },
+        "videoControls": {
+            "brightness": "चमक",
+            "contrast": "कंट्रास्ट",
+            "saturate": "संतृप्ति",
+            "sharpen": "धार",
+            "hue": "आभा"
+        },
+        "visualizerAmbient": {
+            "header": "पृष्ठभूमि प्रकाश",
+            "slider": "तीव्रता समायोजित करें"
+        }
+    }
+}

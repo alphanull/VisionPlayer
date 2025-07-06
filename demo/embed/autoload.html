@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>VisionPlayer Autoload Examples</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <link href="../assets/favicon.svg" rel="shortcut icon" type="image/svg+xml">
+        <link rel="stylesheet" href="../assets/main.css">
+        <script type="module" src="../assets/nav.js"></script>
+        <script data-vip-autoload src="../../dist/js/VisionPlayer.min.js"></script>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="header-inner">
+                <img class="vip-logo" src="../assets/VisionPlayerLogoWhite.svg" alt="VisionPlayer" />
+                <button id="menu-mobile-button" aria-label="Mobile Menu"></button>
+                <nav id="nav-main-wrapper">
+                    <button id="menu-mobile-close" aria-label="Close Menu"></button>
+                    <menu role="menubar" id="nav-main">
+                        <li id="nav-trailer"><a href='../../#trailer'>Trailer</a></li>
+                        <li class="has-submenu">
+                            <span>Streaming</span>
+                            <button aria-expanded="false" aria-haspopup="true" class="nav-submenu-toggle"></button>
+                            <div class="menu-wrapper">
+                                <menu role="menubar">
+                                    <li id="nav-dash"><a href='../../#dash'>MPEG Dash</a></li>
+                                    <li id="nav-hls"><a href='../../#hls'>HLS</a></li>
+                                    <li id="nav-live"><a href='../../#live'>Live</a></li>
+                                    <li id="nav-drm"><a href='../../#drm'>DRM</a></li>
+                                </menu>
+                            </div>
+                        </li>
+                        <li class="has-submenu">
+                            <span>Embedding</span>
+                            <button aria-expanded="false" aria-haspopup="true" class="nav-submenu-toggle"></button>
+                            <div class="menu-wrapper">
+                                <menu role="menubar">
+                                    <li><a href='index.html'>Embedding</a></li>
+                                    <li class="is-active"><a href='autoload.html'>Autoload</a></li>
+                                    <li><a href='iframe.html'>iFrames</a></li>
+                                </menu>
+                            </div>
+                        </li>
+                        <li><a href='https://visionplayer.io/docs'>Docs</a></li>
+                    </menu>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+
+            <h1>Autoload Examples</h1>
+
+            <figure style="width: 80%">
+                <audio controls data-vision-player src="https://visionplayer.io/media/trailer-audio/streams/visionplayer-trailer-audio.mp3"></audio>
+                <figcaption>audio tag autoload</figcaption>
+            </figure>
+
+            <div class="vip-examples-wrapper">
+
+                <figure>
+                    <div data-vision-player
+                        data-vip-config='{"dom":{"darkMode":"light"},"ui":{"alwaysVisible":true}}'
+                        data-vip-media='/demo/trailer/visionplayer-trailer.json'></div>
+                    <figcaption>div tag autoload with loading json per data-media and data-config</figcaption>
+                </figure>
+
+                <figure>
+                    <video data-vision-player controls data-vip-media='{"overlays":[{"type": "poster","src":"https://visionplayer.io/media/trailer/overlays/visionplayer-trailer-poster.jpg"}]}'>
+                        <track kind="subtitles" srclang="de" data-custom="1" src="https://visionplayer.io/media/trailer/text/visionplayer-trailer.en.vtt">
+                        <track kind="subtitles" srclang="en" data-custom="2" src="https://visionplayer.io/media/trailer/text/visionplayer-trailer.de.vtt">
+                        <source src="https://visionplayer.io/media/trailer/streams/visionplayer-trailer.de.1080.av1.mp4" type="video/mp4; codecs=av01.0.05M.08" />
+                        <source src="https://visionplayer.io/media/trailer/streams/visionplayer-trailer.de.1080.mp4" type="video/mp4" />
+                    </video>
+                    <figcaption>Video tag embedding with default aspect ratio & full controls</figcaption>
+                </figure>
+
+            </div>
+
+        </main>
+
+        <footer>
+            <p>Made with love by <a href="https://alphanull.de" target="_blank">alphanull</a></p>
+        </footer>
+
+    </body>
+
+</html>

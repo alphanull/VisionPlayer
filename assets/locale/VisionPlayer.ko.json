@@ -1,0 +1,142 @@
+{
+    "ko": {
+        "commands": {
+            "OK": "확인",
+            "cancel": "취소",
+            "reset": "재설정",
+            "play": "재생",
+            "pause": "一時停止"
+        },
+        "misc": {
+            "audiovideo": "오디오 및 비디오",
+            "audio": "오디오",
+            "auto": "자동",
+            "chapter": "챕터",
+            "isLive": "라이브",
+            "error": "오류",
+            "fullscreen": "전체 화면",
+            "language": "언어",
+            "languagesub": "언어 및 자막",
+            "loop": "반복",
+            "playbackrate": "재생 속도",
+            "on": "켜짐",
+            "off": "꺼짐",
+            "quality": "화질",
+            "scrubber": "탐색 막대",
+            "settings": "설정",
+            "subtitles": "자막",
+            "unavailable": "사용 불가",
+            "unknownLang": "알 수 없음",
+            "time": "시간",
+            "video": "비디오",
+            "volume": "음량",
+            "volumeSlider": "음량 조절",
+            "uiScale": "UI 스케일"
+        },
+        "time": {
+            "hour": "시간",
+            "hour_plural": "시간",
+            "minute": "분",
+            "minute_plural": "분",
+            "second": "초",
+            "second_plural": "초"
+        },
+        "errors": {
+            "data": {
+                "header": "미디어 데이터 오류",
+                "unknown": "플레이어 데이터를 처리하는 중 오류가 발생했습니다",
+                "CONFIG_LOAD_ERROR": "구성 파일을 로드할 수 없습니다(미디어는 재생 가능할 수 있음).",
+                "DATA_ERR_MEDIA_DATA_DENIED": "미디어 데이터를 로드할 수 없습니다.",
+                "DATA_ERR_MEDIA_NOT_FOUND": "미디어 데이터를 찾을 수 없습니다.",
+                "DATA_ERR_STREAM_NOT_FOUND": "미디어 데이터에 스트림이 지정되지 않았습니다.",
+                "DATA_ERR_STREAM_NOT_PLAYABLE": "재생 가능한 스트림을 찾을 수 없습니다. 형식이 지원되지 않을 수 있습니다.",
+                "DATA_ERR_INVALID_PLAYLIST_ITEM": "재생목록의 하나 이상의 항목을 불러올 수 없어 건너뛰었습니다.",
+                "DATA_ERR_INVALID_INDEX": "잘못된 재생목록 인덱스입니다."
+            },
+            "media": {
+                "header": "미디어 오류",
+                "aborted": "재생이 중단되었습니다.",
+                "alternateStreamHint": "다른 화질이나 언어 설정을 선택해 보세요.",
+                "decodingError": "선택한 미디어 파일을 재생할 수 없습니다. 파일이 손상되었을 수 있습니다.",
+                "fileWithError": "파일:",
+                "networkFailed": "네트워크 오류로 인해 파일을 재생할 수 없습니다.",
+                "notFound": "선택한 미디어 파일을 찾을 수 없습니다.",
+                "unknown": "알 수 없는 오류가 발생했습니다",
+                "unsupported": "선택한 미디어 파일은 지원되지 않습니다.",
+                "drmError": "이 미디어의 DRM에 문제가 있습니다.",
+                "serverError": "서버에 연결할 수 없습니다.",
+                "accessError": "미디어에 접근할 수 없습니다."
+            },
+            "library": {
+                "header": "라이브러리 오류",
+                "dashLoadError": "Dash.js 라이브러리를 불러올 수 없습니다.",
+                "hlsLoadError": "Hls.js 라이브러리를 불러올 수 없습니다."
+            },
+            "supportMessage": ""
+        },
+        "airplay": {
+            "airplay": "AirPlay",
+            "available": "AirPlay 사용",
+            "unavailable": "AirPlay 사용 불가"
+        },
+        "audioControls": {
+            "freqBand": "주파수 대역"
+        },
+        "chapter": {
+            "next": "다음 챕터",
+            "prev": "이전 챕터"
+        },
+        "chromecast": {
+            "chromecast": "Chromecast",
+            "available": "Chromecast 사용",
+            "unavailable": "Chromecast 사용 불가",
+            "connected": "연결됨 ",
+            "device": "원격 장치",
+            "choose": "장치 선택…",
+            "pause": "캐스팅 일시 중지",
+            "play": "캐스팅 재개",
+            "cancel": "전송 중지",
+            "isPaused": "전송이 일시 중지됨",
+            "isPlaying": "전송 중",
+            "isBuffering": "버퍼링 중…",
+            "castError": "장치에 연결할 수 없습니다"
+        },
+        "file": {
+            "select": "파일 선택",
+            "drop": "파일을 여기로 드래그",
+            "unsupported": "지원되지 않는 파일 형식"
+        },
+        "pip": {
+            "title": "화면 속 화면",
+            "placeholder": "표시할 비디오가 없습니다",
+            "cancel": "PiP 닫기"
+        },
+        "playlist": {
+            "playlist": "재생목록",
+            "open": "목록 열기",
+            "prev": "이전 제목",
+            "next": "다음 제목",
+            "loop": "목록 반복",
+            "shuffle": "셔플 재생",
+            "continuous": "연속 재생"
+        },
+        "subtitles": {
+            "fontSize": "글꼴 크기",
+            "fontSize_big": "큰 글꼴",
+            "fontSize_medium": "중간 글꼴",
+            "fontSize_small": "작은 글꼴",
+            "header": "자막"
+        },
+        "videoControls": {
+            "brightness": "밝기",
+            "contrast": "대비",
+            "saturate": "채도",
+            "sharpen": "선명도",
+            "hue": "색조"
+        },
+        "visualizerAmbient": {
+            "header": "배경 조명",
+            "slider": "강도 조절"
+        }
+    }
+}

@@ -1,0 +1,142 @@
+{
+    "tr": {
+        "commands": {
+            "OK": "Tamam",
+            "cancel": "İptal",
+            "reset": "Sıfırla",
+            "play": "Oynat",
+            "pause": "Duraklat"
+        },
+        "misc": {
+            "audiovideo": "Ses & Video",
+            "audio": "Ses",
+            "auto": "Otomatik",
+            "isLive": "Canlı",
+            "error": "Hata",
+            "chapter": "Bölüm",
+            "fullscreen": "Tam ekran",
+            "language": "Dil",
+            "languagesub": "Dil & Altyazılar",
+            "loop": "Döngü",
+            "playbackrate": "Oynatma hızı",
+            "on": "Açık",
+            "off": "Kapalı",
+            "quality": "Kalite",
+            "scrubber": "Zaman çubuğu",
+            "settings": "Ayarlar",
+            "subtitles": "Altyazılar",
+            "unavailable": "Kullanılamıyor",
+            "unknownLang": "Bilinmiyor",
+            "time": "Zaman",
+            "video": "Video",
+            "volume": "Ses",
+            "volumeSlider": "Ses kontrolü",
+            "uiScale": "UI Ölçeklendirme"
+        },
+        "time": {
+            "hour": "Saat",
+            "hour_plural": "Saat",
+            "minute": "Dakika",
+            "minute_plural": "Dakika",
+            "second": "Saniye",
+            "second_plural": "Saniye"
+        },
+        "errors": {
+            "data": {
+                "header": "Medya verisi hatası",
+                "unknown": "Oynatıcı verisi işlenirken hata oluştu",
+                "CONFIG_LOAD_ERROR": "Yapılandırma dosyası yüklenemedi (medya yine de oynatılabilir olabilir).",
+                "DATA_ERR_MEDIA_DATA_DENIED": "Medya verileri yüklenemedi.",
+                "DATA_ERR_MEDIA_NOT_FOUND": "Medya verisi bulunamadı.",
+                "DATA_ERR_STREAM_NOT_FOUND": "Medya verisinde akış belirtilmemiş.",
+                "DATA_ERR_STREAM_NOT_PLAYABLE": "Oynatılabilir akış bulunamadı; format desteklenmiyor olabilir.",
+                "DATA_ERR_INVALID_PLAYLIST_ITEM": "Oynatma listesindeki bir veya daha fazla öğe yüklenemedi ve atlandı.",
+                "DATA_ERR_INVALID_INDEX": "Geçersiz oynatma listesi indeksi."
+            },
+            "media": {
+                "header": "Medya hatası",
+                "aborted": "Oynatma iptal edildi.",
+                "alternateStreamHint": "Farklı bir kalite veya dil ayarı seçmeyi deneyin.",
+                "decodingError": "Seçilen medya dosyası oynatılamıyor; dosya bozuk olabilir.",
+                "fileWithError": "Dosya:",
+                "networkFailed": "Ağ hatası nedeniyle dosya oynatılamadı.",
+                "notFound": "Seçilen medya dosyası bulunamadı.",
+                "unknown": "Bilinmeyen bir hata oluştu",
+                "unsupported": "Seçilen medya dosyası desteklenmiyor.",
+                "drmError": "Bu medyanın DRM korumasında bir sorun var.",
+                "serverError": "Sunucuya ulaşılamadı.",
+                "accessError": "Medya erişilemedi."
+            },
+            "library": {
+                "header": "Kütüphane hatası",
+                "dashLoadError": "Dash.js kütüphanesi yüklenemedi.",
+                "hlsLoadError": "Hls.js kütüphanesi yüklenemedi."
+            },
+            "supportMessage": ""
+        },
+        "airplay": {
+            "airplay": "AirPlay",
+            "available": "AirPlay kullan",
+            "unavailable": "AirPlay kullanılamıyor"
+        },
+        "audioControls": {
+            "freqBand": "Frekans bandı"
+        },
+        "chapter": {
+            "next": "Sonraki bölüm",
+            "prev": "Önceki bölüm"
+        },
+        "chromecast": {
+            "chromecast": "Chromecast",
+            "available": "Chromecast kullan",
+            "unavailable": "Chromecast kullanılamıyor",
+            "connected": "Şuna bağlı ",
+            "device": "uzak cihaz",
+            "choose": "Cihaz seç…",
+            "pause": "Yayını duraklat",
+            "play": "Yayına devam et",
+            "cancel": "Yansıtmayı durdur",
+            "isPaused": "Yansıtma duraklatıldı",
+            "isPlaying": "Yansıtılıyor",
+            "isBuffering": "Önbelleğe alınıyor…",
+            "castError": "Cihaza bağlanılamadı"
+        },
+        "file": {
+            "select": "Dosya seç",
+            "drop": "Dosyayı buraya bırak",
+            "unsupported": "Dosya formatı desteklenmiyor"
+        },
+        "pip": {
+            "title": "Resim içinde Resim",
+            "placeholder": "Gösterilecek video yok",
+            "cancel": "PiP kapat"
+        },
+        "playlist": {
+            "playlist": "Çalma listesi",
+            "open": "Listeyi aç",
+            "prev": "Önceki başlık",
+            "next": "Sonraki başlık",
+            "loop": "Listeyi döngüye al",
+            "shuffle": "Karışık oynat",
+            "continuous": "Sürekli oynat"
+        },
+        "subtitles": {
+            "fontSize": "Yazı tipi boyutu",
+            "fontSize_big": "Büyük yazı",
+            "fontSize_medium": "Orta yazı",
+            "fontSize_small": "Küçük yazı",
+            "header": "Altyazılar"
+        },
+        "videoControls": {
+            "brightness": "Parlaklık",
+            "contrast": "Kontrast",
+            "saturate": "Doygunluk",
+            "sharpen": "Keskinlik",
+            "hue": "Ton"
+        },
+        "visualizerAmbient": {
+            "header": "Arka ışık",
+            "slider": "Yoğunluğu ayarla"
+        }
+    }
+}

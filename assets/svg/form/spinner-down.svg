@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="16px" viewBox="0 0 20 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>form / spinner-down</title>
+    <g id="form-/-spinner-down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Group-Copy" transform="translate(10, 8.5) rotate(-180) translate(-10, -8.5)translate(5, 6)" stroke="#141111" stroke-width="3">
+            <line x1="5" y1="2.35284014e-12" x2="10" y2="5" id="Line-Copy" transform="translate(7.5, 2.5) rotate(-540) translate(-7.5, -2.5)"></line>
+            <line x1="-4.60742555e-14" y1="5" x2="5" y2="2.36866082e-12" id="Line-2-Copy" transform="translate(2.5, 2.5) rotate(-540) translate(-2.5, -2.5)"></line>
+        </g>
+    </g>
+</svg>

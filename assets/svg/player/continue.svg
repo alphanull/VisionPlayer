@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>player / continue</title>
+    <g id="player-/-continue" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M18.4472136,2.89442719 L21.6381966,9.2763932 C21.7616912,9.52338245 21.6615791,9.82371897 21.4145898,9.9472136 C21.3451621,9.98192745 21.2686056,10 21.190983,10 L14.809017,10 C14.5328746,10 14.309017,9.77614237 14.309017,9.5 C14.309017,9.42237745 14.3270895,9.34582092 14.3618034,9.2763932 L17.5527864,2.89442719 C17.676281,2.64743794 17.9766175,2.54732577 18.2236068,2.67082039 C18.3203705,2.71920224 18.3988317,2.79766349 18.4472136,2.89442719 Z" id="Triangle-Copy-4" fill="#000000" transform="translate(18, 6) rotate(90) translate(-18, -6)"></path>
+        <path d="M15,6 L6,6 C4.34314575,6 3,7.34314575 3,9 L3,16 C3,17.6568542 4.34314575,19 6,19 L15,19 L15,19" id="Path-3" stroke="#000000" stroke-width="2" stroke-linecap="round"></path>
+    </g>
+</svg>

@@ -1,0 +1,521 @@
+@use 'mixins' as *;
+
+// override default 'invalid styles'
+:invalid,
+:-moz-submit-invalid,
+:-moz-ui-invalid {
+    box-shadow: none;
+}
+
+// reset
+
+input, button, textarea, select {
+    font: inherit;
+    line-height: inherit;
+}
+
+input, button {
+    border: none;
+    background: none;
+    font: inherit;
+    line-height: inherit;
+}
+
+// Control Extensions
+
+%control {
+    @include tap-highlight-disable;
+    @include transition('color, background, filter, transform, opacity');
+
+    border-radius: var(--control-border-radius);
+
+    @include focusable;
+
+    &:hover { cursor: pointer; }
+
+    &[disabled] {
+        @include disabled;
+
+        box-shadow: none;
+
+        &:active,
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+}
+
+%link {
+    @include transition('background, color');
+    @include font-bold;
+
+    margin: calc(var(--spacing1) * -1);
+    padding: var(--spacing1) var(--spacing1);
+    border-radius: var(--border-radius-small);
+    color: var(--link-color);
+
+    @include focusable;
+
+    &.is-hover,
+    &:hover {
+        background-color: var(--link-bg-hover);
+        color: var(--link-color-hover);
+    }
+
+    &:active {
+        background-color: var(--link-bg-active);
+        color: var(--link-color-active);
+    }
+}
+
+%button {
+    @extend %control;
+    @include text-ellipsis;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;      /* vertikal zentriert */
+    vertical-align: middle;
+    width: auto;
+    min-height: var(--control-height);
+    margin: auto;
+    padding: var(--button-padding-top) var(--button-padding-right) var(--button-padding-bottom) var(--button-padding-left);
+    border-color: var(--button-border-color);
+    border-width: var(--button-border-width);
+    border-style: var(--button-border-style);
+    border-radius: var(--button-border-radius);
+    background-color: var(--button-bg);
+    color: var(--button-color);
+    text-align: center;
+    white-space: nowrap;
+    appearance: none;
+
+    &:not([disabled]) {
+        &.is-hover, &:hover {
+            background-color: var(--button-bg-hover, var(--button-bg));
+            color: var(--button-color-hover, var(--button-color));
+        }
+
+        &.is-active, &:active {
+            background-color: var(--button-bg-active, var(--button-bg));
+            color: var(--button-color-active, var(--button-color));
+        }
+    }
+
+    @media (hover: hover) {
+        &:not([disabled]):hover {
+            background-color: var(--button-bg-hover, var(--button-bg));
+        }
+    }
+}
+
+%input {
+    @extend %control;
+
+    min-height: var(--control-height);
+    padding: var(--control-padding-top) var(--control-padding-right) var(--control-padding-bottom) var(--control-padding-left);
+    border: var(--control-border-width) var(--control-border-style) var(--control-border-color);
+    border-radius: var(--control-border-radius);
+    background-color: var(--control-bg);
+    font: inherit;
+    color: inherit;
+    user-select: auto;
+    /* stylelint-disable-next-line property-no-vendor-prefix, order/properties-order */
+    -webkit-user-select: auto; // Safari - solving issue when using user-select:none on the body text input doesn't work
+    appearance: none;
+
+    &::placeholder { color: var(--color-contrast5); }
+
+    &:focus,
+    &:hover {
+        color: var(--control-color-hover);
+
+        &::placeholder { color: var(--color-contrast3); }
+    }
+
+    &:focus {
+        background-color: var(--control-bg-focus, var(--control-bg));
+        color: var(--control-color-focus);
+    }
+
+    @media (hover: hover) {
+        &:not([disabled]):hover {
+            background-color: var(--control-bg-hover);
+        }
+    }
+}
+
+// Controls
+
+// Buttons & Links
+
+a {
+    @extend %link;
+
+    text-decoration: none;
+    &:not([class]) { text-decoration-skip-ink: auto; }
+}
+
+.is-button, button:not(.icon), [type=button]:not(.icon), [type=reset]:not(.icon), [type=submit]:not(.icon) {
+    @extend %button;
+}
+
+button.icon, button[type=button].icon, [type=reset].icon, [type=submit].icon {
+    @extend %control;
+}
+
+// text inputs
+
+input[type=text],
+input[type=search],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=tel],
+input[type=number],
+input[type=date],
+textarea {
+    @extend %input;
+    &::-ms-clear { width: 0; height: 0; } // emove 'clear button' on IE
+}
+
+input[type=number] {
+    position: relative; // for absolutely positioning spinners
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        position: absolute;
+        width: 1em;
+        height: 100%;
+        top: 0;
+        right: 0;
+        opacity: 0.5;
+    }
+
+    &:hover::-webkit-inner-spin-button,
+    &:hover::-webkit-outer-spin-button,
+    &:focus::-webkit-inner-spin-button,
+    &:focus::-webkit-outer-spin-button {
+        opacity: 1;
+    }
+}
+
+input[type=range] {
+    @extend %control;
+
+    position: relative;
+    height: calc(var(--control-range-size) * 0.6);
+    margin: 0;
+    padding: 0;
+    border: none;
+    appearance: none;
+
+    &.has-center-line::before {
+        content: ''/'';
+        position: absolute;
+        z-index: 5;
+        width: var(--border-width);
+        height: var(--control-range-size);
+        top: calc(var(--control-range-size) * -0.2);
+        left: 50%;
+        background: var(--color-contrast5);
+    }
+
+    &[orient=vertical] {
+        vertical-align: bottom;
+        width: calc(var(--control-range-size) * 0.6);
+        height: 5em;
+        direction: rtl;
+        writing-mode: vertical-lr;
+        touch-action: none;
+
+        &.has-center-line::before {
+            width: var(--control-range-size);
+            height: var(--border-width);
+            top: 50%;
+            left: calc(var(--control-range-size) * -0.2);
+        }
+
+        &::range-track {
+            width: calc(var(--control-range-size) * 0.6);
+            height: 100%;
+        }
+
+        &::range-thumb {
+            width: var(--control-range-size);
+            height: var(--spacing3);
+            top: 0;
+            left: calc(var(--control-range-size) * -0.2);
+        }
+    }
+
+    &::range-track {
+        width: 100%;
+        height: calc(var(--control-range-size) * 0.6);
+        border: none;
+        border-radius: var(--border-radius);
+        background: var(--color-contrast1);
+        color: transparent;
+        appearance: none;
+    }
+
+    &::range-thumb {
+        @include transition('transform');
+
+        position: relative;
+        z-index: 10;
+        width: var(--spacing3);
+        height: var(--control-range-size);
+        top: calc(var(--control-range-size) * -0.2);
+        border: none;
+        border-radius: var(--border-radius);
+        background-color: var(--color-ctl);
+        box-shadow: 0 0 em(8) 0 rgba(0, 0, 0, 0.5);
+        appearance: none;
+    }
+
+    &:not([disabled])::range-thumb:hover {
+        cursor: col-resize;
+        transform: scale(1.2);
+    }
+
+    &:not([disabled])[orient=vertical]::range-thumb:hover {
+        cursor: row-resize;
+    }
+}
+
+// checkboxes / radio buttons
+
+input {
+    &[type=radio],
+    &[type=checkbox] {
+        @extend %control;
+
+        position: relative;
+        align-self: center;
+        vertical-align: baseline;
+        width: calc(var(--control-radio-size) * 1.3);
+        height: var(--control-radio-size);
+        margin-right: var(--spacing2);
+        appearance: initial; // https://stackoverflow.com/questions/35378360/before-after-pseudo-elements-not-showing-firefox
+
+        &::before {
+            @include transition('background');
+
+            position: relative;
+            z-index: 1;
+            visibility: visible;
+        }
+
+        &::after {
+            @include transition('background');
+
+            content: '';
+            position: absolute;
+            z-index: 0;
+            visibility: visible;
+            width: var(--control-radio-size);
+            height: var(--control-radio-size);
+            top: 0;
+            left: 0;
+            border-color: var(--control-border-color);
+            border-width: var(--control-border-width);
+            border-style: var(--control-border-style);
+            border-radius: var(--control-border-radius);
+            background-color: var(--control-bg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        &:hover::after,
+        &:focus::after {
+            background-color: var(--control-bg-hover);
+        }
+
+        &:active::after { filter: brightness(140%); }
+        &[disabled]::before { opacity: 0.4; }
+        &[disabled]:hover { cursor: not-allowed; }
+    }
+
+    // Radio Buttons
+    &[type=radio] {
+        vertical-align: middle;
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            z-index: 1;
+            visibility: visible;
+            vertical-align: middle;
+            width: calc(var(--control-radio-size) * 0.6);
+            height: calc(var(--control-radio-size) * 0.6);
+            top: calc(var(--control-radio-size) * 0.21);
+            left: calc(var(--control-radio-size) * 0.21);
+            border-radius: 50%;
+        }
+
+        &::after { border-radius: 50%; }
+        &:checked::before { background-color: var(--color-text); }
+
+        &:hover:checked::before,
+        &:focus:checked::before {
+            background-color: var(--color-light);
+        }
+
+        &:focus-visible {
+            outline: none;
+
+            &::after {
+                outline: var(--control-focus-outline);
+                outline-offset: -0.063em;
+            }
+        }
+    }
+
+    // Checkbox
+    &[type=checkbox] {
+        @include icon-masked('form/checked.svg', var(--control-radio-size), none, 0 0 0 0);
+
+        &:checked:hover::before,
+        &:checked:focus::before { background-color: var(--color-light); }
+        &:checked::before { background-color: var(--color-text); }
+
+        &:focus-visible {
+            outline: none;
+
+            &::after {
+                outline: var(--control-focus-outline);
+                outline-offset: -0.063em;
+            }
+        }
+    }
+}
+
+// Toggle Switch (Checkbox)
+input.is-toggle[type=checkbox] {
+    flex-basis: auto;
+    vertical-align: middle;
+    width: calc(var(--control-radio-size) * 2);
+    height: var(--control-radio-size);
+    margin: 0;
+    cursor: pointer;
+    appearance: none;
+
+    &::after {
+        @include transition('background');
+
+        content: '';
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        border-radius: 1em;
+        background-color: var(--control-bg);
+        transition: background 0.2s;
+    }
+
+    &::before {
+        @include transition('background, transform');
+
+        content: '';
+        display: block;
+        z-index: 1;
+        width: calc(var(--control-radio-size) * 0.8);
+        height: calc(var(--control-radio-size) * 0.8);
+        top: calc(var(--control-radio-size) * 0.1);
+        left: calc(var(--control-radio-size) * 0.1);
+        border-radius: 50%;
+        background: var(--color-ctl);
+        background-color: var(--color-contrast5);
+        mask-image: none;
+    }
+
+    &:checked::after {
+        border-color: var(--control-bg-hover);
+        background-color: var(--control-bg-hover);
+    }
+
+    &:checked::before {
+        background: var(--color-light, #fff);
+        transform: translateX(var(--control-radio-size));
+    }
+}
+
+// select
+
+select {
+    @extend %input;
+
+    label > & {
+        margin-left: 0.125em;
+    }
+
+    &::-ms-expand { display: none; }
+
+    &:not([multiple]) {
+        padding-inline-end: 1.8em;
+        background-image: svg-load('form/select.svg');
+        background-repeat: no-repeat;
+        background-position: right 0.4em center;
+        background-size: var(--font-size);
+
+        &:hover,
+        &:focus {
+            background-image: svg-load('form/select-focus.svg');
+        }
+    }
+
+    [dir=rtl] &:not([multiple]),
+    .is-rtl &:not([multiple]) {
+        background-position: left 0.4em center;
+        direction: rtl;
+    }
+
+    html.is-dark-mode &:not([multiple]) {
+        background-image: svg-load('form/select-focus.svg');
+    }
+
+    &[multiple] {
+        min-width: 15em;
+        padding: 0;
+
+        label > & {
+            margin-left: -0.125em;
+        }
+
+        optgroup {
+            padding: var(--control-padding-top) var(--control-padding-right) var(--control-padding-bottom) var(--control-padding-left);
+        }
+
+        option {
+            display: block;
+            padding: var(--control-padding-top) 1.8em var(--control-padding-bottom) var(--control-padding-left);
+            cursor: pointer;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: var(--control-bg);
+                color: var(--color-light);
+            }
+
+            &:checked {
+                background-image: svg-load('form/checked.svg');
+                background-repeat: no-repeat;
+                background-position: right 0.4em center;
+            }
+        }
+
+        &:focus option:checked {
+            background-image: svg-load('form/checked.svg') !important;
+        }
+    }
+}
+
+textarea {
+    display: block;
+    white-space: revert; // revert the 'white-space' property for textarea elements on Safari
+}

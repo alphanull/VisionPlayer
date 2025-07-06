@@ -1,0 +1,74 @@
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .vip-volume-slider {
+
+        /* stylelint-disable-next-line @stylistic/max-line-length */
+        @include icon-masked('player/vol-slider.svg', [var(--vip-volume-slider-width),  var(--vip-icon-height)], var(--color-contrast5), 0, '::after');
+        @include transition('opacity, width, transform');
+
+        position: relative;
+        width: 0;
+        height: var(--vip-icon-height);
+        left: var(--spacing3);
+        opacity: 0;
+        transform: scale(0, 1);
+        transform-origin: left center;
+
+        &::after {
+            position: relative;
+            z-index: -1;
+        }
+    }
+
+    .vip-volume-slider:focus-within,
+    .vip-volume-wrapper.is-visible .vip-volume-slider,
+    .volume.icon:focus-visible + .vip-volume-slider {
+        width: calc(var(--vip-volume-slider-width) + var(--spacing3));
+        opacity: 1;
+        transform: scale(1);
+
+        .vip-volume-slider-input:focus-visible {
+            outline: var(--control-focus-outline);
+        }
+    }
+
+    input[type=range].vip-volume-slider-input {
+        position: absolute;
+        width: var(--vip-volume-slider-width);
+        height: var(--vip-icon-height);
+        min-height: 0;
+        border-radius: var(--border-radius-small);
+
+        &::after {
+            position: absolute;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        &::range-track { /* stylelint-disable-line selector-pseudo-element-no-unknown */
+            background: none;
+        }
+
+        &::range-thumb {  /* stylelint-disable-line selector-pseudo-element-no-unknown */
+            height: calc(var(--vip-icon-height) * 0.8);
+            top: calc(var(--vip-icon-height) * -0.2);
+            border-radius: var(--border-radius);
+            background: var(--color-ctl);
+            &:hover { cursor: col-resize; }
+        }
+    }
+
+    .vip-volume-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        > .icon.volume { @include icon-masked('player/vol-full.svg', var(--vip-icon-height), var(--vip-icon-color), 0 0 0 0); }
+        > .icon.volume.is-half { @include icon-masked('player/vol-half.svg', var(--vip-icon-height), var(--vip-icon-color), 0 0 0 0); }
+        > .icon.volume.is-muted { @include icon-masked('player/vol-muted.svg', var(--vip-icon-height), var(--vip-icon-color), 0 0 0 0); }
+    }
+}

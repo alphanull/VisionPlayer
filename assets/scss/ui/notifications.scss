@@ -1,0 +1,88 @@
+/* stylelint-disable unit-blacklist */
+
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .vip-notification {
+        @include ui-bg;
+
+        position: absolute;
+        z-index: 111;
+        box-sizing: border-box;
+        width: 70%;
+        min-width: 20em;
+        min-height: 5em;
+        max-width: 75vw;
+        top: var(--spacing-block);
+        left: 50%;
+        padding: var(--spacing-block-small);
+        padding-inline-start: 4.5em;
+        border-radius: var(--border-radius);
+        background-repeat: no-repeat;
+        background-position: 0.8em 0.8em;
+        color: var(--color-light);
+        text-align: left;
+        user-select: text;
+        box-shadow: 0 0 em(15) em(3) rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        transform: translate(-50%, -150%);
+
+        &.error {
+            background-color: var(--color-error);
+            background-image: svg-load('player/notification-error.svg');
+        }
+
+        &.success {
+            background-color: var(--color-success);
+            background-image: svg-load('player/notification-success.svg');
+        }
+
+        &.info {
+            background-color: var(--color-info);
+            background-image: svg-load('player/notification-info.svg');
+        }
+
+        &.visible {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        > p {
+            margin: 0;
+            //font-size: var(--vip-font-size-small);
+            word-wrap: break-word;
+
+            &.is-secondary {
+                white-space: pre-line;
+                word-wrap: break-word;
+            }
+
+            &:not(.is-hidden) + p:not(.is-hidden) {
+                margin-top: var(--spacing2);
+            }
+        }
+
+        > h3 {
+            margin: 0;
+            font-size: var(--vip-font-size-big);
+            color: var(--color-light);
+
+            &:not(.is-hidden) + p:not(.is-hidden) {
+                margin-top: var(--spacing3);
+            }
+        }
+
+        > h3.is-hidden,
+        > p.is-hidden {
+            display: none;
+        }
+    }
+
+    &.is-rtl .vip-notification {
+        background-position: right 0.8em top 0.8em;
+        direction: rtl;
+    }
+}

@@ -1,0 +1,85 @@
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    button.vip-controller-time {
+        @include transition('opacity, transform, width');
+
+        position: relative;
+        display: flex;
+        flex-shrink: 0;
+        justify-content: center;
+        align-items: center;
+        gap: 0.2em;
+        min-height: initial;
+        margin: 0;
+        padding: 0;
+        border: inherit;
+        background-color: transparent;
+        font-size: var(--vip-font-size-controller);
+        color: inherit;
+        line-height: 1;
+        text-align: left;
+        user-select: none;
+        touch-action: manipulation;
+
+        &:active:not([disabled]),
+        &:hover:not([disabled]) {
+            border: none;
+            background: none;
+            color: var(--color-text);
+            box-shadow: none;
+            cursor: pointer;
+        }
+
+        &:not([disabled]):focus,
+        &:not([disabled]):hover {
+            transform: scale(1.05);
+        }
+
+        .primary,
+        .prefix,
+        .separator,
+        .secondary {
+            display: inline-block;
+            flex-grow: 0;
+        }
+
+        .primary {
+            min-width: 2.5em;
+            text-align: left;
+        }
+
+        .separator {
+            margin-right: 0.1em;
+        }
+
+        &.has-hours .primary,
+        &.has-hours .secondary {
+            min-width: 3.3em;
+        }
+
+        &.has-hours-x2 .primary,
+        &.has-hours-x2 .secondary {
+            min-width: 3.8em;
+        }
+
+        &.has-frames .primary,
+        &.has-hours .primary {
+            min-width: 3.9em;
+        }
+
+        &.has-frames.has-hours .primary {
+            min-width: 4.6em;
+        }
+    }
+
+    &.width-low button.vip-controller-time {
+        .separator,
+        .secondary {
+            display: none;
+        }
+    }
+}

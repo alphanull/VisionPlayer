@@ -1,0 +1,84 @@
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .vip-title {
+        @include ui-bg;
+
+        position: absolute;
+        z-index: 17;
+        overflow: hidden;
+        box-sizing: border-box;
+        width: calc(100% - var(--vip-title-viewport-distance) * 2);
+        max-width: var(--vip-title-max-width);
+        top: var(--vip-title-viewport-distance);
+        right: var(--vip-title-viewport-distance);
+        left: var(--vip-title-viewport-distance);
+        margin-left: auto;
+        margin-right: auto;
+        padding: var(--spacing2) var(--spacing-block);
+        border-radius: var(--border-radius);
+        background: var(--vip-title-bg);
+        color: var(--color-light);
+        text-align: left;
+        user-select: text;
+        will-change: transform;
+        justify-self: center;
+
+        &:hover { cursor: auto; }
+
+        .vip-title-inner {
+
+            @include text-ellipsis;
+            @include transition('transform');
+
+            position: relative;
+            min-height: 1.5em;
+            text-align: center;
+            transform: translate(0, 0);
+            transition-duration: 0.4s;
+            will-change: transform;
+
+            > h2,
+            > h3 {
+                display: inline-block;
+                vertical-align: baseline;
+                margin: 0;
+                padding: 0;
+                font-size: var(--vip-font-size-big);
+                color: inherit;
+                text-shadow: 0 0 0.3em black;
+            }
+
+            > h3 {
+                @include font-normal;
+
+                margin-inline-start: 1em;
+                font-size: var(--vip-font-size);
+                &:empty { display: none; }
+            }
+        }
+
+        &.is-hidden {
+            opacity: 0;
+            transform: translate(0, -130%);
+            transition-delay: 0.1s;
+            .vip-title-inner { transform: translate(0, -3em); }
+        }
+    }
+
+    &.is-rtl .vip-title {
+        direction: rtl;
+    }
+
+    &.width-low .vip-title,
+    &.width-med .vip-title {
+        width: 100%;
+        top: 0;
+        right: 0;
+        left: 0;
+        border-radius: 0;
+    }
+}

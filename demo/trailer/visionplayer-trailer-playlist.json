@@ -1,0 +1,38 @@
+{
+    "title": {
+        "en": "Example Playlist",
+        "de": "Beispiel-Playlist",
+        "es": "Lista de reproducción de ejemplo",
+        "fr": "Liste de lecture d’exemple",
+        "it": "Playlist di esempio",
+        "pt": "Lista de reprodução de exemplo",
+        "ru": "Пример плейлиста",
+        "zh": "示例播放列表",
+        "ja": "サンプルプレイリスト",
+        "ko": "예제 재생 목록",
+        "hi": "उदाहरण प्लेलिस्ट",
+        "ar": "قائمة تشغيل تجريبية",
+        "tr": "Örnek Çalma Listesi"
+    },
+
+    "titleSecondary": {
+        "en": "This is a VisionPlayer example playlist showcasing various features. Have fun playing around!",
+        "de": "Dies ist eine Beispiel-Playlist des VisionPlayers, die verschiedene Funktionen demonstriert. Viel Spaß beim Ausprobieren!",
+        "es": "Esta es una lista de reproducción de ejemplo de VisionPlayer que muestra varias funciones. ¡Diviértete explorando!",
+        "fr": "Voici une liste de lecture d’exemple de VisionPlayer présentant diverses fonctionnalités. Amuse-toi bien !",
+        "it": "Questa è una playlist di esempio di VisionPlayer che mostra varie funzionalità. Divertiti a esplorare!",
+        "pt": "Esta é uma lista de reprodução de exemplo do VisionPlayer com vários recursos. Divirta-se explorando!",
+        "ru": "Это пример плейлиста VisionPlayer, демонстрирующий различные функции. Приятного просмотра!",
+        "zh": "这是一个 VisionPlayer 示例播放列表，展示了各种功能。尽情探索吧！",
+        "ja": "これはさまざまな機能を紹介する VisionPlayer のサンプルプレイリストです。ぜひお楽しみください！",
+        "ko": "이것은 다양한 기능을 보여주는 VisionPlayer의 예제 재생 목록입니다. 재미있게 사용해 보세요!",
+        "hi": "यह VisionPlayer की एक उदाहरण प्लेलिस्ट है जो विभिन्न विशेषताओं को दर्शाती है। मज़े करें और आज़माएँ!",
+        "ar": "هذه قائمة تشغيل تجريبية من VisionPlayer تعرض ميزات متنوعة. استمتع بالتجربة!",
+        "tr": "Bu, çeşitli özellikleri sergileyen bir VisionPlayer örnek çalma listesidir. Keyifli keşifler!"
+    },
+
+    "media": [
+        "/demo/trailer/visionplayer-trailer.json",
+        "/demo/trailer/visionplayer-trailer-audio.json"
+    ]
+}

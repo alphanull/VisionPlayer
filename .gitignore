@@ -1,0 +1,12 @@
+dist
+docs/jsdoc
+node_modules
+private
+scripts/build/.env.local
+scripts/build/temp
+index.dev.html
+*.copy
+*.bak
+*.zip
+.DS_Store
+.vscode

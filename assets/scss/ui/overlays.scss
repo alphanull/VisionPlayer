@@ -1,0 +1,116 @@
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .vip-overlays {
+        @include transition('opacity');
+        @include inset(-2px);
+
+        position: absolute;
+        z-index: 5;
+        user-select: none;
+        transition-delay: 0s;
+        pointer-events: none;
+
+        &.is-disabled {
+            opacity: 0.2;
+        }
+    }
+
+    &.is-airplay > .vip-overlays,
+    &.is-pip > .vip-overlays,
+    &.is-casting > .vip-overlays { opacity: 0; }
+    &.ui-hidden > .vip-overlays { transition-delay: 0.2s; }
+
+    .vip-overlays-wrapper {
+        @include inset;
+
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .vip-overlays-adaptive {
+        top: var(--vip-ui-blocked-top, 0);
+        bottom: var(--vip-ui-blocked-bottom, 0);
+    }
+
+    .vip-overlay-item {
+        @include transition('opacity, transform');
+
+        position: absolute;
+        display: inline-block;
+        box-sizing: border-box;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto;
+        opacity: 1;
+        transition-delay: 0.2s;
+        pointer-events: none;
+
+        &.scale-stretch {
+            width: 100%;
+            height: 100%;
+        }
+
+        &.scale-width {
+            width: 100%;
+            height: auto;
+        }
+
+        &.scale-height {
+            width: auto;
+            height: 100%;
+        }
+
+        &.scale-contain,
+        &.scale-cover {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        &.scale-cover { background-size: cover; }
+        &.scale-contain { background-size: contain; }
+
+        &.is-hidden { opacity: 0; }
+        &.left { left: 0; }
+        &.right { right: 0; }
+        &.top { top: 0; }
+        &.bottom { bottom: 0; }
+
+        &:not(.top):not(.bottom) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &:not(.left):not(.right) {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* stylelint-disable-next-line selector-max-pseudo-class */
+        &:not(.top):not(.bottom):not(.left):not(.right) {
+            transform: translate(-50%, -50%);
+        }
+
+        &.bg-is-opaque {
+            background-color: var(--vip-bg);
+        }
+
+        &.is-poster {
+            background-color: var(--vip-media-bg);
+        }
+    }
+
+    // TODO: kind of a hack to allow the trailer demo in shadow mode
+    img.vip-overlay-img {
+        width: 15vmin;
+        max-width: 10vw;
+        opacity: 0.8;
+    }
+}

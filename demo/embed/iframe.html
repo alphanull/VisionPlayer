@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>VisionPlayer iFrame examples</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link href="../assets/favicon.svg" rel="shortcut icon" type="image/svg+xml">
+        <link rel="stylesheet" href="../assets/main.css">
+        <script type="module" src="../assets/nav.js"></script>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="header-inner">
+                <img class="vip-logo" src="../assets/VisionPlayerLogoWhite.svg" alt="VisionPlayer" />
+                <button id="menu-mobile-button" aria-label="Mobile Menu"></button>
+                <nav id="nav-main-wrapper">
+                    <button id="menu-mobile-close" aria-label="Close Menu"></button>
+                    <menu role="menubar" id="nav-main">
+                        <li id="nav-trailer"><a href='../../#trailer'>Trailer</a></li>
+                        <li class="has-submenu">
+                            <span>Streaming</span>
+                            <button aria-expanded="false" aria-haspopup="true" class="nav-submenu-toggle"></button>
+                            <div class="menu-wrapper">
+                                <menu role="menubar">
+                                    <li id="nav-dash"><a href='../../#dash'>MPEG Dash</a></li>
+                                    <li id="nav-hls"><a href='../../#hls'>HLS</a></li>
+                                    <li id="nav-live"><a href='../../#live'>Live</a></li>
+                                    <li id="nav-drm"><a href='../../#drm'>DRM</a></li>
+                                </menu>
+                            </div>
+                        </li>
+                        <li class="has-submenu">
+                            <span>Embedding</span>
+                            <button aria-expanded="false" aria-haspopup="true" class="nav-submenu-toggle"></button>
+                            <div class="menu-wrapper">
+                                <menu role="menubar">
+                                    <li><a href='index.html'>Embedding</a></li>
+                                    <li><a href='autoload.html'>Autoload</a></li>
+                                    <li class="is-active"><a href='iframe.html'>iFrames</a></li>
+                                </menu>
+                            </div>
+                        </li>
+                        <li><a href='https://visionplayer.io/docs'>Docs</a></li>
+                    </menu>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+
+            <h1>iFrame embed examples</h1>
+
+            <div class="vip-examples-wrapper">
+
+                <figure>
+
+                    <iframe sandbox="allow-scripts allow-same-origin" allow="fullscreen" frameborder="0"
+                        style="display: block; width: 100%; min-height: 450px;"
+                        src="iframe-wrapper.html?mediaData=/demo/trailer/visionplayer-trailer.json&mode=basic">
+                    </iframe>
+
+                    <figcaption>iFrame with 100% width and min-height per CSS, basic player</figcaption>
+
+                </figure>
+
+                <figure>
+
+                    <iframe width=600 height=343 allowfullscreen frameborder="0"
+                        src="iframe-wrapper.html?mediaData=/demo/trailer/visionplayer-trailer.json&playerConfig=%7B%22ui%22%3A%7B%22alwaysVisible%22%3Atrue%7D%7D">
+                    </iframe>
+
+                    <figcaption>iFrame with inline size attribute, default player</figcaption>
+                </figure>
+
+            </div>
+
+        </main>
+
+        <footer>
+            <p>Made with love by <a href="https://alphanull.de" target="_blank">alphanull</a></p>
+        </footer>
+
+    </body>
+
+</html>

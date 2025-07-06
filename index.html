@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>VisionPlayer Demo</title>
+        <meta charset="utf-8">
+        <meta name="description" content="The VisionPlayer by alphanull is a highly modular, lightweight, and feature-rich JavaScript video player for the modern web.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <link href="demo/assets/favicon.svg" rel="shortcut icon" type="image/svg+xml">
+        <link rel="stylesheet" href="demo/assets/main.css">
+        <script type="module" src="demo/assets/nav.js"></script>
+    </head>
+
+    <body class="is-centered">
+
+        <header>
+            <div class="header-inner">
+                <img class="vip-logo" src="demo/assets/VisionPlayerLogoWhite.svg" alt="VisionPlayer" />
+                <button id="menu-mobile-button" aria-label="Mobile Menu"></button>
+                <nav id="nav-main-wrapper">
+                    <button id="menu-mobile-close" aria-label="Close Menu"></button>
+                    <select id="language-select">
+                        <option disabled>Player language:</option>
+                        <option value="en">English</option>
+                        <option value="de">Deutsch</option>
+                        <option value="fr">Français</option>
+                        <option value="it">Italiano</option>
+                        <option value="es">Español</option>
+                        <option value="pt">Português</option>
+                        <option value="ru">Русский</option>
+                        <option value="tr">Türkçe</option>
+                        <option value="ar">العربية</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="zh">中文</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                    </select>
+                    <menu role="menubar" id="nav-main">
+                        <li id="nav-trailer"><a href='#trailer'>Trailer</a></li>
+                        <li class="has-submenu">
+                            <span>Streaming</span>
+                            <button aria-expanded="false" aria-haspopup="true" class="nav-submenu-toggle"></button>
+                            <div class="menu-wrapper">
+                                <menu role="menubar">
+                                    <li id="nav-dash"><a href='#dash'>MPEG Dash</a></li>
+                                    <li id="nav-hls"><a href='#hls'>HLS</a></li>
+                                    <li id="nav-live"><a href='#live'>Live</a></li>
+                                    <li id="nav-drm"><a href='#drm'>DRM</a></li>
+                                </menu>
+                            </div>
+                        </li>
+                        <li class="has-submenu">
+                            <span>Embedding</span>
+                            <button aria-expanded="false" aria-haspopup="true" class="nav-submenu-toggle"></button>
+                            <div class="menu-wrapper">
+                                <menu role="menubar">
+                                    <li><a href='demo/embed/'>Embedding</a></li>
+                                    <li><a href='demo/embed/autoload.html'>Autoload</a></li>
+                                    <li><a href='demo/embed/iframe.html'>iFrames</a></li>
+                                </menu>
+                            </div>
+                        </li>
+                        <li><a href='https://visionplayer.io/docs'>Docs</a></li>
+                    </menu>
+                </nav>
+            </div>
+        </header>
+
+        <main></main>
+
+        <footer>
+            <p>Made with love by <a href="https://alphanull.de" target="_blank">alphanull</a></p>
+        </footer>
+
+        <script async type="module">
+
+            const playerConfig = {
+                file: true,
+                dom: {
+                    aspectRatio: 'auto',
+                    aspectRatioTransitions: true
+                },
+                visualizerAmbient: {
+                    selector: 'body'
+                },
+                subtitles: {
+                    preferredSubtitles: true
+                }
+            };
+
+            const urlParams = new URLSearchParams(window.location.search),
+                  type = urlParams.get('type') || 'default',
+                  isBuild = /build/i.test(location.href);
+
+            let VisionPlayer, current;
+
+            if (isBuild) {
+                VisionPlayer = await new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = `/dist/js/VisionPlayer${type === 'default' ? '' : '.' + type}.min.js`;
+                    script.onload = () => resolve(window.VisionPlayer);
+                    script.onerror = reject;
+                    script.async = false;
+                    document.head.appendChild(script);
+                });
+            } else {
+                ({ default: VisionPlayer } = await import(
+                    /*@vite-ignore*/`/src/builds/VisionPlayer${type === 'default' ? '' : '.' + type}.js`
+                ));
+            }
+
+            window.loadMedia = async () => {
+
+                const hash = location.hash.substring(1) || 'trailer';
+                if (current) current.classList.remove('is-active');
+                current = document.getElementById(`nav-${hash}`);
+                current.classList.add('is-active');
+
+                let mediaData;
+
+                switch (hash) {
+                    case 'dash':
+                        mediaData = 'demo/streaming/dash.json';
+                        break;
+                    case 'hls':
+                        mediaData = 'demo/streaming/hls-static.json';
+                        break;
+                    case 'drm':
+                        mediaData = 'demo/streaming/drm.json';
+                        break;
+                    case 'live':
+                        mediaData = 'demo/streaming/hls-live.json';
+                        break;
+                    default:
+                        mediaData = 'demo/trailer/visionplayer-trailer-playlist.json';
+                        break;
+                }
+
+                if (!window.vip) {
+                    window.vip = new VisionPlayer('main', mediaData, playerConfig);
+                } else {
+                    const wasPaused = vip.getState('paused');
+                    await vip.data.setMediaData(mediaData);
+                    if (wasPaused === false) vip.media.play();
+                }
+
+                document.getElementById('language-select').value = vip.getConfig('locale.lang');
+            }
+
+            window.addEventListener("hashchange", event => { window.loadMedia(); });
+            loadMedia();
+
+            document.getElementById('language-select').addEventListener('change', e => {
+                const lang = e.target.value;
+                vip.setConfig({ locale: { lang }, data: { preferredLanguage: lang } }, true);
+            });
+
+        </script>
+
+    </body>
+
+</html>

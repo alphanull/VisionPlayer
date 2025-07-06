@@ -1,0 +1,61 @@
+{
+    "sourceType": "module",
+
+    "source": {
+        "include": ["./src/", "./lib/"]
+    },
+
+    "plugins": ["@alphanull/jsdoc-plugin-esnext", "plugins/markdown"],
+
+    "tags": {
+        "allowUnknownTags": true
+    },
+
+    "templates": {
+        "title": "VisionPlayer Documentation",
+        "description": "This is the official documentation for the VisionPlayer - a highly modular, lightweight, and feature-rich JavaScript video player for the modern web.",
+        "sort": false,
+        "logoText": false,
+        "logo": "./assets/svg/logo/VisionPlayerLogoDocs.svg",
+        "logoDark": "./assets/svg/logo/VisionPlayerLogoDocsWhite.svg",
+        "favicon": "./assets/svg/logo/favicon.svg",
+        "css": "./scripts/docs/vision-player.css",
+        "footer": "<p><b>VisionPlayer Version 1.0.0</b> Copyright © 2025-present <a href='https://alphanull.de' target=_blank>alphanull</a> - Frank Kudermann</p>",
+        "skin": "visionplayer",
+        "skinLabel": "VisionPlayer Skin",
+        "showFolded": true,
+        "showPrivates": false,
+        "showSkinSelector": true,
+        "showFontSelector": true,
+        "fontFamily": "ubuntu",
+        "tutorialLabel": "Guide",
+        "tutorialLabelPlural": "Guides",
+        "tutorialHeader": false,
+        "tutorialPageNav": false,
+        "shortModuleLinkNames": true,
+        "menuLinks": [
+            {
+                "label": "Microsite",
+                "url": "https://visionplayer.io"
+            },
+            {
+                "label": "GitHub",
+                "url": "https://github.com/alphanull/visionplayer"
+            }
+        ]
+    },
+
+    "markdown": {
+        "parser": "gfm",
+        "hardwrap": false
+    },
+
+    "opts": {
+        "template": "@alphanull/jsdoc-vision-theme",
+        "destination": "./docs/jsdoc",
+        "tutorials": "./docs",
+        "readme": "./README.md",
+        "recurse": true,
+        "private": true
+    }
+}

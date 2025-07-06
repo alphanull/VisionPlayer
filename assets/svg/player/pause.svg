@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>player / pause</title>
+    <g id="player-/-pause" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M10,20 C10,20.55 9.55,21 9,21 L4,21 C3.45,21 3,20.55 3,20 L3,4 C3,3.45 3.45,3 4,3 L9,3 C9.55,3 10,3.45 10,4 L10,20 Z" id="Fill-1" fill="#000000"></path>
+        <path d="M21,20 C21,20.55 20.55,21 20,21 L15,21 C14.45,21 14,20.55 14,20 L14,4 C14,3.45 14.45,3 15,3 L20,3 C20.55,3 21,3.45 21,4 L21,20 Z" id="Fill-3" fill="#000000"></path>
+    </g>
+</svg>

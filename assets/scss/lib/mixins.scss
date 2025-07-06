@@ -1,0 +1,278 @@
+/* stylelint-disable unit-disallowed-list */
+@use 'sass:math';
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+
+// Utilities
+
+@mixin noselect {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@mixin tap-highlight-disable {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@mixin focusable {
+
+    &:focus { outline: none; }
+    &:focus-visible { outline: var(--control-focus-outline); }
+
+    @supports not selector(:focus-visible) {
+        &:focus:not(:active):not(:hover) {
+            outline: var(--control-focus-outline);
+        }
+    }
+}
+
+@mixin clearfix {
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin disabled {
+    opacity: 0.4;
+}
+
+@mixin center-all {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Mixin: inset
+// All arguments optional, defaults to 0.
+@mixin inset($top: 0, $right: null, $bottom: null, $left: null) {
+    $right: if($right == null, $top, $right);
+    $bottom: if($bottom == null, $top, $bottom);
+    $left: if($left == null, $right, $left);
+
+    inset: #{$top} #{$right} #{$bottom} #{$left};
+}
+
+@mixin text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    word-break: break-word;
+    text-overflow: ellipsis;
+    overflow-wrap: anywhere;
+}
+
+@mixin is-hidden {
+    // https://stackoverflow.com/questions/70019406/in-html-how-can-i-hide-text-that-is-only-accessible-for-screen-readers-on-hover
+    position: absolute !important; /* Outside the DOM flow */
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    white-space: nowrap; // added line to stop words getting smushed together
+    clip: rect(1px, 1px, 1px, 1px); // maybe deprecated but we need to support legacy browsers
+    clip-path: inset(50%); // modern browsers, clip-path works inwards from each corner
+}
+
+// font stuff
+
+$base-font-size: 16;
+$min-page-width: 320;
+$max-page-width: 1280;
+
+@function rem($px) {
+    @return math.div($px, $base-font-size) * 1rem;
+}
+
+@function em($px) {
+    @return math.div($px, $base-font-size) * 1em;
+}
+
+@function round($number, $decimals: 0) {
+    $n: 1;
+    @if $decimals > 0 {
+        @for $i from 1 through $decimals {
+            $n: $n * 10; /* stylelint-disable-line scss/no-duplicate-dollar-variables */
+        }
+    }
+
+    @return math.div(math.round($number * $n), $n);
+}
+
+@function fluid($min-size, $max-size, $min-breakpoint: $min-page-width, $max-breakpoint: $max-page-width, $unit: vw) {
+    $min-rem: rem($min-breakpoint);
+    $max-rem: rem($max-breakpoint);
+    $slope: math.div($max-size - $min-size, $max-rem - $min-rem);
+    $slope-to-unit: round($slope * 100, 2);
+    $intercept-rem: round($min-size - $slope * $min-rem, 2);
+    $min-size-rem: round($min-size, 2);
+    $max-size-rem: round($max-size, 2);
+
+    @return clamp(#{$min-size-rem}, #{$slope-to-unit}#{$unit} + #{$intercept-rem}, #{$max-size-rem});
+}
+
+@mixin font-normal {
+    font-family: var(--font-family-normal);
+    font-weight: var(--font-weight-normal);
+    font-feature-settings: 'liga' 1, 'calt' 1;
+}
+
+@mixin font-bold {
+    font-family: var(--font-family-bold);
+    font-weight: var(--font-weight-bold);
+    font-feature-settings: 'liga' 1, 'calt' 1;
+}
+
+@mixin font-italic {
+    font-family: var(--font-family-italic);
+    font-style: italic;
+    font-weight: var(--font-weight-normal);
+    font-feature-settings: 'liga' 1, 'calt' 1;
+}
+
+@mixin font-mono {
+    font-family: var(--font-family-mono);
+    font-weight: var(--font-weight-mono-normal);
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    font-variation-settings: 'MONO' 1;
+}
+
+@mixin font-mono-bold {
+    font-family: var(--font-family-mono-bold);
+    font-weight: var(--font-weight-mono-bold);
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    font-variation-settings: 'MONO' 1;
+}
+
+@mixin font-mono-italic {
+    font-family: var(--font-family-mono);
+    font-style: italic;
+    font-weight: var(--font-weight-normal);
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    font-variation-settings: 'MONO' 1;
+}
+
+@mixin font-small {
+    font-size: var(--font-size2);
+}
+
+// resonsive border radius
+
+@mixin br($radius: var(--border-radius)) {
+    border-radius: $radius;
+}
+
+// Add backdrop Filter
+
+@mixin backdrop($filter: blur(5px), $background: null, $radius: null, $shadow: null) {
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        backdrop-filter: $filter;
+
+        @if $radius { border-radius: $radius; }
+        @if $shadow { box-shadow: $shadow; }
+        @if $background { background: $background; }
+    }
+    // need to hack backdrop via pseudo element due to chrome bug
+    // https://stackoverflow.com/questions/60997948/backdrop-filter-not-working-for-nested-elements-in-chrome
+    @if $background { background-color: transparent !important; }
+}
+
+// Icon with SVG mask
+
+@mixin icon-masked($url: '', $size: 1em, $background: var(--icon-color), $margin: 0, $insert: '::before') {
+    &#{$insert} {
+        @include transition('background');
+
+        content: '' / '';
+        display: inline-block;
+        flex-grow: 0;
+        flex-shrink: 0;
+        align-self: center;
+        vertical-align: middle;
+        width: if(meta.type-of($size) == list, list.nth($size, 1), $size);
+        height: if(meta.type-of($size) == list, list.nth($size, 2), $size);
+        margin: $margin;
+        background: $background;
+        mask-size: if(meta.type-of($size) == list, list.nth($size, 1) list.nth($size, 2), $size);
+        mask-position: center;
+        mask-repeat: no-repeat;
+        // use (only) vendor prefix because it results in less inline svg
+        // and all browsers support it anyways
+        /* stylelint-disable-next-line property-no-vendor-prefix */
+        @if $url != '' { -webkit-mask-image: svg-load($url); }
+    }
+}
+
+// transition mixin
+
+@mixin transition($props:undefined, $dur:var(--transition-duration, 0.3s), $timing:ease-in-out, $delay:0s) {
+    transition-duration: $dur;
+    transition-delay: $delay;
+    transition-timing-function: $timing;
+    @if $props != undefined {
+        transition-property: string.unquote($props);
+    } @else {
+        transition-property: all;
+    }
+}
+
+// responsive mixin
+
+$breakpoints: (
+    phone: 'only screen and (max-width: 449px)',
+    phablet: 'only screen and (max-width: 576px)',
+    tablet-narrow: 'only screen and (max-width: 768px)',
+    tablet: 'only screen and (max-width: 1023px)',
+    desktop-narrow: 'only screen and (max-width: 1200px)',
+    desktop: 'only screen and (min-width: 1024px)',
+    desktop-wide: 'only screen and (min-width: 1400px)',
+    print-portrait: 'print and (orientation: portrait), print and (max-width: 19cm)',
+    height-medium: 'only screen and (max-height: 640px)',
+    height-small: 'only screen and (max-height: 480px)'
+);
+
+@mixin respond($breakpoint: 'desktop') {
+    @if map.has-key($breakpoints, $breakpoint) {
+        /* stylelint-disable-next-line at-rule-prelude-no-invalid, media-query-no-invalid */
+        @media #{map.get($breakpoints, $breakpoint)} { @content; }
+    } @else {
+        @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.';
+    }
+}
+
+@mixin portrait {
+    @media screen and (orientation: portrait) { @content; }
+}
+
+@mixin landscape {
+    @media screen and (orientation: landscape) { @content; }
+}
+
+@mixin print {
+    @media only print { @content; }
+}
+
+@mixin nomotion {
+    @at-root html:not(.has-motion) #{&} {
+        @media (prefers-reduced-motion: reduce) {
+            @content;
+        }
+    }
+
+    @at-root html.has-no-motion #{&} {
+        @content;
+    }
+}

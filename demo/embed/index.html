@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>VisionPlayer Embedding Examples</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <link href="../assets/favicon.svg" rel="shortcut icon" type="image/svg+xml">
+        <link rel="stylesheet" href="../assets/main.css">
+        <script type="module" src="../assets/nav.js"></script>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="header-inner">
+                <img class="vip-logo" src="../assets/VisionPlayerLogoWhite.svg" alt="VisionPlayer" />
+                <button id="menu-mobile-button" aria-label="Mobile Menu"></button>
+                <nav id="nav-main-wrapper">
+                    <button id="menu-mobile-close" aria-label="Close Menu"></button>
+                    <menu role="menubar" id="nav-main">
+                        <li id="nav-trailer"><a href='../../#trailer'>Trailer</a></li>
+                        <li class="has-submenu">
+                            <span>Streaming</span>
+                            <button aria-expanded="false" aria-haspopup="true" class="nav-submenu-toggle"></button>
+                            <div class="menu-wrapper">
+                                <menu role="menubar">
+                                    <li id="nav-dash"><a href='../../#dash'>MPEG Dash</a></li>
+                                    <li id="nav-hls"><a href='../../#hls'>HLS</a></li>
+                                    <li id="nav-live"><a href='../../#live'>Live</a></li>
+                                    <li id="nav-drm"><a href='../../#drm'>DRM</a></li>
+                                </menu>
+                            </div>
+                        </li>
+                        <li class="has-submenu">
+                            <span>Embedding</span>
+                            <button aria-expanded="false" aria-haspopup="true" class="nav-submenu-toggle"></button>
+                            <div class="menu-wrapper">
+                                <menu role="menubar">
+                                    <li class="is-active"><a href='index.html'>Embedding</a></li>
+                                    <li><a href='autoload.html'>Autoload</a></li>
+                                    <li><a href='iframe.html'>iFrames</a></li>
+                                </menu>
+                            </div>
+                        </li>
+                        <li><a href='https://visionplayer.io/docs'>Docs</a></li>
+                    </menu>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+
+            <h1>Embedding Examples</h1>
+
+            <div class="vip-examples-wrapper">
+
+                <figure>
+                    <video id="video-embed1" data-vip-config='{"loopControl":false,"scrubber":{"placement":"buttons"}}' width="400" height="400"  title="Barber Shop"
+                        src="https://video.blender.org/static/web-videos/264ff760-803e-430e-8d81-15648e904183-804.mp4"
+                        poster="https://visionplayer.io/media/posters/barber-poster.jpg"
+                        loop muted controls disableremoteplayback disablepictureinpicture
+                        controlslist="nofullscreen nodownload noremoteplayback noplaybackrate foobar">
+                    </video>
+                    <figcaption>Video tag embedding, defined width/height & restricted controls</figcaption>
+                </figure>
+
+                <figure>
+                    <video id="video-embed2" controls
+                        src="https://video.blender.org/static/web-videos/3d95fb3d-c866-42c8-9db1-fe82f48ccb95-804.mp4"
+                        poster="https://visionplayer.io/media/posters/spring-poster.jpg"
+                        data-vip-config='{"dom":{"aspectRatio":"auto"},"ui":{"alwaysVisible":true},"scrubber":{"placement":"buttons"},"playOverlay":{"dimmer":true}}'></video>
+                    <figcaption>video tag embedding with auto aspect ratio & delayed loading</figcaption>
+                </figure>
+
+            </div>
+
+            <div class="vip-examples-wrapper">
+
+                <figure>
+                    <audio id="audio-embed" controls data-vip-config='{"audioControls":{"bands":[1, 1, 1, 1, 1, 1, 1, 1]}}'>
+                        <source src="https://visionplayer.io/media/trailer-audio/streams/visionplayer-trailer-audio.m4a" type='audio/mp4; codecs="mp4a.40.2"' />
+                        <source src="https://visionplayer.io/media/trailer-audio/streams/visionplayer-trailer-audio.mp3" type="audio/mpeg" />
+                    </audio>
+                    <figcaption>Audio tag embedding, compact controller only layout with 8 Band EQ</figcaption>
+                </figure>
+
+                <figure>
+                    <style>
+                         vision-player.vip-theme-demo {
+                            --color-1st: #FF9C00;
+                            --color-text: #FFFADD;
+                            --backdrop-filter:  "";
+                            --border-radius: 0;
+                            --border-radius-small: 0;
+                            --button-border-style: solid;
+                            --popup-content-bg:  #184E84;
+                            --tooltip-bg:  #184E84;
+                            --tooltip-pointer-bg:  #184E84;
+                            --font-family-normal: Monospace;
+                            --vip-scrubber-buffered:  red;
+                            --vip-ui-bg:  #133D67;
+                            --vip-title-bg:  #184E84;
+                            --vip-controller-bg:  #184E84;
+                            --vip-scrubber-bg:  #56462D;
+                            --vip-icon-color: #B8F1FF;
+                            --vip-controller-viewport-distance: 0px;
+                            --vip-title-viewport-distance: 0px;
+                        }
+                    </style>
+                    <div id="div-embed" data-vip-config='{"dom":{"shadow":"closed","className":"vip-theme-demo"},"ui":{"alwaysVisible":true}}' data-vip-media='/demo/trailer/visionplayer-trailer.json'></div>
+                    <figcaption>Div tag embedding with simple theming via custom CSS vars in shadow mode</figcaption>
+                </figure>
+
+            </div>
+
+        </main>
+
+        <footer>
+            <p>Made with love by <a href="https://alphanull.de" target="_blank">alphanull</a></p>
+        </footer>
+
+        <script async type="module">
+
+            const urlParams = new URLSearchParams(window.location.search),
+                  type = urlParams.get('type') || 'default',
+                  isBuild = /build/i.test(location.href);
+
+            let VisionPlayer;
+
+            if (isBuild) {
+                VisionPlayer = await new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = `../../dist/js/VisionPlayer${type === 'default' ? '' : '.' + type}.min.js`;
+                    script.onload = () => resolve(window.VisionPlayer);
+                    script.onerror = reject;
+                    script.async = false;
+                    document.head.appendChild(script);
+                });
+            } else {
+                ({ default: VisionPlayer } = await import(
+                    /*@vite-ignore*/`../../src/builds/VisionPlayer${type === 'default' ? '' : '.' + type}.js`
+                ));
+            }
+
+            new VisionPlayer('#audio-embed');
+            new VisionPlayer('#div-embed');
+            new VisionPlayer('#video-embed1');
+
+            setTimeout(() => new VisionPlayer('#video-embed2'), 3000);
+
+        </script>
+
+    </body>
+
+</html>

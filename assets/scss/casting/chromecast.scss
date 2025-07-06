@@ -1,0 +1,70 @@
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .icon.chromecast { @include icon-masked('player/chromecast.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+    &.has-no-media .icon.chromecast { @include disabled; }
+
+    .vip-chromecast {
+        @include transition('opacity');
+        @include ui-bg;
+
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        z-index: 10;
+        top: 48%;
+        left: 50%;
+        padding: var(--spacing-block);
+        border-radius: var(--border-radius);
+        text-align: center;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+
+        menu {
+            margin-top: var(--spacing-block);
+            padding: 0;
+            button { min-width: 12em; }
+        }
+
+        p { text-align: start; }
+    }
+
+    .vip-chromecast-bg {
+        @include icon-masked('player/chromecast.svg', 12vmin, var(--color-contrast5));
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-block);
+        margin: 0;
+
+        &.is-buffering::before {
+            animation: buffer-anim 2s ease-in-out infinite forwards;
+        }
+
+        @keyframes buffer-anim {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+    }
+
+    &.is-rtl .vip-chromecast-bg {
+        direction: rtl;
+    }
+
+    &.is-casting {
+        .vip-chromecast {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .icon.chromecast::before { background: var(--color-1st); }
+    }
+}

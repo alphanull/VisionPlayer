@@ -1,0 +1,143 @@
+{
+    "es": {
+        "commands": {
+            "OK": "OK",
+            "cancel": "Cancelar",
+            "reset": "Restablecer",
+            "play": "Reproducir",
+            "pause": "Pausa"
+        },
+        "misc": {
+            "audiovideo": "Audio y Vídeo",
+            "audio": "Audio",
+            "auto": "Auto",
+            "chapter": "Capítulo",
+            "isLive": "En directo",
+            "error": "Error",
+            "fullscreen": "Pantalla completa",
+            "language": "Idioma",
+            "languagesub": "Idioma y subtítulos",
+            "loop": "Bucle",
+            "playbackrate": "Velocidad de reproducción",
+            "on": "Encendido",
+            "off": "Apagado",
+            "quality": "Calidad",
+            "scrubber": "Barra de reproducción",
+            "settings": "Ajustes",
+            "subtitles": "Subtítulos",
+            "unavailable": "No disponible",
+            "unknownLang": "Desconocido",
+            "time": "Tiempo",
+            "video": "Vídeo",
+            "volume": "Volumen",
+            "volumeSlider": "Control de volumen",
+            "uiScale": "Escalado de la UI"
+        },
+        "time": {
+            "hour": "Hora",
+            "hour_plural": "Horas",
+            "minute": "Minuto",
+            "minute_plural": "Minutos",
+            "second": "Segundo",
+            "second_plural": "Segundos"
+        },
+        "errors": {
+            "data": {
+                "header": "Error en los datos de medios",
+                "unknown": "Se produjo un error al procesar los datos del reproductor",
+                "CONFIG_LOAD_ERROR": "No se pudo cargar el archivo de configuración (el medio podría ser reproducible).",
+                "DATA_ERR_MEDIA_DATA_DENIED": "No se pudieron cargar los datos de medios.",
+                "DATA_ERR_MEDIA_NOT_FOUND": "No se encontraron datos de medios.",
+                "DATA_ERR_STREAM_NOT_FOUND": "No se especificó un flujo en los datos de medios.",
+                "DATA_ERR_STREAM_NOT_PLAYABLE": "No se encontró un flujo reproducible; probablemente el formato no es compatible con este reproductor.",
+                "DATA_ERR_INVALID_PLAYLIST_ITEM": "Uno o más elementos de la lista de reproducción no pudieron cargarse y se omitieron.",
+                "DATA_ERR_INVALID_INDEX": "Índice de lista de reproducción no válido."
+            },
+            "media": {
+                "header": "Error de reproducción",
+                "aborted": "La reproducción fue interrumpida.",
+                "alternateStreamHint": "Intenta elegir una calidad o idioma diferente.",
+                "decodingError": "No se pudo reproducir el archivo multimedia seleccionado; es posible que esté dañado.",
+                "fileWithError": "Archivo:",
+                "networkFailed": "No se pudo reproducir el archivo debido a un error de red.",
+                "notFound": "No se pudo encontrar el archivo multimedia seleccionado.",
+                "unknown": "Ha ocurrido un error desconocido",
+                "unsupported": "El archivo multimedia seleccionado no es compatible.",
+                "drmError": "Hubo un problema con la protección anticopia (DRM) de este medio.",
+                "serverError": "No se pudo contactar con el servidor.",
+                "accessError": "No se pudo acceder al medio."
+            },
+            "library": {
+                "header": "Error de biblioteca",
+                "dashLoadError": "No se pudo cargar la biblioteca Dash.js.",
+                "hlsLoadError": "No se pudo cargar la biblioteca Hls.js."
+            },
+            "supportMessage": ""
+        },
+        "airplay": {
+            "airplay": "AirPlay",
+            "available": "Usar AirPlay",
+            "unavailable": "AirPlay no disponible"
+        },
+        "audioControls": {
+            "freqBand": "Banda de frecuencia"
+        },
+        "chapter": {
+            "next": "Capítulo siguiente",
+            "prev": "Capítulo anterior"
+        },
+        "chromecast": {
+            "chromecast": "Chromecast",
+            "available": "Usar Chromecast",
+            "unavailable": "Chromecast no disponible",
+            "connected": "Conectado a ",
+            "device": "dispositivo remoto",
+            "choose": "Elegir dispositivo...",
+            "cancel": "Detener transmisión",
+            "pause": "Pausar emisión",
+            "play": "Reanudar emisión",
+            "isPaused": "La transmisión está pausada",
+            "isPlaying": "La transmisión está activa",
+            "isBuffering": "Cargando...",
+            "castError": "No se pudo conectar al dispositivo"
+        },
+        "file": {
+            "select": "Seleccionar archivo",
+            "drop": "Suelta el archivo aquí",
+            "unsupported": "Formato de archivo no compatible"
+        },
+        "pip": {
+            "title": "Imagen en imagen",
+            "placeholder": "No hay vídeo para mostrar",
+            "cancel": "Cerrar PiP"
+        },
+        "playlist": {
+            "playlist": "Lista de reproducción",
+            "open": "Abrir lista",
+            "prev": "Título anterior",
+            "next": "Siguiente título",
+            "loop": "Repetir lista",
+            "shuffle": "Reproducción aleatoria",
+            "continuous": "Reproducción continua"
+        },
+        "subtitles": {
+            "fontSize": "Tamaño de fuente",
+            "fontSize_big": "Fuente grande",
+            "fontSize_medium": "Fuente mediana",
+            "fontSize_small": "Fuente pequeña",
+            "header": "Subtítulos"
+        },
+        "videoControls": {
+            "brightness": "Brillo",
+            "contrast": "Contraste",
+            "saturate": "Saturación",
+            "sharpen": "Nitidez",
+            "hue": "Tono"
+        },
+        "visualizerAmbient": {
+            "header": "Iluminación de fondo",
+            "slider": "Ajustar intensidad"
+        }
+    }
+
+}

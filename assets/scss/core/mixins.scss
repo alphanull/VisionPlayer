@@ -1,0 +1,10 @@
+@use '../lib/mixins' as *;
+@use 'vars' as *;
+
+@mixin ui-bg {
+    @include transition('opacity, transform');
+
+    background: var(--vip-ui-bg);
+    opacity: 1;
+    backdrop-filter: var(--backdrop-filter);
+}

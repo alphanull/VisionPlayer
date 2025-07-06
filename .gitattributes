@@ -1,0 +1,7 @@
+# Ensure consistent line endings
+* text=auto
+
+# Ignore certain files for GitHub language stats
+*.html linguist-detectable=false
+*.css linguist-detectable=false
+dist/** linguist-detectable=false

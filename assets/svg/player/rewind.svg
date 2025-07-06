@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>player / rewind</title>
+    <g id="player-/-rewind" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M8.6,6.38965395 C8.6,6.04680651 8.85448258,5.90281059 9.16451211,6.06924744 L19.6615955,11.6969322 C19.971625,11.8633691 19.971625,12.1364003 19.6615955,12.3028371 L9.16451211,17.9311453 C8.85448258,18.0969588 8.6,17.9529629 8.6,17.6101154 L8.6,6.38965395 Z" id="Fill-1-Copy-3" fill="#000000" transform="translate(14.2471, 12) rotate(180) translate(-14.2471, -12)"></path>
+        <path d="M1,6.38965395 C1,6.04680651 1.25448258,5.90281059 1.56451211,6.06924744 L12.0615955,11.6969322 C12.371625,11.8633691 12.371625,12.1364003 12.0615955,12.3028371 L1.56451211,17.9311453 C1.25448258,18.0969588 1,17.9529629 1,17.6101154 L1,6.38965395 Z" id="Fill-1-Copy-4" fill="#000000" transform="translate(6.6471, 12) rotate(180) translate(-6.6471, -12)"></path>
+    </g>
+</svg>

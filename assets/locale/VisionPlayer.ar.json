@@ -1,0 +1,143 @@
+{
+    "ar": {
+        "commands": {
+            "OK": "موافق",
+            "cancel": "إلغاء",
+            "reset": "إعادة ضبط",
+            "play": "تشغيل",
+            "pause": "إيقاف مؤقت"
+        },
+        "misc": {
+            "audiovideo": "صوت وفيديو",
+            "audio": "صوت",
+            "auto": "تلقائي",
+            "chapter": "الفصل",
+            "isLive": "بث مباشر",
+            "error": "خطأ",
+            "fullscreen": "ملء الشاشة",
+            "language": "اللغة",
+            "languagesub": "اللغة والترجمة",
+            "loop": "تكرار",
+            "playbackrate": "سرعة التشغيل",
+            "on": "تشغيل",
+            "off": "إيقاف",
+            "quality": "الجودة",
+            "scrubber": "شريط التقدم",
+            "settings": "الإعدادات",
+            "subtitles": "الترجمة",
+            "unavailable": "غير متوفر",
+            "unknownLang": "مجهول",
+            "time": "الوقت",
+            "video": "فيديو",
+            "volume": "مستوى الصوت",
+            "volumeSlider": "متحكم الصوت",
+            "uiScale": "تحجيم UI"
+        },
+        "time": {
+            "hour": "ساعة",
+            "hour_plural": "ساعات",
+            "minute": "دقيقة",
+            "minute_plural": "دقائق",
+            "second": "ثانية",
+            "second_plural": "ثوانٍ"
+        },
+        "errors": {
+            "data": {
+                "header": "خطأ في بيانات الوسائط",
+                "unknown": "حدث خطأ أثناء معالجة بيانات المشغل",
+                "CONFIG_LOAD_ERROR": "تعذر تحميل ملف التكوين (قد يظل الوسيط قابلاً للتشغيل).",
+                "DATA_ERR_MEDIA_DATA_DENIED": "تعذر تحميل بيانات الوسائط.",
+                "DATA_ERR_MEDIA_NOT_FOUND": "لم يتم العثور على بيانات الوسائط.",
+                "DATA_ERR_STREAM_NOT_FOUND": "لم يتم تحديد بث في بيانات الوسائط.",
+                "DATA_ERR_STREAM_NOT_PLAYABLE": "لم يتم العثور على بث قابل للتشغيل، ربما التنسيق غير مدعوم من هذا المشغل.",
+                "DATA_ERR_INVALID_PLAYLIST_ITEM": "تعذّر تحميل عنصر أو أكثر في قائمة التشغيل وتم تخطيها.",
+                "DATA_ERR_INVALID_INDEX": "فهرس قائمة التشغيل غير صالح."
+            },
+            "media": {
+                "header": "خطأ في الوسائط",
+                "aborted": "تم إيقاف التشغيل.",
+                "alternateStreamHint": "حاول اختيار إعداد جودة أو لغة مختلفة.",
+                "decodingError": "تعذر تشغيل ملف الوسائط المحدد؛ قد يكون تالفاً.",
+                "fileWithError": "الملف:",
+                "networkFailed": "تعذر تشغيل الملف بسبب خطأ في الشبكة.",
+                "notFound": "لم يتم العثور على ملف الوسائط المحدد.",
+                "unknown": "حدث خطأ غير معروف",
+                "unsupported": "ملف الوسائط المحدد غير مدعوم.",
+                "drmError": "هناك مشكلة في حماية النسخ ‎(DRM)‎ لهذا الوسيط.",
+                "serverError": "تعذر الوصول إلى الخادم.",
+                "accessError": "تعذر الوصول إلى الوسائط."
+            },
+            "library": {
+                "header": "خطأ في المكتبة",
+                "dashLoadError": "تعذر تحميل مكتبة ‎Dash.js‎.",
+                "hlsLoadError": "تعذر تحميل مكتبة ‎Hls.js‎."
+            },
+            "supportMessage": ""
+        },
+        "airplay": {
+            "airplay": "‎AirPlay‎",
+            "available": "استخدم ‎AirPlay‎",
+            "unavailable": "‎AirPlay‎ غير متاح"
+        },
+        "audioControls": {
+            "freqBand": "نطاق التردد"
+        },
+        "chapter": {
+            "next": "الفصل التالي",
+            "prev": "الفصل السابق"
+        },
+        "chromecast": {
+            "chromecast": "‎Chromecast‎",
+            "available": "استخدم ‎Chromecast‎",
+            "unavailable": "‎Chromecast‎ غير متاح",
+            "connected": "متصل بـ ",
+            "device": "جهاز بعيد",
+            "choose": "اختر جهاز...",
+            "cancel": "إيقاف الإرسال",
+            "pause": "إيقاف مؤقت",
+            "play": "استئناف الإرسال",
+            "isPaused": "الإرسال متوقف مؤقتاً",
+            "isPlaying": "الإرسال نشط",
+            "isBuffering": "جارٍ التخزين المؤقت...",
+            "castError": "تعذر الاتصال بالجهاز"
+        },
+        "file": {
+            "select": "اختر ملف",
+            "drop": "أسقط الملف هنا",
+            "unsupported": "تنسيق الملف غير مدعوم"
+        },
+        "pip": {
+            "title": "صورة داخل صورة",
+            "placeholder": "لا يوجد فيديو للعرض",
+            "cancel": "إغلاق ‎PiP‎"
+        },
+        "playlist": {
+            "playlist": "قائمة التشغيل",
+            "open": "فتح القائمة",
+            "prev": "العنوان السابق",
+            "next": "العنوان التالي",
+            "loop": "تكرار القائمة",
+            "shuffle": "تشغيل عشوائي",
+            "continuous": "تشغيل مستمر"
+        },
+        "subtitles": {
+            "fontSize": "حجم الخط",
+            "fontSize_big": "خط كبير",
+            "fontSize_medium": "خط متوسط",
+            "fontSize_small": "خط صغير",
+            "header": "الترجمة"
+        },
+        "videoControls": {
+            "brightness": "السطوع",
+            "contrast": "التباين",
+            "saturate": "التشبع",
+            "sharpen": "الحدّة",
+            "hue": "تدرج اللون"
+        },
+        "visualizerAmbient": {
+            "header": "إضاءة الخلفية",
+            "slider": "ضبط الشدة"
+        }
+    }
+
+}

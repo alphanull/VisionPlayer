@@ -1,0 +1,171 @@
+@use '../lib/mixins' as *;
+
+.pu {
+    @include tap-highlight-disable;
+
+    --pu-min-width: var(--popup-min-width, 10em);
+    --pu-min-height: var(--popup-min-height, 5em);
+    --pu-dimmer-bg: var(--popup-dimmer-bg, rgba(211, 211, 211, 0.8));
+    --pu-content-bg: var(--popup-content-bg, rgba(211, 211, 211, 0.8));
+    --pu-backdrop-filter: var(--backdrop-filter, blur(0.2em));
+    --pu-shadow: var(--popup-shadow, 0 0 0.5em rgba(0, 0, 0, 0.4));
+    --pu-pointer-shadow: var(--popup-pointer-shadow, 0 0 0.5em rgba(0, 0, 0, 0.4));
+    --pu-border-radius: var(--popup-border-radius, 0.3em);
+    --pu-padding: var(--popup-padding, 0.3em 0.5em);
+    --pu-pointer-width: var(--popup-pointer-width, 1.6em);
+    --pu-pointer-height: var(--popup-pointer-height, 0.8em);
+
+    position: absolute;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    &:hover { cursor: pointer; }
+    &.showing, &.hiding { backdrop-filter: none; }
+}
+
+.pu-bg {
+    @include transition('opacity');
+    @include tap-highlight-disable;
+
+    position: fixed;
+    z-index: 910;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--pu-dimmer-bg);
+    opacity: 0.3;
+    will-change: opacity;
+
+    .pu.hiding &,
+    .pu.showing & { opacity: 0; }
+    .pu.showing > & { transition-duration: 0s; }
+}
+
+.pu-box {
+    @include transition('opacity, transform, filter');
+
+    position: absolute;
+    z-index: 999;
+    min-width: 12em;
+    max-width: 40em;
+    opacity: 1;
+    transform: scale(1);
+    will-change: transform;
+
+    &:hover { cursor: default; }
+
+    // orientations
+    .top > & {
+        padding-bottom: var(--pu-pointer-height);
+        transform-origin: center bottom;
+    }
+
+    .bottom > & {
+        padding-top: var(--pu-pointer-height);
+        transform-origin: center top;
+    }
+
+    .left > & {
+        padding-right: var(--pu-pointer-height);
+        transform-origin: right center;
+    }
+
+    .right > & {
+        padding-left: var(--pu-pointer-height);
+        transform-origin: left center;
+    }
+
+    // Animations
+
+    .hiding > &,
+    .showing > & { opacity: 0; }
+
+    .hiding > & {
+        filter: blur(15px);  /* stylelint-disable-line unit-disallowed-list */
+        transition-duration: 0.5s;
+
+        @include nomotion {
+            filter: blur(0);
+            transition-duration: 0.001s; /* stylelint-disable-line number-max-precision */
+        }
+    }
+
+    .showing.top > &,
+    .showing.bottom > &,
+    .showing.left > &,
+    .showing.right > & { transition-duration: 0s; }
+
+    .showing.top > & { transform: scale(1, 0.01); }
+    .showing.bottom > & { transform: scale(1, 0.01); }
+    .showing.left > & { transform: scale(0.01, 1); }
+    .showing.right > & { transform: scale(0.01, 1); }
+}
+
+.pu-cnt {
+    @include backdrop(var(--pu-backdrop-filter));
+
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    min-width: var(--pu-min-width);
+    min-height: var(--pu-min-height);
+    padding: var(--pu-padding);
+    border-radius: var(--pu-border-radius);
+    background-color: var(--pu-content-bg);
+    box-shadow: var(--pu-shadow);
+}
+
+.pu-cnt-inner {
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: var(--pu-padding);
+    -webkit-overflow-scrolling: touch;
+
+    &:focus { outline: none; }
+}
+
+.pu-pointer {
+    position: absolute;
+    z-index: 1;
+    width: var(--pu-pointer-width);
+    height: var(--pu-pointer-width);
+
+    &::before {
+        content: '' / ''; // to be ingored by screenreaders
+        position: absolute;
+        width: var(--pu-pointer-width);
+        height: var(--pu-pointer-width);
+        background-color: var(--pu-content-bg);
+        box-shadow: var(--pu-pointer-shadow);
+        transform: rotate(45deg);
+        backdrop-filter: var(--pu-backdrop-filter);
+    }
+
+    &.top {
+        bottom: 0;
+        clip-path: inset(50% -50% -50% -50%);
+        &::before { border-bottom-right-radius: var(--pu-border-radius); }
+    }
+
+    &.bottom {
+        top: 0;
+        clip-path: inset(-50% -50% 50% -50%);
+        &::before { border-top-left-radius: var(--pu-border-radius); }
+    }
+
+    &.left {
+        right: 0;
+        clip-path: inset(-50% -50% -50% 50%);
+        &::before { border-top-right-radius: var(--pu-border-radius); }
+    }
+
+    &.right {
+        left: 0;
+        clip-path: inset(-50% 50% -50% -50%);
+        &::before { border-bottom-left-radius: var(--pu-border-radius); }
+    }
+}

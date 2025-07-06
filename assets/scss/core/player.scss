@@ -1,0 +1,97 @@
+@use 'sass:meta';
+@use 'vars' as *;
+@use 'core';
+
+vision-player {
+    // make sure lib css has the scope 'vision-player'
+    @include meta.load-css('../lib/controls');
+    @include meta.load-css('../lib/menus');
+    @include meta.load-css('../lib/popup');
+    @include meta.load-css('../lib/tooltip');
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+vision-player {
+    font-size: calc(var(--vip-ui-size) * var(--vip-ui-scale));
+    > * { font-size: var(--vip-font-size); }
+}
+
+@function scale($min, $max) {
+    $base: clamp(#{$min}, calc(#{$min} + (#{$max} - #{$min}) * var(--vip-width-scale)), #{$max});
+
+    @return $base;
+}
+
+:host,
+vision-player:not(.is-shadow) {
+    @include vars;
+    // player specific vars;
+    --vip-bg: var(--color-contrast2);
+    --vip-ui-bg: var(--overlay-bg);
+    --vip-title-bg: transparent; // var(--overlay-bg);
+    --vip-controller-bg: var(--overlay-bg);
+    --vip-subtitles-bg: var(--overlay-bg);
+    --vip-controller-filter: drop-shadow(0 0 0.125em black);
+    --vip-dimmer-bg: rgba(20, 20, 20, 0.2);
+    --vip-media-bg: black;
+    --vip-color-hue-left: #7800D9;
+    --vip-color-hue-right: #D95E00;
+    --vip-font-size: #{scale(1em, 1.2em)};
+    --vip-font-size-small: #{scale(0.8em, 1em)};
+    --vip-font-size-big: #{scale(1.2em, 2em)};
+    --vip-font-size-controller: #{scale(1.1em, 1.2em)};
+    --vip-icon-color: var(--icon-color);
+    --vip-icon-height: #{scale(1.7em, 1.8em)};
+    --vip-icon-width: #{scale(1.7em, 1.8em)};
+    --vip-icon-height-small: #{scale(1em, 1.5em)};
+    --vip-icon-width-small: #{scale(1em, 1.5em)};
+    --vip-scrubber-height: #{scale(1em, 1.7em)};
+    --vip-scrubber-bg: rgba(20, 20, 20, 0.6);
+    --vip-scrubber-buffered: #666;
+    --vip-scrubber-position: var(--color-1st);
+    --vip-scrubber-thumbnail-width: 12em;
+    --vip-scrubber-thumbnail-height: 6em;
+    --vip-subtitle-font-small: #{scale(0.7em, 1.2em)};
+    --vip-subtitle-font-medium: #{scale(0.9em, 1.5em)};
+    --vip-subtitle-font-big: #{scale(1em, 2em)};
+    --vip-volume-slider-width: 5em;
+    --vip-controller-max-width: 64em;
+    --vip-controller-viewport-distance: var(--spacing-block-small);
+    --vip-title-max-width: 80em;
+    --vip-title-viewport-distance: var(--spacing-block-small);
+    --vip-ui-size: 1rem;
+    --vip-ui-scale: 1;
+    // overrides, to use player scale instead of viewport scaling
+    --spacing-block-small: #{scale(0.5em, 0.8em)};
+    --spacing6: #{scale(1.2em, 1.5em)};
+    --spacing7: #{scale(2em, 4em)};
+    --spacing8: #{scale(5em, 8em)};
+    --popup-padding: #{scale(0.2em, 0.8em)};
+}
+
+// dark mode
+
+@media (prefers-color-scheme: light) {
+    :host(.is-dark),
+    vision-player.is-dark:not(.is-shadow)  {
+        @include vars-dark;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :host(:not(.is-light)),
+    vision-player:not(.is-light):not(.is-shadow)  {
+        @include vars-dark;
+    }
+}
+
+/* Transitions */
+
+@media (prefers-reduced-motion: reduce) {
+    /* stylelint-disable number-max-precision */
+    vision-player {
+        --transition-duration: 0.001s;
+        --transition-duration-long: 0.001s;
+        --transition-duration-short: 0.001s;
+    }
+}

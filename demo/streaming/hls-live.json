@@ -1,0 +1,39 @@
+{
+    "title": "TV Playlist",
+    "titleSecondary": "Watch Live Streams via the alphanull VisionPlayer!",
+
+    "media": [
+        {
+            "title": "ARD LIVE",
+            "src": "https://daserste-live.ard-mcdn.de/daserste/live/hls/de/master.m3u8"
+        },
+        {
+            "title": "ZDF",
+            "src": "https://zdf-hls-15.akamaized.net/hls/live/2016498/de/veryhigh/master.m3u8"
+        },
+        {
+            "title": "Arte",
+            "src": "https://artesimulcast.akamaized.net/hls/live/2030993/artelive_de/index.m3u8"
+        },
+        {
+            "title": "3 SAT",
+            "src": "https://zdf-hls-18.akamaized.net/hls/live/2016501/dach/high/master.m3u8"
+        },
+        {
+            "title": "Phoenix",
+            "src": "https://zdf-hls-19.akamaized.net/hls/live/2016502/de/high/master.m3u8"
+        },
+        {
+            "title": "NDR Hamburg",
+            "src": "https://mcdn.ndr.de/ndr/hls/ndr_fs/ndr_hh/master.m3u8"
+        },
+        {
+            "title": "RBB Berlin",
+            "src": "https://rbb-hls-berlin.akamaized.net/hls/live/2017824/rbb_berlin/index.m3u8"
+        },
+        {
+            "title": "SWR",
+            "src": "https://swrbwd-hls.akamaized.net/hls/live/2018672/swrbwd/master.m3u8"
+        }
+    ]
+}

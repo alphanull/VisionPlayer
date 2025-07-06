@@ -1,0 +1,37 @@
+{
+    "title": "DASH Tests",
+    "titleSecondary": "Various DASH Test Streams",
+
+    "media": [
+        {
+            "title": "Big Buck Bunny",
+            "titleSecondary": "Bitrate Test",
+            "src":  "https://dash.akamaized.net/akamai/bbb_30fps/bbb_with_multiple_tiled_thumbnails.mpd",
+            "poster": "https://visionplayer.io/media/posters/bucks-poster.jpg"
+        },
+        {
+            "title": "Cosmos Laundromat",
+            "titleSecondary": "Blender Foundation",
+            "src": "https://cdn.theoplayer.com/video/cosmos/cmaf.mpd",
+            "poster": "https://visionplayer.io/media/posters/gooseberry-poster.jpg"
+        },
+        {
+            "title": "Tears of Steel",
+            "titleSecondary": "Blender Foundation",
+            "src":  "https://media.axprod.net/TestVectors/v7-Clear/Manifest_1080p.mpd",
+            "poster": "https://visionplayer.io/media/posters/steel-poster.jpg"
+        },
+        {
+            "title": "Tears of Steel",
+            "titleSecondary": "(Live Stream)",
+            "src": "https://2nbyjnb5d53k-hls-live.5centscdn.com/DVR/StreamtesterDASH.stream/manifest_dvr.mpd",
+            "poster": "https://visionplayer.io/media/posters/steel-poster.jpg"
+        },
+        {
+            "title": "BBC Adaptive Bitrate Test Stream",
+            "titleSecondary": "With Isd Subtitles",
+            "src": "https://rdmedia.bbc.co.uk/testcard/vod/manifests/avc-full.mpd",
+            "poster": "https://visionplayer.io/media/posters/bbc-poster.jpg"
+        }
+    ]
+}

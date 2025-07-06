@@ -1,0 +1,180 @@
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .icon.control { @include icon-masked('player/picture-control.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+    .icon.reset { @include icon-masked('player/reset.svg', 1.2em, var(--vip-icon-color)); }
+
+    .vip-sharpness-filter {
+        position: absolute;
+        pointer-events: none;
+        width: 0;
+        height: 0;
+    }
+
+    .vip-audio-controls {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 101%;
+
+        > h3 { text-align: center; }
+    }
+
+    .vip-audio-controls-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 100%;
+
+        .vip-audio-control[type=range][orient=vertical] {
+            flex-grow: 1;
+            height: 7em;
+            margin-bottom: var(--spacing2);
+        }
+    }
+
+    &[data-useragent*=Safari] .vip-audio-control[type=range][orient=vertical] { height: 6em; }
+
+    .vip-audio-control-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 1.9em;
+        span { font-size: 0.8em; }
+    }
+
+    .vip-control-popup {
+        .pu-box {
+            width: auto;
+            min-width: auto;
+            max-width: none;
+
+            .vip-popup-content {
+                flex-direction: row;
+                align-items: stretch;
+            }
+        }
+    }
+
+    .vip-picture-controls {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        h3 {
+            margin-bottom: var(--spacing-block-small);
+            text-align: center;
+        }
+    }
+
+    .vip-picture-controls-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: var(--spacing3);
+        width: 10em;
+        height: 100%;
+    }
+
+    .vip-picture-control-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--spacing2);
+
+        .vip-picture-control-label {
+            position: relative;
+            display: inline-block;
+            flex-shrink: 0;
+            width: 1em;
+            height: 1em;
+            border-radius: 10em;
+            background-color: var(--color-contrast3);
+
+            &.is-brightness-min {
+                background-color: black;
+            }
+
+            &.is-brightness-max {
+                background-color: white;
+            }
+
+            &.is-contrast-min {
+                background-color: var(--color-contrast4);
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 0.5em;
+                    height: 1em;
+                    left: 0.5em;
+                    border-radius: 0 10em 10em 0;
+                    background: var(--color-contrast3);
+                }
+            }
+
+            &.is-contrast-max {
+                background-color: var(--color-contrast7);
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 0.5em;  // Durchmesser
+                    height: 1em;
+                    left: 0.55em;
+                    border-radius: 0 10em 10em 0;
+                    background: var(--color-contrast1);
+                }
+            }
+
+            &.is-sharpen-min,
+            &.is-sharpen-max {
+                background-color: #ccc;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 0.4em;
+                    height: 0.4em;
+                    top: 0.3em;
+                    left: 0.3em;
+                    background: #000;
+                }
+            }
+
+            &.is-sharpen-min {
+                &::before {
+                    filter: blur(0.15em);
+                }
+            }
+
+            &.is-saturate-min {
+                background-color: var(--color-contrast5);
+            }
+
+            &.is-saturate-max {
+                background-color: var(--color-ctl);
+            }
+
+            &.is-hue-min {
+                background-color: var(--vip-color-hue-left);
+            }
+
+            &.is-hue-max {
+                background-color: var(--vip-color-hue-right);
+            }
+        }
+
+        input {
+            flex-grow: 1;
+            flex-shrink: 1;
+            width: 100%;
+        }
+    }
+}

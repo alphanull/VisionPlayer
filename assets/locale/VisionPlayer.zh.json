@@ -1,0 +1,142 @@
+{
+    "zh": {
+        "commands": {
+            "OK": "确定",
+            "cancel": "取消",
+            "reset": "重置",
+            "play": "播放",
+            "pause": "暂停"
+        },
+        "misc": {
+            "audiovideo": "音频与视频",
+            "audio": "音频",
+            "auto": "自动",
+            "isLive": "直播",
+            "error": "错误",
+            "chapter": "章节",
+            "fullscreen": "全屏",
+            "language": "语言",
+            "languagesub": "语言与字幕",
+            "loop": "循环",
+            "playbackrate": "播放速度",
+            "on": "开",
+            "off": "关",
+            "quality": "质量",
+            "scrubber": "播放进度条",
+            "settings": "设置",
+            "subtitles": "字幕",
+            "unavailable": "不可用",
+            "unknownLang": "未知",
+            "time": "时间",
+            "video": "视频",
+            "volume": "音量",
+            "volumeSlider": "音量控制",
+            "uiScale": "UI 缩放"
+        },
+        "time": {
+            "hour": "小时",
+            "hour_plural": "小时",
+            "minute": "分钟",
+            "minute_plural": "分钟",
+            "second": "秒",
+            "second_plural": "秒"
+        },
+        "errors": {
+            "data": {
+                "header": "媒体数据错误",
+                "unknown": "处理播放器数据时发生错误",
+                "CONFIG_LOAD_ERROR": "无法加载配置文件（媒体可能仍可播放）。",
+                "DATA_ERR_MEDIA_DATA_DENIED": "无法加载媒体数据。",
+                "DATA_ERR_MEDIA_NOT_FOUND": "未找到媒体数据。",
+                "DATA_ERR_STREAM_NOT_FOUND": "媒体数据中未指定流。",
+                "DATA_ERR_STREAM_NOT_PLAYABLE": "未找到可播放的流，可能格式不受支持。",
+                "DATA_ERR_INVALID_PLAYLIST_ITEM": "播放列表中的一个或多个项目无法加载，已被跳过。",
+                "DATA_ERR_INVALID_INDEX": "播放列表索引无效."
+            },
+            "media": {
+                "header": "媒体错误",
+                "aborted": "播放已终止。",
+                "alternateStreamHint": "尝试选择不同的质量或语言设置。",
+                "decodingError": "无法播放所选媒体文件，文件可能已损坏。",
+                "fileWithError": "文件：",
+                "networkFailed": "由于网络错误无法播放文件。",
+                "notFound": "未找到所选媒体文件。",
+                "unknown": "发生未知错误",
+                "unsupported": "所选媒体文件不受支持。",
+                "drmError": "该媒体的数字版权（DRM）存在问题。",
+                "serverError": "无法连接到服务器。",
+                "accessError": "无法访问媒体。"
+            },
+            "library": {
+                "header": "库错误",
+                "dashLoadError": "无法加载 Dash.js 库。",
+                "hlsLoadError": "无法加载 Hls.js 库."
+            },
+            "supportMessage": ""
+        },
+        "airplay": {
+            "airplay": "AirPlay",
+            "available": "使用 AirPlay",
+            "unavailable": "AirPlay 不可用"
+        },
+        "audioControls": {
+            "freqBand": "频段"
+        },
+        "chapter": {
+            "next": "下一章节",
+            "prev": "上一章节"
+        },
+        "chromecast": {
+            "chromecast": "Chromecast",
+            "available": "使用 Chromecast",
+            "unavailable": "Chromecast 不可用",
+            "connected": "已连接到 ",
+            "device": "远程设备",
+            "choose": "选择设备…",
+            "pause": "暂停投屏",
+            "play": "继续投屏",
+            "cancel": "停止投射",
+            "isPaused": "投射已暂停",
+            "isPlaying": "正在投射",
+            "isBuffering": "缓冲中…",
+            "castError": "无法连接到设备"
+        },
+        "file": {
+            "select": "选择文件",
+            "drop": "将文件拖到此处",
+            "unsupported": "文件格式不受支持"
+        },
+        "pip": {
+            "title": "画中画",
+            "placeholder": "没有要显示的视频",
+            "cancel": "关闭画中画"
+        },
+        "playlist": {
+            "playlist": "播放列表",
+            "open": "打开列表",
+            "prev": "上一曲目",
+            "next": "下一曲目",
+            "loop": "循环列表",
+            "shuffle": "随机播放",
+            "continuous": "连续播放"
+        },
+        "subtitles": {
+            "fontSize": "字体大小",
+            "fontSize_big": "大字体",
+            "fontSize_medium": "中字体",
+            "fontSize_small": "小字体",
+            "header": "字幕"
+        },
+        "videoControls": {
+            "brightness": "亮度",
+            "contrast": "对比度",
+            "saturate": "饱和度",
+            "sharpen": "锐度",
+            "hue": "色调"
+        },
+        "visualizerAmbient": {
+            "header": "背景灯光",
+            "slider": "调节亮度"
+        }
+    }
+}

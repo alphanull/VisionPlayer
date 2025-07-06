@@ -1,0 +1,228 @@
+{
+    "title": {
+        "en": "VisionPlayer Trailer",
+        "de": "VisionPlayer Trailer",
+        "es": "VisionPlayer Tráiler",
+        "fr": "Bande-annonce VisionPlayer",
+        "hi": "VisionPlayer ट्रेलर",
+        "it": "Trailer VisionPlayer",
+        "ja": "VisionPlayer トレーラー",
+        "ko": "VisionPlayer 예고편",
+        "pt": "Trailer do VisionPlayer",
+        "ru": "Трейлер VisionPlayer",
+        "tr": "VisionPlayer Fragman",
+        "zh": "VisionPlayer 预告片",
+        "ar": "مقدمة VisionPlayer"
+    },
+
+    "titleSecondary": {
+        "en": "(Audio only)",
+        "de": "(Nur Audio)",
+        "es": "(Solo audio)",
+        "fr": "(Audio uniquement)",
+        "hi": "(केवल ऑडियो)",
+        "it": "(Solo audio)",
+        "ja": "（音声のみ）",
+        "ko": "(오디오만)",
+        "pt": "(Apenas áudio)",
+        "ru": "(Только аудио)",
+        "tr": "(Yalnızca ses)",
+        "zh": "（仅音频）",
+        "ar": "(صوت فقط)"
+    },
+
+    "mediaType": "audio",
+
+    "encodings": [
+        {
+            "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+            "src": "https://visionplayer.io/media/trailer-audio/streams/visionplayer-trailer-audio.m4a"
+        },
+        {
+            "mimeType": "audio/mpeg",
+            "src": "https://visionplayer.io/media/trailer-audio/streams/visionplayer-trailer-audio.mp3"
+        }
+    ],
+
+    "chapters": [
+        {
+            "title": {
+                "en": "Intro",
+                "de": "Intro",
+                "es": "Introducción",
+                "fr": "Introduction",
+                "hi": "परिचय",
+                "it": "Introduzione",
+                "ja": "イントロ",
+                "ko": "소개",
+                "pt": "Introdução",
+                "ru": "Введение",
+                "tr": "Giriş",
+                "zh": "介绍",
+                "ar": "مقدمة"
+            },
+            "start": 0
+        },
+        {
+            "title": {
+                "en": "Overview",
+                "de": "Übersicht",
+                "es": "Visión general",
+                "fr": "Aperçu",
+                "hi": "सामान्य जानकारी",
+                "it": "Panoramica",
+                "ja": "概要",
+                "ko": "개요",
+                "pt": "Visão geral",
+                "ru": "Обзор",
+                "tr": "Genel Bakış",
+                "zh": "概览",
+                "ar": "نظرة عامة"
+            },
+            "start": 18
+        },
+        {
+            "title": {
+                "en": "Demo",
+                "de": "Demo",
+                "es": "Demostración",
+                "fr": "Démo",
+                "hi": "डेमो",
+                "it": "Dimostrazione",
+                "ja": "デモ",
+                "ko": "데모",
+                "pt": "Demonstração",
+                "ru": "Демонстрация",
+                "tr": "Demo",
+                "zh": "演示",
+                "ar": "عرض تجريبي"
+            },
+            "start": 31
+        },
+        {
+            "title": {
+                "en": "More Features",
+                "de": "Weitere Funktionen",
+                "es": "Más funciones",
+                "fr": "Plus de fonctionnalités",
+                "hi": "अधिक विशेषताएं",
+                "it": "Altre funzionalità",
+                "ja": "その他の機能",
+                "ko": "추가 기능",
+                "pt": "Mais recursos",
+                "ru": "Больше функций",
+                "tr": "Daha Fazla Özellik",
+                "zh": "更多功能",
+                "ar": "المزيد من الميزات"
+            },
+            "start": 58
+        }
+    ],
+
+    "text": [
+        {
+            "type": "subtitles",
+            "language": "en",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.en.vtt"
+        },
+        {
+            "type": "subtitles",
+            "language": "de",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.de.vtt"
+        },
+        {
+            "type": "subtitles",
+            "language": "fr",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.fr.vtt"
+        },
+        {
+            "type": "subtitles",
+            "language": "es",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.es.vtt"
+        },
+        {
+            "type": "subtitles",
+            "language": "it",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.it.vtt"
+        },
+        {
+            "type": "subtitles",
+            "language": "pt",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.pt.vtt"
+        },
+        {
+            "type": "subtitles",
+            "language": "tr",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.tr.vtt"
+        },
+        {
+            "type": "subtitles",
+            "language": "ru",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.ru.vtt"
+        },
+        {
+            "type": "subtitles",
+            "language": "hi",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.hi.vtt"
+        },
+        {
+            "type": "subtitles",
+            "language": "ja",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.ja.vtt"
+        },
+        {
+            "type": "subtitles",
+            "language": "ko",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.ko.vtt"
+        },
+        {
+            "type": "subtitles",
+            "language": "zh",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.zh.vtt"
+        },
+        {
+            "type": "subtitles",
+            "language": "ar",
+            "src": "https://visionplayer.io/media/trailer/text/visionplayer-trailer.ar.vtt"
+        }
+    ],
+
+    "overlays": [
+        {
+            "type": "poster",
+            "src": "https://visionplayer.io/media/trailer-audio/overlays/visionplayer-trailer-audio-poster.jpg"
+        },
+        {
+            "type": "poster-end",
+            "src": "https://visionplayer.io/media/trailer-audio/overlays/visionplayer-trailer-audio-poster-end.jpg"
+        },
+        {
+            "type": "image",
+            "src": "https://visionplayer.io/media/trailer-audio/overlays/visionplayer-trailer-audio-bg-1.jpg",
+            "scale": "cover",
+            "cueIn": 0,
+            "cueOut": 18
+        },
+        {
+            "type": "image",
+            "src": "https://visionplayer.io/media/trailer-audio/overlays/visionplayer-trailer-audio-bg-2.jpg",
+            "scale": "cover",
+            "cueIn": 18,
+            "cueOut": 31
+        },
+        {
+            "type": "image",
+            "src": "https://visionplayer.io/media/trailer-audio/overlays/visionplayer-trailer-audio-bg-3.jpg",
+            "scale": "cover",
+            "cueIn": 31,
+            "cueOut": 58
+        },
+        {
+            "type": "image",
+            "src": "https://visionplayer.io/media/trailer-audio/overlays/visionplayer-trailer-audio-bg-4.jpg",
+            "scale": "cover",
+            "cueIn": 58,
+            "cueOut": 96
+        }
+    ]
+}

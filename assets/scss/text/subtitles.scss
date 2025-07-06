@@ -1,0 +1,148 @@
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .vip-media-ele::cue {
+        @include font-normal;
+
+        border-radius: var(--border-radius);
+    }
+
+    .vip-media-ele::cue(b) { @include font-bold; }
+
+    .vip-subtitle-text {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding: var(--spacing2) var(--spacing3);
+        border-radius: var(--border-radius);
+        background: var(--vip-subtitles-bg);
+        line-height: 1.1em;
+        text-align: inherit;
+        text-shadow: em(1) em(1) em(6) var(--color-contrast1);
+        backdrop-filter: var(--backdrop-filter);
+
+        b { @include font-bold; }
+
+        &.no-bg {
+            display: block;
+            background: none;
+            backdrop-filter: none;
+        }
+    }
+
+    .vip-subtitles {
+        @include transition('opacity, top, bottom');
+        @include inset;
+
+        position: absolute;
+        z-index: 16;
+        top: 0;
+        font-size: var(--vip-font-size-small);
+        line-height: initial;
+        user-select: text;
+        pointer-events: none;
+
+        &:hover { cursor: auto; }
+
+        &.adapt-layout {
+            top: var(--vip-ui-blocked-top, 0);
+            bottom: var(--vip-ui-blocked-bottom, 0);
+        }
+
+        &.font-big .vip-subtitle-text { font-size: var(--vip-subtitle-font-big); }
+        &.font-medium .vip-subtitle-text { font-size: var(--vip-subtitle-font-medium); }
+        &.font-small .vip-subtitle-text { font-size: var(--vip-subtitle-font-small); }
+    }
+
+    &.is-casting .vip-subtitles,
+    &.is-pip .vip-subtitles { opacity: 0; }
+    &.ui-hidden .vip-subtitles { transition-delay: 0.2s; }
+
+    .vip-subtitle-item {
+        position: relative;
+        width: 100%; //calc(100% - var(--spacing-block-small) * 2);
+        text-align: center;
+
+        &.align-start { text-align: start; }
+        &.align-end { text-align: end; }
+        &.align-middle { text-align: center; }
+
+        &.vertical-lr { writing-mode: vertical-lr; }
+        &.vertical-rl { writing-mode: vertical-rl; }
+    }
+
+    .vip-subtitle-unavailable {
+        color: var(--color-contrast5);
+        text-align: center;
+        &.is-hidden { display: none; }
+    }
+
+    .vip-subtitles-isd {
+        .vip-subtitle-item { margin-bottom: var(--spacing-block-small); }
+    }
+
+    .vip-subtitles-vtt {
+        height: 100%;
+    }
+
+    .vip-subtitles-container {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
+
+    .vip-subtitle-fixed {
+        height: calc(104% - 2vh - var(--spacing-block-small) * 2);
+        top: var(--spacing-block-small);
+        bottom: var(--spacing-block-small);
+    }
+
+    .vip-subtitle-lines {
+        height: 100%;
+        bottom: 0;
+
+        .vip-subtitle-line {
+            display: flex;
+            align-items: flex-end;
+            flex: 1;
+
+            &:first-child { margin: var(--spacing-block-small) 0 0 0; }
+            &:last-child { margin: 0 0 var(--spacing-block-small) 0; }
+        }
+
+        &.is-vertical .vip-subtitle-line {
+            margin-top: var(--spacing-block-small);
+            margin-bottom: var(--spacing-block-small);
+
+            &:first-child { margin-left: var(--spacing-block-small); }
+            &:last-child { margin-right: var(--spacing-block-small); }
+        }
+
+        &:not(.is-vertical) .vip-subtitle-item {
+            margin: 0 var(--spacing-block-small) var(--spacing2);
+        }
+    }
+
+    .vip-subtitle-fixed,
+    .vip-subtitle-lines {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+
+        &.is-vertical {
+            flex-direction: row;
+
+            .vip-subtitle-item {
+                width: auto;
+                height: 100%;
+                &:not(.align-middle):not(.align-end) { text-align: left; }
+                .vip-subtitle-text { padding: var(--spacing3) var(--spacing2); }
+            }
+        }
+    }
+}

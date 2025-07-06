@@ -1,0 +1,246 @@
+/* stylelint-disable unit-blacklist */
+
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    h1, h2, h3, p {
+        @include font-normal;
+
+        margin: 0;
+        margin-bottom: var(--spacing3);
+        font-size: var(--vip-font-size);
+        color: var(--color-text);
+        text-align: start;
+        overflow-wrap: break-word;
+    }
+
+    h1, h2 {
+        @include font-bold;
+
+        font-size: var(--vip-font-size-big);
+        color: var(--color-headline);
+    }
+
+    &.is-rtl {
+        h1, h2, h3, p, select, label { direction: rtl; }
+        select { background-position: left 0.4em center; }
+        label:not(.icon) .form-label-text { flex-grow: 0; }
+    }
+
+    .select-wrapper {
+        @include icon-masked('form/select-focus.svg', 1.2em, var(--color-text));
+
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &::before {
+            position: absolute;
+            right: 0.4em;
+        }
+
+        > select, > select:hover, > select:focus {
+            width: 100%;
+            background-image: none;
+        }
+
+        &.has-focus::before,
+        &:hover::before {
+            background: var(--color-light);
+        }
+    }
+
+    .icon {
+        @include transition('transform');
+
+        border-radius: var(--border-radius-small);
+        transform: scale(1);
+        will-change: transform;
+
+        &[disabled] {
+            @include disabled;
+
+            &:hover {
+                cursor: not-allowed;
+                transform: scale(1);
+            }
+        }
+
+        &:not([disabled]).is-hover {
+            transform: scale(1.25);
+        }
+
+        &:not([disabled]):active,
+        &:not([disabled]).is-active {
+            transform: scale(1.25);
+        }
+
+        &.is-enabled:not([disabled])::before { background: var(--color-1st); }
+
+        &.play { @include icon-masked('player/play.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        &.pause { @include icon-masked('player/pause.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        &.subtitles { @include icon-masked('player/subtitles.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        &.settings { @include icon-masked('player/settings.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        &.fullscreen-enter { @include icon-masked('player/fs-enter.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        &.fullscreen-exit { @include icon-masked('player/fs-exit.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+
+        @media (hover: hover) {
+            &:not([disabled]):not(:active):hover {
+                transform: scale(1.25);
+            }
+        }
+    }
+
+    // Popup
+    #pu-aria-label { @include is-hidden; }
+
+    &.has-popup.layout-controller-only {
+        z-index: 999;
+    }
+
+    .pu-box {
+        width: auto;
+        min-width: 20em;
+        max-width: 26em;
+    }
+
+    .pu-cnt-inner {
+        overflow-x: hidden;
+    }
+
+    .vip-settings-popup .pu-box {
+        min-width: 26em;
+        max-width: 30em;
+    }
+
+    &.width-low .pu-box {
+        min-width: 15em;
+        max-width: 90vw;
+    }
+
+    .vip-popup-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-block-small);
+    }
+
+    .vip-settings-popup .vip-popup-content {
+        gap: var(--spacing2);
+    }
+
+    .vip-control-popup .vip-popup-content {
+        gap: var(--spacing6);
+    }
+
+    .vip-popup-content-top,
+    .vip-popup-content-center,
+    .vip-popup-content-bottom {
+        &:empty { display: none; }
+
+        button.is-highlighted {
+            position: relative;
+            z-index: 0;
+
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: var(--button-background-hover);
+                opacity: 0.2;
+            }
+        }
+
+        > button + button {
+            margin-top: var(--spacing2);
+        }
+
+        > button:not(.icon) {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    // Tooltip
+    .tt.vip-tooltip {
+        min-width: 7em;
+        font-size: var(--vip-font-size);
+    }
+
+    // labels
+    label:not(.icon) {
+        @include transition('background');
+
+        display: flex;
+        gap: var(--spacing-block-small);
+        margin: 0 calc(var(--spacing2) * -1);
+        padding: var(--control-padding-top) var(--spacing2) var(--control-padding-bottom) var(--spacing2);
+        border-radius: var(--border-radius);
+
+        &:not(:first-child) {
+            margin-top: var(--spacing2);
+        }
+
+        .form-label-text {
+            flex-grow: 1;
+            flex-basis: 57%;
+            align-self: center;
+        }
+
+        .select-wrapper,
+        input {
+            flex-basis: 40%;
+            align-self: center;
+        }
+
+        &:hover {
+            background-color: var(--color-ctl-muted);
+            cursor: pointer;
+
+            .form-label-text {
+                color: var(--color-light);
+            }
+
+            select { background-color: var(--control-bg); }
+            select:hover { background-color: var(--control-bg-hover); }
+        }
+    }
+
+    // menus
+    .vip-menu {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-block-small);
+
+        + .vip-menu:not(.vip-menu-sub) { margin-top: var(--spacing2); }
+
+        > menu {
+            margin: 0;
+            padding: 0;
+        }
+
+        > h3 {
+            margin: 0;
+            line-height: 1;
+            text-align: center;
+        }
+
+        > p {
+            margin: 0 var(--spacing2) 0;
+            line-height: 1.2;
+
+            &.is-centered {
+                flex-direction: column;
+                text-align: center;
+            }
+            &:last-child { margin-bottom: 0; }
+            &.is-dimmed { opacity: 0.5; }
+        }
+    }
+}

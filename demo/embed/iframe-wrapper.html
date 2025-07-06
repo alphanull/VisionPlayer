@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>VisionPlayer iframe embed example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+            body, body vision-player {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                aspect-ratio: auto !important;
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <script>
+
+            const queries = window.location.search.substring(1).split("&"),
+                  params = {}; // default fallback
+
+            for (var i = 0; i < queries.length; i += 1) {
+                temp = queries[i].split('=');
+                params[decodeURIComponent(temp[0])] = temp[1] ? decodeURIComponent(temp[1]) : undefined;
+            }
+
+            let mediaData = params.mediaData,
+                playerConfig = params.playerConfig;
+
+            if (params.mediaData) { try { mediaData = JSON.parse(params.mediaData); } catch (e) { } }
+            if (params.playerConfig) { try { playerConfig = JSON.parse(params.playerConfig); } catch (e) { } }
+
+            const script = document.createElement('script');
+            script.src = `../../dist/js/VisionPlayer${params.mode ? '.' + params.mode : ''}.min.js`;
+            script.onload = () => new VisionPlayer(document.body, mediaData, playerConfig);
+            document.head.appendChild(script);
+
+        </script>
+
+    </body>
+
+</html>

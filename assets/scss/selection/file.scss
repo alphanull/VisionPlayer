@@ -1,0 +1,55 @@
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .vip-file {
+        .icon.file {
+            @include icon-masked('player/file.svg', var(--vip-icon-height), var(--vip-icon-color));
+
+            display: block;
+
+            @include focusable;
+            &:hover { cursor: pointer; }
+        }
+    }
+
+    .vip-file-input {
+        @include is-hidden;
+
+        &:focus-visible + label {
+            outline: var(--control-focus-outline);
+        }
+    }
+
+    .vip-file-dropper {
+        @include transition('opacity');
+        @include ui-bg;
+        @include inset;
+
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 0;
+        opacity: 0;
+        pointer-events: none;
+
+        &.is-active {
+            pointer-events: all;
+        }
+
+        &.drag-over  {
+            z-index: 99;
+            opacity: 1;
+        }
+
+        .vip-file-dropper-icon {
+            @include icon-masked('player/file.svg', 12svh, var(--vip-icon-color));
+
+            margin-top: 1.5vh;
+        }
+    }
+}

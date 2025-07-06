@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>player / audio</title>
+    <g id="player-/-audio" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M20.0016036,2.88244629 L20,5 L20,16.4694366 L18,16.4694366 L18,7.45544629 L11,9.05044629 L11,18.3340759 L9,18.3340759 L9,5.42129517 L20.0016036,2.88244629 Z" id="Combined-Shape" fill="#000000"></path>
+        <ellipse id="Oval-Copy" fill="#000000" transform="translate(16.5054, 17) rotate(-13) translate(-16.5054, -17)" cx="16.5053864" cy="17" rx="3.55689798" ry="2.03251313"></ellipse>
+        <ellipse id="Oval-Copy-2" fill="#000000" transform="translate(7.0117, 19) rotate(-13) translate(-7.0117, -19)" cx="7.01165771" cy="19" rx="4.06502626" ry="2.03251313"></ellipse>
+    </g>
+</svg>

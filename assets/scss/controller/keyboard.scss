@@ -1,0 +1,86 @@
+/* stylelint-disable selector-class-pattern */
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .vip-keyboard-overlay {
+        @include transition('opacity');
+        @include inset;
+
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 20;
+        opacity: 0;
+        pointer-events: none;
+
+        .icon-bg {
+            @include ui-bg;
+            @include transition('transform');
+
+            display: none;
+            justify-content: center;
+            align-items: center;
+            width: 10vh;
+            width: 10vmin;
+            height: 10vh;
+            height: 10vmin;
+            margin: 0 var(--spacing-block);
+            border-radius: 50%;
+            transform: scale(0.6) translateX(0);
+
+            &.rewind,
+            &.forward {
+                width: 8vh;
+                width: 8vmin;
+                height: 8vh;
+                height: 8vmin;
+            }
+
+            &.rewind {
+                align-self: start;
+                transform: scale(0.6) translateX(50%);
+            }
+
+            &.forward {
+                align-self: end;
+                transform: scale(0.6) translateX(-50%);
+            }
+
+            > .icon {
+                position: absolute;
+                width: 6vh;
+                width: 6vmin;
+                height: 6vh;
+                height: 6vmin;
+
+                &.is-transparent { opacity: 0.5; }
+
+                &.forward { @include icon-masked('player/forward.svg', 100%, var(--vip-icon-color)); }
+                &.rewind { @include icon-masked('player/rewind.svg', 100%, var(--vip-icon-color)); }
+                &.volume { @include icon-masked('player/vol-full.svg', 100%, var(--vip-icon-color)); }
+                &.volume.is-half { @include icon-masked('player/vol-half.svg', 100%, var(--vip-icon-color)); }
+                &.volume.is-muted { @include icon-masked('player/vol-muted.svg', 100%, var(--vip-icon-color)); }
+                &.play { @include icon-masked('player/play.svg', 100%, var(--vip-icon-color)); margin-left: 0.3em; }
+                &.pause { @include icon-masked('player/pause.svg', 100%, var(--vip-icon-color)); }
+            }
+        }
+
+        &.is-visible {
+            opacity: 1;
+
+            .icon-bg,
+            .icon { transform: scale(1) translateX(0); }
+        }
+
+        &.keyVolumeDown .volume,
+        &.keyVolumeUp .volume { display: flex; }
+        &.keySeekBack .icon-bg.rewind { display: flex; }
+        &.keySeekForward .icon-bg.forward { display: flex; }
+        &.keyPlay .icon-bg.play { display: flex; }
+    }
+}

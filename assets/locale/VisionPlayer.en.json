@@ -1,0 +1,142 @@
+{
+    "en": {
+        "commands": {
+            "OK": "OK",
+            "cancel": "Cancel",
+            "reset": "Reset",
+            "play": "Play",
+            "pause": "Pause"
+        },
+        "misc": {
+            "audiovideo": "Audio & Video",
+            "audio": "Audio",
+            "auto": "Auto",
+            "chapter": "Chapter",
+            "isLive": "Live",
+            "error": "Error",
+            "fullscreen": "Fullscreen",
+            "language": "Language",
+            "languagesub": "Language & Subtitles",
+            "loop": "Loop",
+            "playbackrate": "Playbackrate",
+            "on": "On",
+            "off": "Off",
+            "quality": "Quality",
+            "settings": "Settings",
+            "scrubber": "Scrubber",
+            "subtitles": "Subtitles",
+            "unavailable": "Not available",
+            "unknownLang": "Unknown Language",
+            "time": "Time",
+            "video": "video",
+            "volume": "Volume",
+            "volumeSlider": "Volume Slider",
+            "uiScale": "UI Scale"
+        },
+        "time": {
+            "hour": "Hour",
+            "hour_plural": "Hours",
+            "minute": "Minute",
+            "minute_plural": "Minutes",
+            "second": "Second",
+            "second_plural": "Seconds"
+        },
+        "errors": {
+            "data": {
+                "header": "Error in media data",
+                "unknown": "There was an error while processing the player data",
+                "CONFIG_LOAD_ERROR": "The configuration file could not be loaded (the media might still be playable).",
+                "DATA_ERR_MEDIA_DATA_DENIED": "Media data could not be loaded.",
+                "DATA_ERR_MEDIA_NOT_FOUND": "There was no media data found.",
+                "DATA_ERR_STREAM_NOT_FOUND": "There was no stream specified in media data.",
+                "DATA_ERR_STREAM_NOT_PLAYABLE": "There was no playable stream found, probably the format is unsupported by this player.",
+                "DATA_ERR_INVALID_PLAYLIST_ITEM": "One or more items in the playlist could not be loaded and were skipped.",
+                "DATA_ERR_INVALID_INDEX": "Invalid playlist index."
+            },
+            "media": {
+                "header": "Media Error",
+                "aborted": "Playback was aborted.",
+                "alternateStreamHint": "Try choosing a different quality or language setting.",
+                "decodingError": "The selected media file could not be played and is possibly corrupted.",
+                "fileWithError": "File:",
+                "networkFailed": "The file could not be played due to a network error.",
+                "notFound": "The selected media file could not be found.",
+                "unknown": "An unknown error has occurred",
+                "unsupported": "The selected media file could not be found.",
+                "drmError": "There was a problem with the copy protection (DRM) of this media.",
+                "serverError": "The server could not be reached.",
+                "accessError": "The media could not be accessed."
+            },
+            "library": {
+                "header": "Library Error",
+                "dashLoadError": "The Dash.js library could not be loaded.",
+                "hlsLoadError": "The Hls.js library could not be loaded."
+            },
+            "supportMessage": ""
+        },
+        "airplay": {
+            "airplay": "AirPlay",
+            "available": "Use AirPlay",
+            "unavailable": "AirPlay not available"
+        },
+        "audioControls": {
+            "freqBand": "Frequency Band"
+        },
+        "chapter": {
+            "next": "Next Chapter",
+            "prev": "Previous Chapter"
+        },
+        "chromecast": {
+            "chromecast": "Chromecast",
+            "available": "Use Chromecast",
+            "unavailable": "Chromecast not available",
+            "connected": "Connected to ",
+            "device": "remote device",
+            "cancel": "Stop Casting",
+            "play": "Resume Casting",
+            "pause": "Pause Casting",
+            "choose": "Choose device ...",
+            "isPaused": "Casting is paused",
+            "isPlaying": "Casting is active",
+            "isBuffering": "Buffering ...",
+            "castError": "Could not connect to device"
+        },
+        "file": {
+            "select": "Select File(s)",
+            "drop": "Drop file(s) here to play",
+            "unsupported": "This file cannot be played"
+        },
+        "pip": {
+            "title": "Picture in Picture",
+            "placeholder": "This video is currently playing in Picture-in-Picture mode.",
+            "cancel": "Close Picture in Picture"
+        },
+        "playlist": {
+            "playlist": "Playlist",
+            "open": "Open Playlist",
+            "prev": "Previous Title",
+            "next": "Next Title",
+            "loop": "Loop Playlist",
+            "shuffle": "Shuffle playback",
+            "continuous": "Continuous playback"
+        },
+        "subtitles": {
+            "fontSize": "Font Size",
+            "fontSize_big": "Large font",
+            "fontSize_medium": "Medium font",
+            "fontSize_small": "Small font",
+            "header": "Subtitles"
+        },
+        "videoControls": {
+            "brightness": "Brightness",
+            "contrast": "Contrast",
+            "saturate": "Saturation",
+            "sharpen": "Sharpen",
+            "hue": "Hue"
+        },
+        "visualizerAmbient": {
+            "header": "Background Illumination",
+            "slider": "Adjust Intensity"
+        }
+    }
+}

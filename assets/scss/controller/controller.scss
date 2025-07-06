@@ -1,0 +1,123 @@
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .vip-controller {
+        position: absolute;
+        z-index: 20;
+        overflow: hidden;
+        width: calc(100% - var(--vip-controller-viewport-distance) * 2);
+        min-width: 12em;
+        max-width: var(--vip-controller-max-width);
+        right: var(--vip-controller-viewport-distance);
+        bottom: var(--vip-controller-viewport-distance);
+        left: var(--vip-controller-viewport-distance);
+        margin-left: auto;
+        margin-right: auto;
+        touch-action: none;
+
+        @include print { display: none; }
+
+        &:hover { cursor: auto; }
+
+        .vip-controller-inner {
+            @include ui-bg;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: var(--spacing-block-small);
+            width: 100%;
+            padding: var(--spacing-block-small);
+            border-radius: var(--border-radius);
+            background: var(--vip-controller-bg);
+            justify-self: center;
+        }
+
+        .vip-controller-buttons {
+            @include transition('transform');
+
+            position: relative;
+            display: flex;
+            order: 10;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-block-small);
+            transform: translate(0, 0);
+            transition-duration: 0.4s;
+            transition-delay: 0s;
+        }
+
+        .vip-controller-buttons-left,
+        .vip-controller-buttons-center,
+        .vip-controller-buttons-right {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-block-small);
+        }
+
+        .vip-controller-buttons-center {
+            flex-grow: 99;
+            flex-shrink: 1;
+        }
+
+        .vip-controller-buttons-right,
+        .vip-controller-buttons-left {
+            flex-shrink: 0;
+        }
+
+        .vip-controller-top,
+        .vip-controller-buttons {
+            &:empty { display: none; }
+        }
+
+        &.is-hidden .vip-controller-inner {
+            opacity: 0;
+            transform: translate(0, 130%);
+            transition-delay: 0.2s;
+
+            .vip-controller-buttons {
+                transform: translate(0, 6em);
+                transition-duration: 0.3s;
+                transition-delay: 0s;
+            }
+        }
+    }
+
+    &.layout-controller-only .vip-controller {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: inherit;
+        right: auto;
+        bottom: auto;
+        left: auto;
+
+        .vip-controller-inner { width: 100%; }
+
+        &.is-hidden {
+            opacity: 1;
+            transform: translate(0, 0);
+
+            .vip-controller-buttons {
+                transform: translate(0, 0);
+            }
+        }
+    }
+
+    &.width-low .vip-controller-top:not(:empty) + .vip-controller-buttons > .vip-controller-buttons-center {
+        display: none;
+    }
+
+    &:not(.layout-controller-only).width-low .vip-controller,
+    &:not(.layout-controller-only).width-med .vip-controller {
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        .vip-controller-inner { border-radius: 0; }
+    }
+}

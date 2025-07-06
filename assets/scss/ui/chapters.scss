@@ -1,0 +1,86 @@
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .vip-chapter-scrubber {
+        @include inset;
+
+        position: absolute;
+    }
+
+    .vip-chapter-scrubber-item {
+        position: absolute;
+        z-index: 5;
+        box-sizing: border-box;
+        height: 100%;
+        opacity: 0.7;
+
+        &:not(:first-child) {
+            border-left: em(2) solid var(--color-1st);
+        }
+    }
+
+    .vip-chapter-scrubber-item-inner {
+        @include transition('opacity');
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: var(--color-1st);
+        opacity: 0;
+    }
+
+    @media (hover: hover) {
+        .vip-chapter-scrubber-item:hover > .vip-chapter-scrubber-item-inner {
+            opacity: 0.4;
+        }
+    }
+
+    .vip-chapter-controller {
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 6;
+        align-items: center;
+        gap: var(--spacing2);
+        min-width: 0;
+        font-size: var(--vip-font-size-controller);
+    }
+
+    .vip-chapter-controller.is-hidden,
+    &.width-med .vip-chapter-controller,
+    &.width-low .vip-chapter-controller {
+        display: none;
+    }
+
+    .vip-chapter-controller-text {
+        flex-grow: 1;
+        flex-shrink: 1;
+        width: 0;
+        min-width: 0;
+    }
+
+    .vip-chapter-controller-text-inner { @include text-ellipsis; }
+
+    .vip-chapter-controller-nav {
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-top: em(-2);
+        font-size: 0.55em;
+        .icon.prev { @include icon-masked('player/prev.svg', var(--vip-icon-width-small), var(--vip-icon-color)); }
+        .icon.next { @include icon-masked('player/next.svg', var(--vip-icon-width-small), var(--vip-icon-color)); }
+    }
+
+    .vip-chapter-tooltip {
+        @include text-ellipsis;
+
+        order: 3;
+        line-height: 1;
+        text-align: center;
+
+        + .vip-scrubber-tooltip-thumb {
+            margin-bottom: var(--spacing1);
+        }
+    }
+}

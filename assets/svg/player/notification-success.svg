@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>player / notification-success</title>
+    <defs>
+        <polygon id="path-1" points="0 0 41.9996 0 41.9996 41.9996 0 41.9996"></polygon>
+    </defs>
+    <g id="player-/-notification-success" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.404761905">
+        <g id="Group-3" transform="translate(3, 3)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Clip-2"></g>
+            <path d="M34.9756,16.6836 L20.0586,31.6006 C19.3746,32.2846 18.4786,32.6256 17.5826,32.6256 C16.6876,32.6256 15.7916,32.2846 15.1086,31.6006 L7.6506,24.1426 C6.2836,22.7756 6.2836,20.5596 7.6506,19.1926 C9.0176,17.8266 11.2336,17.8266 12.6006,19.1926 L17.5826,24.1756 L30.0256,11.7336 C31.3926,10.3676 33.6086,10.3676 34.9756,11.7336 C36.3416,13.1006 36.3416,15.3166 34.9756,16.6836 M20.9996,-0.0004 C9.3976,-0.0004 -0.0004,9.3976 -0.0004,20.9996 C-0.0004,32.6016 9.3976,41.9996 20.9996,41.9996 C32.6016,41.9996 41.9996,32.6016 41.9996,20.9996 C41.9996,9.3976 32.6016,-0.0004 20.9996,-0.0004" id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)"></path>
+        </g>
+    </g>
+</svg>

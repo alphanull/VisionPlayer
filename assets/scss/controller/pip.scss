@@ -1,0 +1,52 @@
+@use '../lib/mixins' as *;
+@use '../core/mixins' as *;
+@use '../core/vars' as *;
+
+vision-player {
+
+    .vip-pip {
+        @include transition('opacity');
+        @include ui-bg;
+
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        min-width: 20em;
+        top: 48%;
+        left: 50%;
+        padding: var(--spacing-block);
+        border-radius: var(--border-radius);
+        text-align: center;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+
+        .vip-pip-bg {
+            @include icon-masked('player/pip-bg.svg', 11vmin, var(--color-contrast5));
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-block);
+            width: 100%;
+            margin-bottom: var(--spacing-block);
+
+            p {
+                max-width: 15em;
+                text-align: left;
+            }
+        }
+    }
+
+    &.is-rtl .vip-pip {
+        direction: rtl;
+    }
+
+    &.is-pip .vip-pip {
+        opacity: 1;
+        pointer-events: all;
+    }
+}

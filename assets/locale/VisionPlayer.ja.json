@@ -1,0 +1,142 @@
+{
+    "ja": {
+        "commands": {
+            "OK": "OK",
+            "cancel": "キャンセル",
+            "reset": "リセット",
+            "play": "再生",
+            "pause": "一時停止"
+        },
+        "misc": {
+            "audiovideo": "オーディオ & ビデオ",
+            "audio": "オーディオ",
+            "auto": "自動",
+            "chapter": "チャプタ",
+            "isLive": "ライブ",
+            "error": "エラー",
+            "fullscreen": "全画面",
+            "language": "言語",
+            "languagesub": "言語と字幕",
+            "loop": "ループ",
+            "playbackrate": "再生速度",
+            "on": "オン",
+            "off": "オフ",
+            "quality": "品質",
+            "scrubber": "シークバー",
+            "settings": "設定",
+            "subtitles": "字幕",
+            "unavailable": "利用不可",
+            "unknownLang": "不明",
+            "time": "時間",
+            "video": "ビデオ",
+            "volume": "音量",
+            "volumeSlider": "音量調整",
+            "uiScale": "UI スケール"
+        },
+        "time": {
+            "hour": "時間",
+            "hour_plural": "時間",
+            "minute": "分",
+            "minute_plural": "分",
+            "second": "秒",
+            "second_plural": "秒"
+        },
+        "errors": {
+            "data": {
+                "header": "メディアデータエラー",
+                "unknown": "プレーヤーデータの処理中にエラーが発生しました",
+                "CONFIG_LOAD_ERROR": "設定ファイルを読み込めませんでした（メディアは再生できる可能性があります）。",
+                "DATA_ERR_MEDIA_DATA_DENIED": "メディアデータを読み込めませんでした。",
+                "DATA_ERR_MEDIA_NOT_FOUND": "メディアデータが見つかりません。",
+                "DATA_ERR_STREAM_NOT_FOUND": "メディアデータにストリームが指定されていません。",
+                "DATA_ERR_STREAM_NOT_PLAYABLE": "再生可能なストリームが見つかりません。形式がサポートされていない可能性があります。",
+                "DATA_ERR_INVALID_PLAYLIST_ITEM": "プレイリスト内の1つ以上の項目が読み込めず、スキップされました。",
+                "DATA_ERR_INVALID_INDEX": "無効なプレイリストインデックスです."
+            },
+            "media": {
+                "header": "メディアエラー",
+                "aborted": "再生が中止されました。",
+                "alternateStreamHint": "別の品質または言語設定を試してください。",
+                "decodingError": "選択したメディアファイルを再生できません。ファイルが破損している可能性があります。",
+                "fileWithError": "ファイル：",
+                "networkFailed": "ネットワークエラーのためファイルを再生できません。",
+                "notFound": "選択したメディアファイルが見つかりません。",
+                "unknown": "不明なエラーが発生しました",
+                "unsupported": "選択したメディアファイルはサポートされていません。",
+                "drmError": "このメディアのDRMに問題があります。",
+                "serverError": "サーバーに接続できません。",
+                "accessError": "メディアにアクセスできません。"
+            },
+            "library": {
+                "header": "ライブラリエラー",
+                "dashLoadError": "Dash.js ライブラリを読み込めませんでした。",
+                "hlsLoadError": "Hls.js ライブラリを読み込めませんでした."
+            },
+            "supportMessage": ""
+        },
+        "airplay": {
+            "airplay": "AirPlay",
+            "available": "AirPlayを使用",
+            "unavailable": "AirPlayは利用できません"
+        },
+        "audioControls": {
+            "freqBand": "周波数帯"
+        },
+        "chapter": {
+            "next": "次の章",
+            "prev": "前の章"
+        },
+        "chromecast": {
+            "chromecast": "Chromecast",
+            "available": "Chromecastを使用",
+            "unavailable": "Chromecastは利用できません",
+            "connected": "接続先 ",
+            "device": "リモートデバイス",
+            "choose": "デバイスを選択…",
+            "pause": "キャストを一時停止",
+            "play": "キャストを再開",
+            "cancel": "キャストを停止",
+            "isPaused": "キャストは一時停止中",
+            "isPlaying": "キャスト中",
+            "isBuffering": "バッファリング…",
+            "castError": "デバイスに接続できませんでした"
+        },
+        "file": {
+            "select": "ファイルを選択",
+            "drop": "ここにファイルをドロップ",
+            "unsupported": "サポートされていないファイル形式"
+        },
+        "pip": {
+            "title": "ピクチャインピクチャ",
+            "placeholder": "表示するビデオがありません",
+            "cancel": "PiPを閉じる"
+        },
+        "playlist": {
+            "playlist": "プレイリスト",
+            "open": "リストを開く",
+            "prev": "前のタイトル",
+            "next": "次のタイトル",
+            "loop": "リストをループ",
+            "shuffle": "シャッフル再生",
+            "continuous": "連続再生"
+        },
+        "subtitles": {
+            "fontSize": "フォントサイズ",
+            "fontSize_big": "大きいフォント",
+            "fontSize_medium": "中フォント",
+            "fontSize_small": "小フォント",
+            "header": "字幕"
+        },
+        "videoControls": {
+            "brightness": "明るさ",
+            "contrast": "コントラスト",
+            "saturate": "彩度",
+            "sharpen": "シャープ",
+            "hue": "色相"
+        },
+        "visualizerAmbient": {
+            "header": "バックライト",
+            "slider": "明るさを調整"
+        }
+    }
+}

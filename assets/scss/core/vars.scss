@@ -1,0 +1,182 @@
+/* stylelint-disable @stylistic/declaration-colon-space-after, @stylistic/number-no-trailing-zeros, @stylistic/max-line-length, custom-property-empty-line-before */
+
+@use '../lib/mixins' as *;
+@use 'sass:math';
+
+@mixin vars {
+
+    --color-neutral-hue: 339;
+    --color-neutral-saturation: 0%;
+
+    --color-1st-hue: 339;
+    --color-1st-saturation: 100%;
+    --color-1st-lightness: 50%;
+
+    --color-2nd-hue: 211;
+    --color-2nd-saturation: 70%;
+    --color-2nd-lightness: 35%;
+
+    --color-contrast1:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 100%);
+    --color-contrast2:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 90%);
+    --color-contrast3:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 85%);
+    --color-contrast4:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 65%);
+    --color-contrast5:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 50%);
+    --color-contrast6:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 40%);
+    --color-contrast7:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 30%);
+    --color-contrast8:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 20%);
+    --color-contrast9:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 10%);
+
+    --color-1st:        hsl(var(--color-1st-hue), var(--color-1st-saturation), var(--color-1st-lightness));
+    --color-1st-muted:  hsl(var(--color-1st-hue), calc(var(--color-1st-saturation) - 40%), calc(var(--color-1st-lightness) - 10%));
+    --color-2nd:        hsl(var(--color-2nd-hue), var(--color-2nd-saturation), var(--color-2nd-lightness));
+    --color-2nd-muted:  hsl(var(--color-2nd-hue), calc(var(--color-2nd-saturation) - 30%), calc(var(--color-2nd-lightness) - 10%));
+    --color-bg:         hsla(var(--color-neutral-hue), var(--color-neutral-saturation), 92%, 0.95);
+    --color-headline:   var(--color-contrast7);
+    --color-text:       var(--color-contrast9);
+    --color-light:      var(--color-contrast1);
+    --color-dark:       var(--color-contrast9);
+    --color-ctl:        var(--color-1st);
+    --color-ctl-muted:  var(--color-1st-muted);
+    --color-info:       var(--color-2nd);
+    --color-error:      #BF0043;
+    --color-success:    #00bd75;
+    --color-highlight:  var(--color-2nd-muted);
+
+    --spacing:             var(--spacing3);
+    --spacing-block:       var(--spacing6);
+    --spacing-block-small: clamp(0.5em, 0.3em + 0.7vw, 0.8em);
+
+    --spacing1:   0.2em;
+    --spacing2:   0.4em;
+    --spacing3:   0.7em;
+    --spacing4:   1em;
+    --spacing5:   1.3em;
+    --spacing6:   clamp(1.2em, 0.5em + 1vw, 1.5em);
+    --spacing7:   clamp(2em, 3vw, 4em);
+    --spacing8:   clamp(5em, 5.25em + ((1vw - 0.48em) * 9.1), 8em);
+
+    --font-family-normal: inherit; /* stylelint-disable-line value-keyword-case */
+    --font-family-bold: inherit; /* stylelint-disable-line value-keyword-case */
+
+    --font-weight-normal: 400;
+    --font-weight-bold: 600;
+    --font-weight-mono-normal: 400;
+    --font-weight-mono-bold: 600;
+
+    --border-radius: 0.3em;
+    --border-radius-small: 0.1em;
+    --border-radius-big: 1em;
+    --border-style: solid;
+    --border-width: clamp(#{em(1)}, 1vw, #{em(2)});
+
+    --link-color: var(--color-1st);
+    --link-color-hover: var(--color-light);
+    --link-color-active: var(--link-color-hover);
+    --link-color-focus: var(--link-color-hover);
+
+    --link-bg: transparent;
+    --link-bg-hover: var(--color-1st);
+    --link-bg-active: var(--color-1st-muted);
+    --link-bg-focus: var(--link-bg-hover);
+
+    --control-height: 2.1em;
+    --control-radio-size: 1.4em;
+    --control-range-size: 1.2em;
+
+    --control-padding-top: var(--spacing1);
+    --control-padding-bottom: var(--spacing1);
+    --control-padding-left: var(--spacing3);
+    --control-padding-right: var(--spacing3);
+
+    --control-border-color: transparent;
+    --control-border-width: var(--border-width);
+    --control-border-style: var(--border-style);
+    --control-border-radius: var(--border-radius);
+
+    --control-color: var(--color-text);
+    --control-color-hover: var(--color-light);
+    --control-color-active: var(--color-light);
+    --control-color-focus: var(--color-light);
+    --control-color-error: var(--color-error);
+
+    --control-bg: var(--color-contrast1);
+    --control-bg-hover: var(--color-ctl);
+    --control-bg-active: var(--color-ctl);
+    --control-bg-focus: var(--color-ctl);
+
+    --control-focus-outline: #{em(2)} solid var(--color-ctl);
+
+    --button-padding-top: var(--control-padding-top);
+    --button-padding-bottom: var(--control-padding-bottom);
+    --button-padding-left: var(--control-padding-left);
+    --button-padding-right: var(--control-padding-right);
+
+    --button-border-color: transparent;
+    --button-border-width: var(--border-width);
+    --button-border-style: var(--border-style);
+    --button-border-radius: var(--border-radius);
+
+    --button-color: var(--color-text);
+    --button-color-hover: var(--color-light);
+    --button-color-active: var(--color-light);
+    --button-color-focus: var(--color-light);
+
+    --button-bg: var(--color-contrast1);
+    --button-bg-hover: var(--color-ctl);
+    --button-bg-active: var(--color-1st-muted);
+    --button-bg-focus: var(--color-ctl);
+
+    --transition-duration: 0.3s;
+    --transition-duration-long: 1s;
+    --transition-duration-short: 0.15s;
+
+    --overlay-bg:             hsla(var(--color-neutral-hue), var(--color-neutral-saturation), 90%, 0.97);
+    --overlay-shadow:         0 0 1.2em rgba(0, 0, 0, 0.6);
+
+    --popup-padding:          clamp(0.2em, 0.2em + 0.5vw, 0.8em);
+    --popup-content-bg:       var(--overlay-bg);
+    --popup-dimmer-bg:        transparent;
+    --popup-shadow:           var(--overlay-shadow);
+    --popup-pointer-shadow:   0 0 0.6em rgba(0, 0, 0, 0.4);
+
+    --tooltip-padding:        var(--spacing-block-small);
+    --tooltip-shadow:         var(--overlay-shadow);
+    --tooltip-pointer-shadow: var(--popup-pointer-shadow);
+    --tooltip-bg:             var(--overlay-bg);
+    --tooltip-pointer-bg:     var(--overlay-bg);
+    --tooltip-border-radius:  var(--border-radius);
+
+    --icon-color: var(--color-contrast9);
+
+    --backdrop-filter: none;
+}
+
+/* Dark Mode */
+
+@mixin vars-dark {
+    --color-contrast1:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 10%);
+    --color-contrast2:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 20%);
+    --color-contrast3:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 30%);
+    --color-contrast4:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 45%);
+    --color-contrast5:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 60%);
+    --color-contrast6:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 70%);
+    --color-contrast7:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 80%);
+    --color-contrast8:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 90%);
+    --color-contrast9:  hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 100%);
+
+    --color-1st:        hsl(var(--color-1st-hue), calc(var(--color-1st-saturation)), calc(var(--color-1st-lightness)));
+    --color-1st-muted:  hsl(var(--color-1st-hue), calc(var(--color-1st-saturation) - 50%), calc(var(--color-1st-lightness) - 20%));
+    --color-2nd:        hsl(var(--color-2nd-hue), var(--color-2nd-saturation), calc(var(--color-2nd-lightness) + 20%));
+    --color-2nd-muted:  hsl(var(--color-2nd-hue), calc(var(--color-2nd-saturation) - 20%), calc(var(--color-2nd-lightness) - 10%));
+    --color-bg:         hsla(var(--color-neutral-hue), var(--color-neutral-saturation), 10%, 0.95);
+    --color-headline:   var(--color-contrast7);
+    --color-text:       hsl(var(--color-neutral-hue), var(--color-neutral-saturation), 95%);
+    --color-code-bg:    hsl(var(--color-3rd-hue), var(--color-3rd-saturation), calc(var(--color-3rd-lightness) - 35%));
+    --color-light:      var(--color-contrast9);
+    --color-ctl:        var(--color-1st);
+    --color-ctl-muted:  var(--color-1st-muted);
+
+    --overlay-shadow:   0 0 1.4em rgba(0, 0, 0, 1);
+    --overlay-bg:      hsla(var(--color-neutral-hue), var(--color-neutral-saturation), 17%, 0.97);
+    --popup-pointer-shadow:   0 0 0.6em rgba(0, 0, 0, 0.8);
+}

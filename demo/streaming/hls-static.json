@@ -1,0 +1,27 @@
+{
+    "title": "HLS Tests",
+    "titleSecondary": "Various HLS Test Streams",
+
+    "media": [
+        {
+            "title": "Sintel",
+            "src": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+            "poster": "https://visionplayer.io/media/posters/sintel-poster.jpg"
+        },
+        {
+            "title": "Skate Phantom Flex",
+            "src": "https://sample.vodobox.net/skate_phantom_flex_4k/skate_phantom_flex_4k.m3u8",
+            "poster": "https://visionplayer.io/media/posters/skate-poster.jpg"
+        },
+        {
+            "title": "Tears of Steel",
+            "src": "https://content.jwplatform.com/manifests/vM7nH0Kl.m3u8",
+            "poster": "https://visionplayer.io/media/posters/steel-poster.jpg"
+        },
+        {
+            "title": "Big Buck Bunny",
+            "src": " https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+            "poster": "https://visionplayer.io/media/posters/bucks-poster.jpg"
+        }
+    ]
+}

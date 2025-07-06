@@ -1,0 +1,13 @@
+Font License Information
+
+Font Name: Baloo2
+Source: Downloaded via Google Web Fonts Helper (https://gwfh.mranftl.com/fonts)
+Original Source: Google Fonts (https://fonts.google.com/)
+
+License: SIL Open Font License 1.1 (OFL)
+License URL: https://scripts.sil.org/OFL
+
+Summary:
+- This font is licensed under the SIL Open Font License (OFL).
+- It may be used freely, modified, and distributed, as long as it is not sold by itself.
+- When redistributed, the license file must be included.

@@ -1,0 +1,107 @@
+{
+    "title": "DRM Tests",
+    "media": [
+        {
+            "title": "Multi DRM Demo 1",
+            "titleSecondary": "(FairPlay HLS, Widevine & PlayReady DASH)",
+
+            "variants": [
+                {
+                    "encodings": [
+                        {
+                            "src": "https://drm-contents.doverunner.com/DEMO/app/big_buck_bunny/hls/video/avc1/1/stream.m3u8",
+                            "drmSystem": "FairPlay"
+                        },
+                        {
+                            "src": "https://drm-contents.doverunner.com/DEMO/app/big_buck_bunny/dash/stream.mpd",
+                            "drmSystem": "PlayReady"
+                        },
+                        {
+                            "src": "https://drm-contents.doverunner.com/DEMO/app/big_buck_bunny/dash/stream.mpd",
+                            "drmSystem": "Widevine"
+                        }
+                    ]
+                }
+            ],
+
+            "drm": {
+                "Widevine": {
+                    "licenseUrl": "https://license-global.pallycon.com/ri/licenseManager.do",
+                    "header": {
+                        "pallycon-customdata-v2": "eyJrZXlfcm90YXRpb24iOmZhbHNlLCJyZXNwb25zZV9mb3JtYXQiOiJvcmlnaW5hbCIsInVzZXJfaWQiOiJkZXZjb25zb2xlLXVzZXIiLCJkcm1fdHlwZSI6IldpZGV2aW5lIiwic2l0ZV9pZCI6IkRFTU8iLCJoYXNoIjoiOE5uR1NjbjQ3VjZ2em96aFFnbzI4cmpYdDNxM3h6c1ZZUENwcE5nSVM3WT0iLCJjaWQiOiJkZW1vLWJiYi1zaW1wbGUiLCJwb2xpY3kiOiI5V3FJV2tkaHB4VkdLOFBTSVljbkpzY3Z1QTlzeGd1YkxzZCthanUvYm9tUVpQYnFJK3hhZVlmUW9jY2t2dUVmeERjY203Y1dkVlhxcmRNZ0FRam1xWjlvN1hMRnoyME5obUp2SWl3UWJ1aEtoK0MyZklITDlPdTFTT0FzaFBTQVZkeGFZVUpKcmxaNVUxdTVQY2VyMTQ1WkJzN2dzdlFzSWxsOUZUdldqdDdtaFo4cnd6N3JtU1hxREF0R2phNGxiZWtSeC9ackVseHZCYVl1dGFhb3VZSElqZDZWaUVlV2RFaUcySFdFSDBnM3FtS2FtUG1KdlVJbjdLVTg2a1A0IiwidGltZXN0YW1wIjoiMjAyNS0wNS0wOVQxOTo0MjowM1oifQ=="
+                    }
+                },
+                "PlayReady": {
+                    "licenseUrl": "https://license-global.pallycon.com/ri/licenseManager.do",
+                    "header": {
+                        "pallycon-customdata-v2": "eyJrZXlfcm90YXRpb24iOmZhbHNlLCJyZXNwb25zZV9mb3JtYXQiOiJvcmlnaW5hbCIsInVzZXJfaWQiOiJkZXZjb25zb2xlLXVzZXIiLCJkcm1fdHlwZSI6IldpZGV2aW5lIiwic2l0ZV9pZCI6IkRFTU8iLCJoYXNoIjoiOE5uR1NjbjQ3VjZ2em96aFFnbzI4cmpYdDNxM3h6c1ZZUENwcE5nSVM3WT0iLCJjaWQiOiJkZW1vLWJiYi1zaW1wbGUiLCJwb2xpY3kiOiI5V3FJV2tkaHB4VkdLOFBTSVljbkpzY3Z1QTlzeGd1YkxzZCthanUvYm9tUVpQYnFJK3hhZVlmUW9jY2t2dUVmeERjY203Y1dkVlhxcmRNZ0FRam1xWjlvN1hMRnoyME5obUp2SWl3UWJ1aEtoK0MyZklITDlPdTFTT0FzaFBTQVZkeGFZVUpKcmxaNVUxdTVQY2VyMTQ1WkJzN2dzdlFzSWxsOUZUdldqdDdtaFo4cnd6N3JtU1hxREF0R2phNGxiZWtSeC9ackVseHZCYVl1dGFhb3VZSElqZDZWaUVlV2RFaUcySFdFSDBnM3FtS2FtUG1KdlVJbjdLVTg2a1A0IiwidGltZXN0YW1wIjoiMjAyNS0wNS0wOVQxOTo0MjowM1oifQ=="
+                    }
+                },
+                "FairPlay": {
+                    "certificateUrl": "https://license-global.pallycon.com/ri/fpsKeyManager.do?siteId=DEMO",
+                    "licenseUrl": "https://license.pallycon.com/ri/licenseManager.do",
+                    "header": {
+                        "pallycon-customdata-v2": "eyJrZXlfcm90YXRpb24iOmZhbHNlLCJyZXNwb25zZV9mb3JtYXQiOiJvcmlnaW5hbCIsInVzZXJfaWQiOiJkZXZjb25zb2xlLXVzZXIiLCJkcm1fdHlwZSI6IkZhaXJQbGF5Iiwic2l0ZV9pZCI6IkRFTU8iLCJoYXNoIjoiZGJZZUV3YlY0ZEhMQU1XUDlvRGdvc2k5d21Xek9zbTdOem95OHN4YndVST0iLCJjaWQiOiJkZW1vLWJiYi1zaW1wbGUiLCJwb2xpY3kiOiI5V3FJV2tkaHB4VkdLOFBTSVljbkpzY3Z1QTlzeGd1YkxzZCthanUvYm9tUVpQYnFJK3hhZVlmUW9jY2t2dUVmeERjY203Y1dkVlhxcmRNZ0FRam1xWjlvN1hMRnoyME5obUp2SWl3UWJ1aEtoK0MyZklITDlPdTFTT0FzaFBTQVZkeGFZVUpKcmxaNVUxdTVQY2VyMTQ1WkJzN2dzdlFzSWxsOUZUdldqdDdtaFo4cnd6N3JtU1hxREF0R2phNGxiZWtSeC9ackVseHZCYVl1dGFhb3VZSElqZDZWaUVlV2RFaUcySFdFSDBnM3FtS2FtUG1KdlVJbjdLVTg2a1A0IiwidGltZXN0YW1wIjoiMjAyNS0wNS0wOVQyMDo0MzozNFoifQ=="
+                    }
+                }
+            }
+        },
+        {
+
+            "title": "Multi DRM Demo 2",
+            "titleSecondary": "(FairPlay HLS, Widevine & PlayReady DASH)",
+
+            "variants": [
+                {
+                    "src": "https://media.axprod.net/TestVectors/v9-MultiFormat/Encrypted_Cbcs/Manifest.mpd",
+                    "drmSystem": "Widevine"
+                },
+                {
+                    "src": "https://media.axprod.net/TestVectors/v9-MultiFormat/Encrypted_Cbcs/Manifest.mpd",
+                    "drmSystem": "PlayReady"
+                },
+                {
+                    "src": "https://media.axprod.net/TestVectors/v9-MultiFormat/Encrypted_Cbcs/Manifest.m3u8",
+                    "drmSystem": "FairPlay"
+                }
+            ],
+
+            "drm": {
+                "Widevine": {
+                    "licenseUrl": "https://drm-widevine-licensing.axtest.net/AcquireLicense",
+                    "header": {
+                        "X-AxDRM-Message": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoxLCJjb21fa2V5X2lkIjoiNjllNTQwODgtZTllMC00NTMwLThjMWEtMWViNmRjZDBkMTRlIiwibWVzc2FnZSI6eyJ0eXBlIjoiZW50aXRsZW1lbnRfbWVzc2FnZSIsInZlcnNpb24iOjIsImxpY2Vuc2UiOnsiYWxsb3dfcGVyc2lzdGVuY2UiOnRydWV9LCJjb250ZW50X2tleXNfc291cmNlIjp7ImlubGluZSI6W3siaWQiOiJmOGM4MGMyNS02OTBmLTQ3MzYtODEzMi00MzBlNWM2OTk0Y2UiLCJlbmNyeXB0ZWRfa2V5IjoiaVhxNDlaODlzOGRDajBqbTJBN1h6UT09IiwidXNhZ2VfcG9saWN5IjoiUG9saWN5IEEifV19LCJjb250ZW50X2tleV91c2FnZV9wb2xpY2llcyI6W3sibmFtZSI6IlBvbGljeSBBIiwicGxheXJlYWR5Ijp7Im1pbl9kZXZpY2Vfc2VjdXJpdHlfbGV2ZWwiOjE1MCwicGxheV9lbmFibGVycyI6WyI3ODY2MjdEOC1DMkE2LTQ0QkUtOEY4OC0wOEFFMjU1QjAxQTciXX19XX19.k9OlwW0rUwuf5d5Eb0iO98AFR3qp7qKdFzSbg2PQj78"
+                    }
+                },
+                "PlayReady": {
+                    "licenseUrl": "https://drm-playready-licensing.axtest.net/AcquireLicense",
+                    "header": {
+                        "X-AxDRM-Message": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoxLCJjb21fa2V5X2lkIjoiNjllNTQwODgtZTllMC00NTMwLThjMWEtMWViNmRjZDBkMTRlIiwibWVzc2FnZSI6eyJ0eXBlIjoiZW50aXRsZW1lbnRfbWVzc2FnZSIsInZlcnNpb24iOjIsImxpY2Vuc2UiOnsiYWxsb3dfcGVyc2lzdGVuY2UiOnRydWV9LCJjb250ZW50X2tleXNfc291cmNlIjp7ImlubGluZSI6W3siaWQiOiJmOGM4MGMyNS02OTBmLTQ3MzYtODEzMi00MzBlNWM2OTk0Y2UiLCJlbmNyeXB0ZWRfa2V5IjoiaVhxNDlaODlzOGRDajBqbTJBN1h6UT09IiwidXNhZ2VfcG9saWN5IjoiUG9saWN5IEEifV19LCJjb250ZW50X2tleV91c2FnZV9wb2xpY2llcyI6W3sibmFtZSI6IlBvbGljeSBBIiwicGxheXJlYWR5Ijp7Im1pbl9kZXZpY2Vfc2VjdXJpdHlfbGV2ZWwiOjE1MCwicGxheV9lbmFibGVycyI6WyI3ODY2MjdEOC1DMkE2LTQ0QkUtOEY4OC0wOEFFMjU1QjAxQTciXX19XX19.k9OlwW0rUwuf5d5Eb0iO98AFR3qp7qKdFzSbg2PQj78"
+                    }
+                },
+                "FairPlay": {
+                    "certificateUrl": "https://vtb.axinom.com/FPScert/fairplay.cer",
+                    "licenseUrl": "https://drm-fairplay-licensing.axprod.net/AcquireLicense",
+                    "header": {
+                        "X-AxDRM-Message": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoxLCJjb21fa2V5X2lkIjoiNjllNTQwODgtZTllMC00NTMwLThjMWEtMWViNmRjZDBkMTRlIiwibWVzc2FnZSI6eyJ0eXBlIjoiZW50aXRsZW1lbnRfbWVzc2FnZSIsInZlcnNpb24iOjIsImxpY2Vuc2UiOnsiYWxsb3dfcGVyc2lzdGVuY2UiOnRydWV9LCJjb250ZW50X2tleXNfc291cmNlIjp7ImlubGluZSI6W3siaWQiOiJmOGM4MGMyNS02OTBmLTQ3MzYtODEzMi00MzBlNWM2OTk0Y2UiLCJlbmNyeXB0ZWRfa2V5IjoiaVhxNDlaODlzOGRDajBqbTJBN1h6UT09IiwidXNhZ2VfcG9saWN5IjoiUG9saWN5IEEifV19LCJjb250ZW50X2tleV91c2FnZV9wb2xpY2llcyI6W3sibmFtZSI6IlBvbGljeSBBIiwicGxheXJlYWR5Ijp7Im1pbl9kZXZpY2Vfc2VjdXJpdHlfbGV2ZWwiOjE1MCwicGxheV9lbmFibGVycyI6WyI3ODY2MjdEOC1DMkE2LTQ0QkUtOEY4OC0wOEFFMjU1QjAxQTciXX19XX19.k9OlwW0rUwuf5d5Eb0iO98AFR3qp7qKdFzSbg2PQj78"
+                    }
+                }
+            }
+        },
+        {
+            "title": "DRM Demo",
+            "titleSecondary": "(Widevine HLS)",
+            "variants": [
+                {
+                    "src": "https://storage.googleapis.com/shaka-demo-assets/angel-one-widevine-hls/hls.m3u8",
+                    "drmSystem": "Widevine"
+                }
+            ],
+            "drm": {
+                "Widevine": {
+                    "licenseUrl": "https://cwip-shaka-proxy.appspot.com/no_auth"
+                }
+            }
+        }
+    ]
+}
