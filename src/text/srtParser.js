@@ -1,14 +1,11 @@
 /**
+ * Converts an SRT-formatted string to a WebVTT-formatted string.
  * @exports module:src/text/srtParser
+ * @param   {string} data  The SRT input data.
+ * @returns {string}       A WebVTT-formatted string.
  * @author Silvia Pfeiffer
  * @license MIT
  * @see     https://github.com/silviapfeiffer/silviapfeiffer.github.io/blob/master/index.html
- */
-
-/**
- * Converts an SRT-formatted string to a WebVTT-formatted string.
- * @param   {string} data  The SRT input data.
- * @returns {string}       A WebVTT-formatted string.
  */
 export default function srt2webvtt(data) {
     let srt = data.replace(/\r+/g, ''); // remove dos newlines

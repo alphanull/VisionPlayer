@@ -4,7 +4,7 @@ import { extend, isNumber } from '../../lib/util/object.js';
 /**
  * The Menu Class provides a flexible menu UI that can switch between button-based and select-based layouts,
  * depending on the number of menu items. Supports a placeholder state, custom headers, vertical layout and emits a callback on selection.
- * @exports module:src/settings/Menu
+ * @exports module:src/util/Menu
  * @requires lib/dom/DomSmith
  * @requires lib/util/object
  * @author Frank Kudermann - alphanull

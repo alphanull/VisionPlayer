@@ -6,6 +6,19 @@ This project adheres to [Semantic Versioning](https://semver.org) and follows th
 
 ---
 
+## [1.0.1] – 2025-08-07
+
+### Fixed
+
+- Removed dead code in DomSmith
+- Fixed docs in srtParser
+
+### Changed
+
+- Updated dev dependencies
+
+---
+
 ## [1.0.0] – 2025-07-06
 
 ### Added
