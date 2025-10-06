@@ -1,6 +1,6 @@
 # FullScreen
 
-The FullScreen component manages entering and exiting fullscreen mode within the player. It supports the standardized Fullscreen API, as well as iOS-specific handling. A button in the controller area allows the user to toggle fullscreen. 
+The FullScreen component manages entering and exiting fullscreen mode within the player. It supports the standardized Fullscreen API, as well as iOS-specific handling. A button in the controller area allows the user to toggle fullscreen.
 
 ## Configuration
 
@@ -15,6 +15,15 @@ const playerConfig = {
 | Setting Name | Type    | Description                                   |
 | ------------ | ------- | --------------------------------------------- |
 | `fullScreen` | Boolean | Enables or disables fullscreen functionality. |
+
+## API
+
+The following API functions are added to the player instance to control the component:
+
+| **Method**         | **Arguments** | **Returns** | **Description**         |
+| ------------------ | ------------- | ----------- | ----------------------- |
+| `fullscreen.enter` |               |             | Enters fullscreen mode. |
+| `fullscreen.leave` |               |             | Exits fullscreen mode.  |
 
 ## Events
 

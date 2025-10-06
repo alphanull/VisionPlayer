@@ -6,7 +6,7 @@
  * - Designed for modern HTML structure with `<menu>` elements and toggle buttons.
  * @module nav/navMain
  * @author   Frank Kudermann - alphanull
- * @version  1.0.0
+ * @version  1.0.1
  * @license  MIT
  * @example
  * // Basic structure:
@@ -297,7 +297,7 @@ init();
 import menuMobile from './menuMobile.js';
 import lockScroll from './lockScroll.js';
 
-lockScroll.enter();
+lockScroll.init();
 menuMobile.init(document.getElementById('nav-main-wrapper'), {
     preventDefault: true,
     initiator: document.getElementById('menu-mobile-button'),

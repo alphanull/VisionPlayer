@@ -22,8 +22,7 @@
 
 import pubsub from './publisher.js';
 
-const iOS = /iPad|iPhone|iPod/.test(navigator.platform);
-
+const iOS = /iPad|iPhone|iPod/.test(navigator.platform) || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 4;
 /* eslint-disable no-invalid-this */
 
 /**
@@ -107,13 +106,13 @@ function touchStartHandler(scrollLayer, event) {
 
 /**
  * Locks the UI, but allows an overlay to scroll.
- * @module   lib/ui/lockScroll
- * @requires toolbox/client
- * @requires lib/util/publisher
+ * @module   nav/lockScroll
+ * @requires util/publisher
  * @author Frank Kudermann @ alphanull
- * @version 1.2.0
+ * @version 1.3.0
+ * @license  MIT
  */
-export default {
+const lockScroll = {
 
     /**
      * Determines how many locks are active.
@@ -130,13 +129,11 @@ export default {
     /**
      * This method is triggered when this controller enters focus. Since this controller is "persistent" it has no "leave" method.
      */
-    enter() {
-
+    init() {
         this.locks = 0;
         this.touchStartHandlers = [];
         pubsub.subscribe('locklayer', this.lock.bind(this));
         pubsub.subscribe('unlocklayer', this.unlock.bind(this));
-
     },
 
     /**
@@ -162,23 +159,20 @@ export default {
             if (scrollLayer.dataset.isLocked !== 'true') {
                 scrollLayer.dataset.isLocked = 'true';
                 scrollLayer.addEventListener('touchmove', blockHandler);
-                // document.body.addEventListener("touchmove", blockHandler);
             }
 
         } else if (this.locks === 0) {
-
             this.savedScrollTop = document.body.scrollTop;
-
+            // Get current scrollbar width (only if scrollbars exist)
+            const scrollbarWidth = Math.max(0, window.innerWidth - document.documentElement.clientWidth);
             document.body.style.position = 'absolute';
             document.body.style.overflow = 'hidden';
+            // Only compensate if there are actually scrollbars
+            if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
             document.body.scrollTop = this.savedScrollTop;
-
             this.locks = 1;
-
         } else {
-
             this.locks += 1;
-
         }
 
     },
@@ -189,26 +183,19 @@ export default {
     unlock() {
 
         if (iOS) {
-
             const lastHandler = this.touchStartHandlers.pop();
-
-            if (lastHandler) {
-                lastHandler.layer.removeEventListener('touchstart', lastHandler.handler);
-            }
-
+            if (lastHandler) lastHandler.layer.removeEventListener('touchstart', lastHandler.handler);
         } else if (this.locks === 1) {
-
             document.body.scrollTop = this.savedScrollTop;
             document.body.style.position = '';
             document.body.style.overflow = '';
-
+            document.body.style.paddingRight = '';
             this.locks = 0;
-
         } else if (this.locks > 0) {
-
             this.locks -= 1;
-
         }
 
     }
 };
+
+export default lockScroll;

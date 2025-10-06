@@ -6,6 +6,21 @@ This project adheres to [Semantic Versioning](https://semver.org) and follows th
 
 ---
 
+## [1.1.0] – 2025-10-06
+
+### Added
+
+- New API: `fullscreen.enter()` and `fullscreen.leave()`
+
+### Fixed
+
+- Mobile menu in the demo has improved scrollbar handling
+- Improved scroll locking for iOS devices when using the mobile menu
+
+### Changed
+
+- Updated dev dependencies
+
 ## [1.0.1] – 2025-08-07
 
 ### Fixed

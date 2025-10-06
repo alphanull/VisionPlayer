@@ -7,7 +7,7 @@ import DomSmith from '../../lib/dom/DomSmith.js';
  * @exports module:src/controller/FullScreen
  * @requires lib/dom/DomSmith
  * @author   Frank Kudermann - alphanull
- * @version  1.0.0
+ * @version  1.1.0
  * @license  MIT
  */
 export default class FullScreen {
@@ -89,6 +89,9 @@ export default class FullScreen {
             'data-sort': 66,
             $tooltip: { player, text: this.#player.locale.t('misc.fullscreen') }
         }, parent.getElement('right'));
+
+        this.#player.setApi('fullscreen.enter', this.#launchFullScreen.bind(this), this.#apiKey);
+        this.#player.setApi('fullscreen.leave', this.#cancelFullScreen.bind(this), this.#apiKey);
 
         const subs = [
             ['data/ready', this.#onDataReady],
@@ -304,6 +307,7 @@ export default class FullScreen {
      */
     destroy() {
 
+        this.#player.removeApi(['fullscreen.enter', 'fullscreen.leave'], this.#apiKey);
         clearTimeout(this.#isPlayingDelay);
         document.removeEventListener(this.#fsApi.fullscreenchange, this.#onFullScreen);
         this.#dom.destroy();

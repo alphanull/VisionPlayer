@@ -28,22 +28,23 @@
 }
 
 body {
-    text-size-adjust: none;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
     width: 100%;
     margin: 0;
     background: #44403C;
     font-family: Baloo-2-400, Arial, Helvetica, sans-serif;
     font-size: 0.9em;
     color: white;
+    text-size-adjust: none;
 }
 
 header {
-    position: fixed;
+    position: sticky;
     display: flex;
     flex-shrink: 0;
     justify-content: center;
@@ -71,7 +72,7 @@ footer {
     flex-shrink: 0;
     width: 100%;
     min-height: 4em;
-    margin-top: 0.2em;
+    margin-top: 0.5em;
     font-size: clamp(0.9em, 0.4em + 0.7vw, 1.1em);
     text-align: center;
 }
@@ -84,7 +85,7 @@ main {
     align-items: center;
     box-sizing: border-box;
     width: 90vw;
-    margin-top: calc(clamp(4em, 8vh, 6em) + 1em);
+    margin-top: 1em;
 }
 
 main.is-imprint {
@@ -110,9 +111,7 @@ body.is-centered {
 body.is-centered main {
     align-items: center;
     box-sizing: border-box;
-    height: calc(100vh - 6em);
-    height: calc(90svh);
-    margin-top: clamp(7.5em, 8vh, 8em);
+    margin-top: 3em;
     /* padding: 1em 0 0; */
 }
 

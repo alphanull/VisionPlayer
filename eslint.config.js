@@ -184,7 +184,7 @@ export default [pluginJs.configs.recommended, stylistic.configs.recommended, {
         '@stylistic/multiline-comment-style': 0,
         '@stylistic/newline-per-chained-call': 0,
         '@stylistic/no-confusing-arrow': ['warn', { allowParens: true, onlyOneSimpleParam: true }],
-        '@stylistic/no-extra-parens': ['warn', 'all', { conditionalAssign: false, enforceForArrowConditionals: false }],
+        '@stylistic/no-extra-parens': ['warn', 'all', { conditionalAssign: false, ignoredNodes: ['ArrowFunctionExpression[body.type=ConditionalExpression]'] }],
         '@stylistic/no-extra-semi': 'warn',
         '@stylistic/no-floating-decimal': 'warn',
         '@stylistic/no-mixed-operators': 0,

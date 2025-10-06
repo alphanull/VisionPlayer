@@ -8,7 +8,7 @@
  * @requires src/core/Data
  * @requires src/core/Player
  * @author   Frank Kudermann - alphanull
- * @version  1.0.1
+ * @version  1.1.0
  * @license  MIT
  */
 
