@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org) and follows the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
 
 ---
+## [1.1.1] – 2025-10-15
+
+### Fixed
+
+- Playlist title now retained when switching player language
+- Thumbnail positioning in scrubber should be properly centered now
+- Thumbnail positioning fixed when switching playlist media
+- small typo in english translation
+- Fixed JSDocs in ScrubberTooltip.js
+
+### Changed
+
+- Changed demo data for updated trailer
 
 ## [1.1.0] – 2025-10-06
 

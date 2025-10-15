@@ -11,7 +11,7 @@ import convertTime from '../util/convertTime.js';
  * @requires lib/ui/Tooltip
  * @requires src/util/convertTime
  * @author   Frank Kudermann - alphanull
- * @version  1.0.0
+ * @version  1.0.1
  * @license  MIT
  */
 export default class ScrubberTooltip {
@@ -148,7 +148,6 @@ export default class ScrubberTooltip {
     /**
      * Called when the pointer leaves the scrubber area, hiding the tooltip.
      * @param {PointerEvent} event  The pointer event that triggers hiding the tooltip.
-     * @fires   module:src/controller/ScrubberTooltip#scrubber/tooltip/show
      */
     #onTooltipHidden = event => {
 

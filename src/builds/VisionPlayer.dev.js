@@ -8,7 +8,7 @@
  * @requires src/visualizer/frequency/VisualizerFrequency
  * @requires src/util/Debug
  * @author   Frank Kudermann - alphanull
- * @version  1.1.0
+ * @version  1.1.1
  * @license  MIT
  */
 

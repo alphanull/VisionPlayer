@@ -49,8 +49,7 @@ vision-player:not(.is-shadow) {
     --vip-scrubber-bg: rgba(20, 20, 20, 0.6);
     --vip-scrubber-buffered: #666;
     --vip-scrubber-position: var(--color-1st);
-    --vip-scrubber-thumbnail-width: 12em;
-    --vip-scrubber-thumbnail-height: 6em;
+    --vip-scrubber-thumbnail-width: 200px;
     --vip-subtitle-font-small: #{scale(0.7em, 1.2em)};
     --vip-subtitle-font-medium: #{scale(0.9em, 1.5em)};
     --vip-subtitle-font-big: #{scale(1em, 2em)};

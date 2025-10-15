@@ -115,7 +115,7 @@
                 "zh": "更多功能",
                 "ar": "المزيد من الميزات"
             },
-            "start": 58
+            "start": 82
         }
     ],
 
@@ -215,14 +215,21 @@
             "src": "https://visionplayer.io/media/trailer-audio/overlays/visionplayer-trailer-audio-bg-3.jpg",
             "scale": "cover",
             "cueIn": 31,
-            "cueOut": 58
+            "cueOut": 56
         },
         {
             "type": "image",
             "src": "https://visionplayer.io/media/trailer-audio/overlays/visionplayer-trailer-audio-bg-4.jpg",
             "scale": "cover",
-            "cueIn": 58,
-            "cueOut": 96
+            "cueIn": 56,
+            "cueOut": 78
+        },
+        {
+            "type": "image",
+            "src": "https://visionplayer.io/media/trailer-audio/overlays/visionplayer-trailer-audio-bg-5.jpg",
+            "scale": "cover",
+            "cueIn": 78,
+            "cueOut": 107
         }
     ]
 }

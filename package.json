@@ -1,7 +1,7 @@
 {
     "name": "@alphanull/visionplayer",
     "license": "MIT",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "VisionPlayer is a highly modular, lightweight, and feature-rich JavaScript video player for the modern web.",
     "keywords": [
         "media",
@@ -92,7 +92,7 @@
         "cssnano": "^7.1.1",
         "dashjs": "^5.0.3",
         "eslint": "^9.37.0",
-        "eslint-plugin-jsdoc": "^60.8.0",
+        "eslint-plugin-jsdoc": "^60.8.3",
         "globals": "^16.4.0",
         "hls.js": "^1.6.13",
         "jsdoc": "^4.0.4",

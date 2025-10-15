@@ -22,7 +22,7 @@
  * @requires src/ui/Title
  * @requires src/ui/Time
  * @author   Frank Kudermann - alphanull
- * @version  1.1.0
+ * @version  1.1.1
  * @license  MIT
  */
 

@@ -212,7 +212,7 @@
                 "zh": "更多功能",
                 "ar": "المزيد من الميزات"
             },
-            "start": 58
+            "start": 82
         }
     ],
 
@@ -291,7 +291,7 @@
         },
         "gridX": 10,
         "gridY": 10,
-        "timeDelta": 0.8795,
+        "timeDelta": 1.1118333299999998,
         "timeDeltaHighres": 0.3
     },
 
@@ -299,46 +299,6 @@
         {
             "type": "poster",
             "src": "https://visionplayer.io/media/trailer/overlays/visionplayer-trailer-poster.jpg"
-        },
-        {
-            "type": "image",
-            "src": "https://visionplayer.io/media/trailer/overlays/overlay-demo-right.svg",
-            "className": "vip-overlay-img",
-            "alt": "Arrow",
-            "placement": "bottom-right",
-            "margin": 10,
-            "cueIn": 59,
-            "cueOut": 64
-        },
-        {
-            "type": "image",
-            "src": "https://visionplayer.io/media/trailer/overlays/overlay-demo-left.svg",
-            "className": "vip-overlay-img",
-            "alt": "Arrow",
-            "placement": "bottom-left",
-            "margin": 10,
-            "cueIn": 59.5,
-            "cueOut": 64.2
-        },
-        {
-            "type": "image",
-            "src": "https://visionplayer.io/media/trailer/overlays/overlay-demo-left.svg",
-            "className": "vip-overlay-img",
-            "alt": "Arrow",
-            "placement": "top-left",
-            "margin": 10,
-            "cueIn": 60,
-            "cueOut": 64.4
-        },
-        {
-            "type": "image",
-            "src": "https://visionplayer.io/media/trailer/overlays/overlay-demo-right.svg",
-            "className": "vip-overlay-img",
-            "alt": "Arrow",
-            "placement": "top-right",
-            "margin": 10,
-            "cueIn": 60.5,
-            "cueOut": 64.6
         }
     ]
 

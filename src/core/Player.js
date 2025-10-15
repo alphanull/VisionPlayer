@@ -8,7 +8,7 @@ import { publish, subscribe, unsubscribe } from '../../lib/util/publisher.js';
  * @requires lib/util/publisher
  * @requires lib/util/object
  * @author   Frank Kudermann - alphanull
- * @version  1.0.0
+ * @version  1.0.1
  * @license  MIT
  */
 export default class Player {
@@ -273,7 +273,7 @@ export default class Player {
         let mediaData, currentMediaIndex;
 
         if (reinitialize) {
-            mediaData = clone(this.data.getMediaData('all').media);
+            mediaData = clone(this.data.getMediaData('all'));
             currentMediaIndex = this.data.getMediaData('index');
             this.#removeComponents(this.#components, ['dom']);
         }
@@ -289,7 +289,7 @@ export default class Player {
         if (reinitialize) {
             this.#launchComponents();
             this.#privateApi.refreshDom();
-            this.data.setMediaData({ media: mediaData }, currentMediaIndex);
+            this.data.setMediaData(mediaData, currentMediaIndex);
         }
 
     }

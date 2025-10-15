@@ -9,7 +9,7 @@ import { isString, isObject } from '../../lib/util/object.js';
  * @requires lib/dom/DomSmith
  * @requires lib/util/object
  * @author   Frank Kudermann - alphanull
- * @version  1.0.0
+ * @version  1.0.1
  * @license  MIT
  */
 export default class Thumbnails {
@@ -159,7 +159,6 @@ export default class Thumbnails {
                 this.#player.subscribe('ui/resize', this.#resize)
             );
         }
-
     };
 
     /**
@@ -169,7 +168,7 @@ export default class Thumbnails {
      * @throws {Error}                                             If thumbnail format is invalid.
      * @listens module:src/core/Media#media/ready
      */
-    #onMediaReady = ({ language }) => {
+    #onMediaReady = ({ language, width, height }) => {
 
         const { thumbnails } = this.#player.data.getMediaData();
 
@@ -209,6 +208,8 @@ export default class Thumbnails {
         this.#scrubber.thumbWrapper.classList.remove('has-error');
         this.#scrubber.thumbWrapper.classList.add('is-loading');
 
+        this.#thumb.ar = height / width;
+
         if (this.#config.showPreview) {
             this.#preview.backdrop.style.backgroundSize = `${100 * this.#data.gridX}%`;
         }
@@ -220,16 +221,17 @@ export default class Thumbnails {
      */
     #onThumbLoaded = () => {
 
+        this.#scrubber.unmount();
         this.#scrubber.mount(this.#player.dom.getElement(this.#apiKey));
 
-        const { width, height } = this.#scrubber.thumbImg,
+        const { width } = this.#scrubber.thumbImg,
               thumbWidth = this.#scrubber.thumbWrapper.offsetWidth;
 
         this.#thumb.width = thumbWidth;
-        this.#thumb.height = thumbWidth * height / width;
+        this.#thumb.height = Math.round(thumbWidth * this.#thumb.ar);
         this.#thumb.scale = thumbWidth / (width / this.#data.gridX);
 
-        this.#player.dom.getElement(this.#apiKey).style.setProperty('--vip-scrubber-thumbnail-height', `${this.#thumb.height}px`);
+        this.#player.dom.getElement(this.#apiKey).style.setProperty('--vip-scrubber-thumbnail-height', `${this.#thumb.height - 2}px`);
 
         this.#scrubber.thumbWrapper.classList.remove('is-loading');
 
@@ -266,8 +268,8 @@ export default class Thumbnails {
               frameX = frame % this.#data.gridX;
 
         this.#scrubber.thumbImg.style.transform = `
-            translateX(${-frameX * this.#thumb.width}px)
-            translateY(${-frameY * this.#thumb.height}px)
+            translateX(${-frameX * this.#thumb.width - 1}px)
+            translateY(${-frameY * this.#thumb.height - 1}px)
             scale(${this.#thumb.scale})`;
 
     };
