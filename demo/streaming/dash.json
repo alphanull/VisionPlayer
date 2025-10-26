@@ -6,7 +6,7 @@
         {
             "title": "Big Buck Bunny",
             "titleSecondary": "Bitrate Test",
-            "src":  "https://dash.akamaized.net/akamai/bbb_30fps/bbb_with_multiple_tiled_thumbnails.mpd",
+            "src":  "https://rdmedia.bbc.co.uk/bbb/2/client_manifest-common_init.mpd",
             "poster": "https://visionplayer.io/media/posters/bucks-poster.jpg"
         },
         {
@@ -22,15 +22,9 @@
             "poster": "https://visionplayer.io/media/posters/steel-poster.jpg"
         },
         {
-            "title": "Tears of Steel",
-            "titleSecondary": "(Live Stream)",
-            "src": "https://2nbyjnb5d53k-hls-live.5centscdn.com/DVR/StreamtesterDASH.stream/manifest_dvr.mpd",
-            "poster": "https://visionplayer.io/media/posters/steel-poster.jpg"
-        },
-        {
-            "title": "BBC Adaptive Bitrate Test Stream",
-            "titleSecondary": "With Isd Subtitles",
-            "src": "https://rdmedia.bbc.co.uk/testcard/vod/manifests/avc-full.mpd",
+            "title": "BBC Test Stream Live",
+            "titleSecondary": "Live StreamWith Isd Subtitles",
+            "src": "https://vs-dash-ww-rd-live.akamaized.net/pl/testcard2020/avc-full-en.mpd",
             "poster": "https://visionplayer.io/media/posters/bbc-poster.jpg"
         }
     ]

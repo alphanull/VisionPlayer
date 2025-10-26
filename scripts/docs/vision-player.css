@@ -1,17 +1,10 @@
 :root[data-skin=visionplayer] {
     --color-neutral-hue: 339;
-    --color-neutral-saturation: -20%;
+    --color-neutral-saturation: -15%;
     --color-1st-hue: 339;
     --color-1st-saturation: 80%;
     --color-1st-lightness: 40%;
     --color-2nd-hue: 30;
     --color-2nd-saturation: 80%;
     --color-2nd-lightness: 40%;
-}
-
-@media only screen {
-    :root.is-dark[data-skin=visionplayer] {
-        --color-neutral-saturation: 10%;
-        --color-2nd-saturation: 30%;
-    }
 }

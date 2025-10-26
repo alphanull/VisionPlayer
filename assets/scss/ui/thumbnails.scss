@@ -27,7 +27,7 @@ vision-player {
         &.is-visible { display: block; }
 
         &.has-error {
-            @include icon-masked('player/playercancel.svg', 50%, var(--color-error));
+            @include icon-masked('player/cancel.svg', 50%, var(--color-error));
 
             display: flex;
             justify-content: center;

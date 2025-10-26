@@ -41,6 +41,10 @@ vision-player {
         }
     }
 
+    &.icon-filled .vip-pip-bg {
+        @include icon-masked('player-filled/pip-bg.svg', 11vmin, var(--color-contrast5));
+    }
+
     &.is-rtl .vip-pip {
         direction: rtl;
     }

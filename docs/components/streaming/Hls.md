@@ -6,7 +6,7 @@ The Hls component integrates the [hls.js](https://github.com/video-dev/hls.js) l
 
 This component uses  [hls.js](https://github.com/video-dev/hls.js) and requires the library to be present. This can be done using two ways:
 
-1. By using the [streaming build](../../Setup.md#Builds), which includes both dash.js and hls.js
+1. By using the [streaming build](../../Setup.md), which includes both dash.js and hls.js
 2. By using a customized build only including the Dash component, and loading the library separately before loading the player:
 
 ```html

@@ -11,7 +11,7 @@ import convertTime from '../util/convertTime.js';
  * @requires lib/ui/Tooltip
  * @requires src/util/convertTime
  * @author   Frank Kudermann - alphanull
- * @version  1.0.1
+ * @version  1.0.2
  * @license  MIT
  */
 export default class ScrubberTooltip {
@@ -166,6 +166,7 @@ export default class ScrubberTooltip {
         const range = (event.clientX - tt.oTargetPos.left - tt.viewPortPos.left) / tt.oTargetPos.width;
         this.#setToolTipTime(range);
         this.#player.publish('scrubber/tooltip/visible', { percent: range * 100 }, { async: false }, this.#apiKey);
+        this.#tooltip.layout(event);
 
     };
 

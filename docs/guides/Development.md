@@ -42,7 +42,7 @@ Make sure you have generated a build using `npm run build` before.
 
 ### Switching player variants
 
-The player offers different build variants (see [Setup](Setup.md#builds)). You can switch between them using the `type` query, optionally combined with `build`:
+The player offers different build variants (see [Setup](Setup.md)). You can switch between them using the `type` query, optionally combined with `build`:
 
 ```url
 https://localhost:5173/?type=basic # launches basic variant from source
@@ -221,22 +221,22 @@ import DomSmith from '/lib/dom/DomSmith.js';
 
 export default class MyComponent {
     // it is strongly recommended to make ALL properties private when using ES2022!
-    #config: { myDefault: true }; // default values 
+    #config: { myDefault: true }; // default values
     #player;
     #dom;
-    
+
     // each component is instantiated with a reference to the player, parent and additional options
     // The apiKey in options is provided as well for access to all secure APIs.
     constructor(player, parent, options = {}) {
         // typically, a comp first gets the external config and merges with the own defaults
         const config = player.getConfig('myComponent', this.#config);
         // Abort initialization when user specified 'false' as the config for this comp
-        // or there are other factors preventing the comp from running. To indicate this 
+        // or there are other factors preventing the comp from running. To indicate this
         // to the player, just return [false] so this comp will be ignored.
         if (!config) return [false];
         // Store references
         this.#player = player;
-        // Create DOM using DomSmith and attach to parent container     
+        // Create DOM using DomSmith and attach to parent container
         const rootElement = player.getRootElement(options.apiKey); // uses secure API
         this.#dom = new DomSmith({/* domConfig */}, rootElement);
         // Subscribe to events
@@ -244,7 +244,7 @@ export default class MyComponent {
             this.player.subscribe('media/ready', this.onMediaReady)
         ];
     }
-   
+
    // use bound methods for events etc.
    // prefer `private` methods and expose ONLY public APIs
    #onMediaReady = () => {

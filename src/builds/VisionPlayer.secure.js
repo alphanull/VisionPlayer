@@ -10,7 +10,7 @@
  * - No subtitle HTML handling allowed, makes the player 100% XSS safe, since all text content is set via text nodes, including translations.
  * @exports module:src/builds/VisionPlayer-secure
  * @author   Frank Kudermann - alphanull
- * @version  1.1.1
+ * @version  1.2.0
  * @license  MIT
  */
 
@@ -22,7 +22,8 @@ export default Player;
 Player.setDefaultConfig({
     player: { secureApi: true },
     dom: { shadow: 'closed' },
-    subtitles: { allowHTML: 'none' }
+    subtitles: { allowHTML: 'none' },
+    overlays: { sanitizeHTML: true }
 });
 
 // remove incompatible components

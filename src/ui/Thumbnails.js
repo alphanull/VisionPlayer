@@ -9,7 +9,7 @@ import { isString, isObject } from '../../lib/util/object.js';
  * @requires lib/dom/DomSmith
  * @requires lib/util/object
  * @author   Frank Kudermann - alphanull
- * @version  1.0.1
+ * @version  1.0.2
  * @license  MIT
  */
 export default class Thumbnails {
@@ -147,6 +147,7 @@ export default class Thumbnails {
 
         if (this.#config.showInScrubber) {
             this.#subs.push(
+                this.#player.subscribe('scrubber/tooltip/visible', this.#onTooltipVisible),
                 this.#player.subscribe('scrubber/tooltip/visible', this.#onThumbRender),
                 this.#player.subscribe('scrubber/tooltip/move', this.#onThumbRender)
             );
@@ -216,22 +217,24 @@ export default class Thumbnails {
 
     };
 
+    #onTooltipVisible = () => {
+
+        const { width } = this.#scrubber.thumbImg,
+              thumbWidth = this.#scrubber.thumbWrapper.offsetWidth,
+              uiScale = this.#player.getState('ui.scale');
+
+        this.#thumb.width = thumbWidth;
+        this.#thumb.height = thumbWidth * this.#thumb.ar + uiScale / 2.5;
+        this.#thumb.scale = thumbWidth / (width / this.#data.gridX);
+
+        this.#player.dom.getElement(this.#apiKey).style.setProperty('--vip-scrubber-thumbnail-height', `${this.#thumb.height - 2}px`);
+
+    };
+
     /**
      * Called when the thumbnail image is loaded. Computes scaling and updates the layout.
      */
     #onThumbLoaded = () => {
-
-        this.#scrubber.unmount();
-        this.#scrubber.mount(this.#player.dom.getElement(this.#apiKey));
-
-        const { width } = this.#scrubber.thumbImg,
-              thumbWidth = this.#scrubber.thumbWrapper.offsetWidth;
-
-        this.#thumb.width = thumbWidth;
-        this.#thumb.height = Math.round(thumbWidth * this.#thumb.ar);
-        this.#thumb.scale = thumbWidth / (width / this.#data.gridX);
-
-        this.#player.dom.getElement(this.#apiKey).style.setProperty('--vip-scrubber-thumbnail-height', `${this.#thumb.height - 2}px`);
 
         this.#scrubber.thumbWrapper.classList.remove('is-loading');
 
@@ -268,7 +271,7 @@ export default class Thumbnails {
               frameX = frame % this.#data.gridX;
 
         this.#scrubber.thumbImg.style.transform = `
-            translateX(${-frameX * this.#thumb.width - 1}px)
+            translateX(${-frameX * this.#thumb.width}px)
             translateY(${-frameY * this.#thumb.height - 1}px)
             scale(${this.#thumb.scale})`;
 

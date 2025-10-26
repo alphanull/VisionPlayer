@@ -10,6 +10,7 @@ vision-player {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    border: none;
     outline: none;
     background: var(--vip-bg);
     font-size: var(--vip-font-size);
@@ -21,13 +22,22 @@ vision-player {
     aspect-ratio: 16 / 9;
     -webkit-tap-highlight-color: transparent;
 
+    // reset seome styles
     * {
+        width: auto;
+        height: auto;
         margin: 0;
         padding: 0;
+        border: none;
+        background: none;
     }
 
     *, *::before, *::after {
         box-sizing: border-box;
+    }
+
+    input {
+        min-height: auto;
     }
 
     .vip-media-ele {

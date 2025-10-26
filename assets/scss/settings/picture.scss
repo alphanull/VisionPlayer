@@ -7,11 +7,23 @@ vision-player {
     .icon.control { @include icon-masked('player/picture-control.svg', var(--vip-icon-height), var(--vip-icon-color)); }
     .icon.reset { @include icon-masked('player/reset.svg', 1.2em, var(--vip-icon-color)); }
 
+    &.icon-filled {
+        .icon.control { @include icon-masked('player-filled/picture-control.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        .icon.reset { @include icon-masked('player-filled/reset.svg', 1.2em, var(--vip-icon-color)); }
+    }
+
     .vip-sharpness-filter {
         position: absolute;
         pointer-events: none;
         width: 0;
         height: 0;
+    }
+
+    .vip-picture-controls,
+    .vip-audio-controls {
+        .icon.reset {
+            margin-left: var(--spacing1);
+        }
     }
 
     .vip-audio-controls {

@@ -217,7 +217,8 @@ const defaultConfig = {
         showMessageOnError: false // If true, show additional message in errors.
     },
     overlays: {
-        adaptLayout: true // Adjusts layout depending on other visible UI elements.
+        adaptLayout: true, // Adjusts layout depending on other visible UI elements.
+        sanitizeHTML: true //  Sanitizes the HTML of the overlay to prevent XSS attacks.
     },
     pictureInPicture: true, // Enables or disables Picture-in-Picture support
     playControl: true, // Enables or disables the play button component
@@ -290,6 +291,7 @@ const defaultConfig = {
         alwaysVisible: false, // If true, the UI never auto-hides, even when not in focus
         autoHide: 5, // Time (in seconds) after which the UI auto-hides. `0` disables it
         clickToPlay: true, // If true, clicking on the video element toggles play/pause
+        iconStyle: 'default', // The style of the icons: 'default' or 'filled'.
         uiScale: 1, // Initial scale factor for the UI
         showScaleSlider: true // If `true`, the UI scale slider is shown
     },

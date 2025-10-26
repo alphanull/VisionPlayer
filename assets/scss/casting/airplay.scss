@@ -3,6 +3,7 @@
 
 vision-player {
     .icon.airplay { @include icon-masked('player/airplay.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+    &.icon-filled .icon.airplay { @include icon-masked('player-filled/airplay.svg', var(--vip-icon-height), var(--vip-icon-color)); }
     &.has-no-media .icon.airplay { @include disabled; }
     &.is-airplay .icon.airplay::before { background: var(--color-1st); }
 }

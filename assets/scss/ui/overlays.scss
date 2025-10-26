@@ -32,6 +32,8 @@ vision-player {
     }
 
     .vip-overlays-adaptive {
+        @include transition('top, bottom');
+
         top: var(--vip-ui-blocked-top, 0);
         bottom: var(--vip-ui-blocked-bottom, 0);
     }
@@ -50,6 +52,12 @@ vision-player {
         opacity: 1;
         transition-delay: 0.2s;
         pointer-events: none;
+
+        &.is-html {
+            display: flex;
+            &:not(.is-hidden) { pointer-events: auto; }
+            &.right { justify-content: flex-end; }
+        }
 
         &.scale-stretch {
             width: 100%;
@@ -112,5 +120,23 @@ vision-player {
         width: 15vmin;
         max-width: 10vw;
         opacity: 0.8;
+    }
+
+    .vip-overlay-box {
+        max-width: 45%;
+        padding: var(--spacing-block);
+        border-radius: var(--border-radius);
+        background-color: var(--color-bg);
+        font-size: 1.2em;
+
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .vip-overlay-item.is-html.center .vip-overlay-box,
+    .vip-overlay-item.is-html.bottom .vip-overlay-box,
+    .vip-overlay-item.is-html.top .vip-overlay-box {
+        max-width: none;
     }
 }

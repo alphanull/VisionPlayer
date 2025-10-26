@@ -13,6 +13,15 @@ vision-player {
         .icon.play-next { @include icon-masked('player/playlist-next.svg', var(--vip-icon-height), var(--vip-icon-color)); }
     }
 
+    &.icon-filled {
+        .icon.shuffle { @include icon-masked('player-filled/shuffle.svg', var(--vip-icon-height-small), var(--vip-icon-color)); }
+        .icon.loop { @include icon-masked('player-filled/loop.svg', var(--vip-icon-height-small), var(--vip-icon-color)); }
+        .icon.continue { @include icon-masked('player-filled/continue.svg', var(--vip-icon-height-small), var(--vip-icon-color)); }
+        .icon.playlist { @include icon-masked('player-filled/playlist.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        .icon.play-prev { @include icon-masked('player-filled/playlist-prev.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        .icon.play-next { @include icon-masked('player-filled/playlist-next.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+    }
+
     &.width-low .vip-playlist-controller.has-menu.has-buttons {
         .icon.play-prev,
         .icon.play-next { display: none; }

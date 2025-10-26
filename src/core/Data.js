@@ -14,7 +14,7 @@ import DataError from '../util/DataError.js';
  * @requires lib/util/AsyncTask
  * @requires src/util/DataError
  * @author   Frank Kudermann - alphanull
- * @version  1.0.0
+ * @version  1.0.1
  * @license  MIT
  */
 export default class Data {
@@ -235,9 +235,9 @@ export default class Data {
      * Switches playback to another media item, with `index` representing the position of the media to switch to in the internal playlist.
      * Additional options can influence switching behavior in the `Media` component, like trying to restore the previous seek position (`rememberState`)
      * or controlling if and how the media is played after switching (`ignoreAutoplay`, `play`).
-     * @param   {number}                                  index      The index of the media item to switch to.
-     * @param   {module:src/core/Media~media.loadOptions} [options]  Optional config to set switch behavior.
-     * @returns {Promise}                                            A promise that resolves with the loaded metadata of the switched item data or rejects when loading failed.
+     * @param   {number}                                 index      The index of the media item to switch to.
+     * @param   {module:src/core/Media~mediaLoadOptions} [options]  Optional config to set switch behavior.
+     * @returns {Promise}                                           A promise that resolves with the loaded metadata of the switched item data or rejects when loading failed.
      * @fires    module:src/core/Data#data/ready
      */
     #setMediaIndex = async(index, options = {}) => {
@@ -297,8 +297,14 @@ export default class Data {
             defaultItem = {};
 
         const matchHeight = arr => {
-            const playerHeight = this.#player.getState('ui.playerHeight') * (window.devicePixelRatio ?? 1),
-                  sorted = arr.sort((a, b) => a.height - b.height);
+            let playerHeight = this.#player.getState('ui.playerHeight');
+            if (!playerHeight && this.#player.ui) {
+                this.#player.ui.resize();
+                playerHeight = this.#player.getState('ui.playerHeight');
+            }
+
+            playerHeight *= window.devicePixelRatio ?? 1;
+            const sorted = arr.sort((a, b) => a.height - b.height);
             result = sorted.find(({ height }) => height * 1.2 > playerHeight);
             return result || arr[arr.length - 1]; // still nothing, so just return the last entry (presumable highest qual below player size)
         };

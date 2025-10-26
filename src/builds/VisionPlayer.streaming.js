@@ -9,7 +9,7 @@
  * @requires dashjs
  * @requires hls.js
  * @author   Frank Kudermann - alphanull
- * @version  1.1.1
+ * @version  1.2.0
  * @license  MIT
  */
 

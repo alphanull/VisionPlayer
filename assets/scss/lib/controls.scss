@@ -14,6 +14,32 @@ input, button, textarea, select {
     line-height: inherit;
 }
 
+textarea {
+    display: block;
+    white-space: revert; // revert the 'white-space' property for textarea elements on Safari
+}
+
+// auto growing textarea using outer span wrapper
+.textarea-grow-wrap {
+    display: grid;
+
+    &::after {
+        @extend %input;
+
+        content: attr(data-replicated-value) ' ';
+        grid-area: 1 / 1 / 2 / 2;
+        overflow: hidden;
+        visibility: hidden;
+        white-space: pre-wrap;
+    }
+
+    > textarea {
+        grid-area: 1 / 1 / 2 / 2;
+        overflow: hidden;
+        resize: none;
+    }
+}
+
 input, button {
     border: none;
     background: none;
@@ -49,9 +75,9 @@ input, button {
     @include transition('background, color');
     @include font-bold;
 
-    margin: calc(var(--spacing1) * -1);
-    padding: var(--spacing1) var(--spacing1);
-    border-radius: var(--border-radius-small);
+    margin: calc(var(--link-spacing-vertical) * -1) calc(var(--link-spacing-horizontal) * -1);
+    padding: var(--link-spacing-vertical) var(--link-spacing-horizontal);
+    border-radius: var(--link-border-radius);
     color: var(--link-color);
 
     @include focusable;
@@ -72,13 +98,13 @@ input, button {
     @extend %control;
     @include text-ellipsis;
 
-    display: flex;
+    display: inline-flex;
     justify-content: center;
-    align-items: center;      /* vertikal zentriert */
+    align-items: center;
     vertical-align: middle;
     width: auto;
     min-height: var(--control-height);
-    margin: auto;
+    //margin: auto;
     padding: var(--button-padding-top) var(--button-padding-right) var(--button-padding-bottom) var(--button-padding-left);
     border-color: var(--button-border-color);
     border-width: var(--button-border-width);
@@ -156,11 +182,24 @@ a {
     &:not([class]) { text-decoration-skip-ink: auto; }
 }
 
-.is-button, button:not(.icon), [type=button]:not(.icon), [type=reset]:not(.icon), [type=submit]:not(.icon) {
+.is-button,
+button:not(.icon),
+[type=button]:not(.icon),
+[type=reset]:not(.icon),
+[type=submit]:not(.icon),
+input[type=file]::file-selector-button {
     @extend %button;
 }
 
-button.icon, button[type=button].icon, [type=reset].icon, [type=submit].icon {
+input[type=file]::file-selector-button {
+    display: inline-block;
+    margin: inherit;
+    margin-right: var(--spacing-block-small);
+}
+
+[type=submit] { @include font-bold; }
+
+button.icon, [type=reset].icon, [type=submit].icon {
     @extend %control;
 }
 
@@ -176,11 +215,11 @@ input[type=number],
 input[type=date],
 textarea {
     @extend %input;
-    &::-ms-clear { width: 0; height: 0; } // emove 'clear button' on IE
+    &::-ms-clear { width: 0; height: 0; } // remove 'clear button' on IE
 }
 
 input[type=number] {
-    position: relative; // for absolutely positioning spinners
+    position: relative;
     padding-top: 0;
     padding-bottom: 0;
 
@@ -206,6 +245,7 @@ input[type=range] {
     @extend %control;
 
     position: relative;
+    align-self: center;
     height: calc(var(--control-range-size) * 0.6);
     margin: 0;
     padding: 0;
@@ -256,7 +296,7 @@ input[type=range] {
         height: calc(var(--control-range-size) * 0.6);
         border: none;
         border-radius: var(--border-radius);
-        background: var(--color-contrast1);
+        background: var(--color-contrast3);
         color: transparent;
         appearance: none;
     }
@@ -296,17 +336,20 @@ input {
         position: relative;
         align-self: center;
         vertical-align: baseline;
-        width: calc(var(--control-radio-size) * 1.3);
+        width: var(--control-radio-size);
         height: var(--control-radio-size);
-        margin-right: var(--spacing2);
+        margin-right: var(--spacing-block-small);
         appearance: initial; // https://stackoverflow.com/questions/35378360/before-after-pseudo-elements-not-showing-firefox
 
         &::before {
             @include transition('background');
 
+            content: '';
             position: relative;
+            display: inline-block;
             z-index: 1;
             visibility: visible;
+            vertical-align: middle;
         }
 
         &::after {
@@ -316,8 +359,8 @@ input {
             position: absolute;
             z-index: 0;
             visibility: visible;
-            width: var(--control-radio-size);
-            height: var(--control-radio-size);
+            width: 92%;
+            height: 92%;
             top: 0;
             left: 0;
             border-color: var(--control-border-color);
@@ -337,6 +380,15 @@ input {
         &:active::after { filter: brightness(140%); }
         &[disabled]::before { opacity: 0.4; }
         &[disabled]:hover { cursor: not-allowed; }
+
+        &:focus-visible {
+            outline: none;
+
+            &::after {
+                outline: var(--control-focus-outline);
+                outline-offset: -0.063em;
+            }
+        }
     }
 
     // Radio Buttons
@@ -364,15 +416,6 @@ input {
         &:focus:checked::before {
             background-color: var(--color-light);
         }
-
-        &:focus-visible {
-            outline: none;
-
-            &::after {
-                outline: var(--control-focus-outline);
-                outline-offset: -0.063em;
-            }
-        }
     }
 
     // Checkbox
@@ -382,15 +425,6 @@ input {
         &:checked:hover::before,
         &:checked:focus::before { background-color: var(--color-light); }
         &:checked::before { background-color: var(--color-text); }
-
-        &:focus-visible {
-            outline: none;
-
-            &::after {
-                outline: var(--control-focus-outline);
-                outline-offset: -0.063em;
-            }
-        }
     }
 }
 
@@ -400,18 +434,12 @@ input.is-toggle[type=checkbox] {
     vertical-align: middle;
     width: calc(var(--control-radio-size) * 2);
     height: var(--control-radio-size);
-    margin: 0;
-    cursor: pointer;
     appearance: none;
+    margin: 0;
 
     &::after {
         @include transition('background');
 
-        content: '';
-        display: block;
-        box-sizing: border-box;
-        width: 100%;
-        height: 100%;
         border-radius: 1em;
         background-color: var(--control-bg);
         transition: background 0.2s;
@@ -513,9 +541,4 @@ select {
             background-image: svg-load('form/checked.svg') !important;
         }
     }
-}
-
-textarea {
-    display: block;
-    white-space: revert; // revert the 'white-space' property for textarea elements on Safari
 }

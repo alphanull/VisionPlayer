@@ -10,7 +10,7 @@ vision-player {
         width: 100%;
         height: var(--vip-scrubber-height);
         top: 0;
-        border-radius: var(--border-radius);
+        border-radius: var(--border-radius-small);
         background: none;
         filter: brightness(80%) drop-shadow(0.001em 0 0 var(--vip-scrubber-buffered));
         pointer-events: none;

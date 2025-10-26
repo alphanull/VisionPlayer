@@ -12,6 +12,7 @@ const playerConfig = {
         alwaysVisible: false,
         autoHide: 5,
         clickToPlay: true,
+        iconStyle: 'default',
         uiScale: 1,
         showScaleSlider: true
   }
@@ -23,6 +24,7 @@ const playerConfig = {
 | `alwaysVisible`  | Boolean | If true, the UI never auto-hides, even when not in focus.               |
 | `autoHide`       | Number  | Time (in seconds) after which the UI auto-hides. `0` disables it.          |
 | `clickToPlay`    | Boolean | If true, clicking on the video element toggles play/pause. |
+| `iconStyle`    | String | If true, clicking on the video element toggles play/pause. |
 | `uiScale`        | Number  | Initial scale factor for the UI. |
 | `showScaleSlider`    | Boolean | If `true`, the UI scale slider is shown in the settings popup. |
 
@@ -34,6 +36,7 @@ The following API functions are available:
 | -------------------- | ------------- | ----------- | ------------------------------------------------------------ |
 | `ui.hide`            |               |             | Hide all player UI elements. Does not pause playback; just removes the UI layer from view. |
 | `ui.show`            |               |             | Show the player UI if it was previously hidden.              |
+| `ui.resize`          |               |             | Forces recalculation of player width and height and also fires the `ui/resize` event.              |
 | `ui.disableAutoHide` |               |             | Disable the automatic UI hide feature. Normally, the UI hides after a short timeout when idle; this call prevents that behavior. |
 | `ui.enableAutoHide`  |               |             | Re-enable the automatic UI hide after a period of inactivity. |
 | `ui.enableAutoHide`  |               |             | Re-enable the automatic UI hide after a period of inactivity. |

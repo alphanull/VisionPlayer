@@ -5,6 +5,7 @@
 vision-player {
 
     .icon.chromecast { @include icon-masked('player/chromecast.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+    &.icon-filled .icon.chromecast { @include icon-masked('player-filled/chromecast.svg', var(--vip-icon-height), var(--vip-icon-color)); }
     &.has-no-media .icon.chromecast { @include disabled; }
 
     .vip-chromecast {
@@ -33,7 +34,10 @@ vision-player {
             button { min-width: 12em; }
         }
 
-        p { text-align: start; }
+        p {
+            margin: 0;
+            text-align: start;
+        }
     }
 
     .vip-chromecast-bg {

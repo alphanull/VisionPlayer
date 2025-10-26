@@ -168,6 +168,7 @@ For more information about additional APIs from non-core  components, consult th
 | -------------------- | ------------- | ----------- | ------------------------------------------------------------ |
 | `ui.hide`            |               |             | Hide all player UI elements. Does not pause playback; just removes the UI layer from view. |
 | `ui.show`            |               |             | Show the player UI if it was previously hidden.              |
+| `ui.resize`          |               |             | Forces recalculation of player width and height and also fires the `ui/resize` event.              |
 | `ui.disableAutoHide` |               |             | Disable the automatic UI hide feature. Normally, the UI hides after a short timeout when idle; this call prevents that behavior. |
 | `ui.enableAutoHide`  |               |             | Re-enable the automatic UI hide after a period of inactivity. |
 

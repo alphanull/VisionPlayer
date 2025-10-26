@@ -49,12 +49,12 @@ vision-player:not(.is-shadow) {
     --vip-scrubber-bg: rgba(20, 20, 20, 0.6);
     --vip-scrubber-buffered: #666;
     --vip-scrubber-position: var(--color-1st);
-    --vip-scrubber-thumbnail-width: 200px;
+    --vip-scrubber-thumbnail-width: 10em;
     --vip-subtitle-font-small: #{scale(0.7em, 1.2em)};
     --vip-subtitle-font-medium: #{scale(0.9em, 1.5em)};
     --vip-subtitle-font-big: #{scale(1em, 2em)};
     --vip-volume-slider-width: 5em;
-    --vip-controller-max-width: 64em;
+    --vip-controller-max-width: 60em;
     --vip-controller-viewport-distance: var(--spacing-block-small);
     --vip-title-max-width: 80em;
     --vip-title-viewport-distance: var(--spacing-block-small);

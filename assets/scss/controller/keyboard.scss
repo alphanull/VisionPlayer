@@ -83,4 +83,14 @@ vision-player {
         &.keySeekForward .icon-bg.forward { display: flex; }
         &.keyPlay .icon-bg.play { display: flex; }
     }
+
+    &.icon-filled .vip-keyboard-overlay .icon {
+        &.forward { @include icon-masked('player-filled/forward.svg', 100%, var(--vip-icon-color)); }
+        &.rewind { @include icon-masked('player-filled/rewind.svg', 100%, var(--vip-icon-color)); }
+        &.volume { @include icon-masked('player-filled/vol-full.svg', 100%, var(--vip-icon-color)); }
+        &.volume.is-half { @include icon-masked('player-filled/vol-half.svg', 100%, var(--vip-icon-color)); }
+        &.volume.is-muted { @include icon-masked('player-filled/vol-muted.svg', 100%, var(--vip-icon-color)); }
+        &.play { @include icon-masked('player-filled/play.svg', 100%, var(--vip-icon-color)); margin-left: 0.3em; }
+        &.pause { @include icon-masked('player-filled/pause.svg', 100%, var(--vip-icon-color)); }
+    }
 }

@@ -11,7 +11,7 @@ import ExtendedMediaError from '../util/ExtendedMediaError.js';
  * @requires lib/util/AsyncTask
  * @requires src/util/ExtendedMediaError
  * @author Frank Kudermann - alphanull
- * @version 1.0.0
+ * @version 1.0.1
  * @license MIT
  */
 export default class Media {
@@ -282,9 +282,9 @@ export default class Media {
 
     /**
      * Sets a new source for the media, in effect loading the video or audio. May delegate to plugins for formats with certain mine types and / or extensions.
-     * @param   {module:src/core/Media~metaData}          metaData   The source to load.
-     * @param   {module:src/core/Media~media.loadOptions} [options]  Options to control additional behavior.
-     * @returns {Promise}                                            A promise that resolves with the loaded metadata or rejects with the resulting media error.
+     * @param   {module:src/core/Media~metaData}         metaData   The source to load.
+     * @param   {module:src/core/Media~mediaLoadOptions} [options]  Options to control additional behavior.
+     * @returns {Promise}                                           A promise that resolves with the loaded metadata or rejects with the resulting media error.
      */
     #load = async(metaData = {}, options = {}) => {
 
@@ -860,7 +860,7 @@ export default class Media {
  */
 
 /**
- * @typedef  {Object}  module:src/core/Media~media.loadOptions
+ * @typedef  {Object}  module:src/core/Media~mediaLoadOptions
  * @property {boolean} [rememberState=false]   If `true`, player will attempt to restore seek position and play state after setting the new source. Useful for lang / quality switches.
  * @property {boolean} [ignoreAutoplay=false]  If `true`, player does NOT autoplay if player was paused during the switch.
  * @property {boolean} [play=false]            If `true`, stream is automatically played after switching, ignoring the play state before switch.

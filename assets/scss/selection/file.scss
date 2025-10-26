@@ -15,6 +15,10 @@ vision-player {
         }
     }
 
+    &.icon-filled .icon.file {
+        @include icon-masked('player-filled/file.svg', var(--vip-icon-height), var(--vip-icon-color));
+    }
+
     .vip-file-input {
         @include is-hidden;
 
@@ -51,5 +55,9 @@ vision-player {
 
             margin-top: 1.5vh;
         }
+    }
+
+    &.icon-filled .vip-file-dropper-icon {
+        @include icon-masked('player-filled/file.svg', 12svh, var(--vip-icon-color));
     }
 }

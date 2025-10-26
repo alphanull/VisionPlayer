@@ -72,6 +72,11 @@ vision-player {
         .icon.next { @include icon-masked('player/next.svg', var(--vip-icon-width-small), var(--vip-icon-color)); }
     }
 
+    &.icon-filled {
+        .icon.prev { @include icon-masked('player-filled/prev.svg', var(--vip-icon-width-small), var(--vip-icon-color)); }
+        .icon.next { @include icon-masked('player-filled/next.svg', var(--vip-icon-width-small), var(--vip-icon-color)); }
+    }
+
     .vip-chapter-tooltip {
         @include text-ellipsis;
 

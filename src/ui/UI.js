@@ -7,7 +7,7 @@ import DomSmith from '../../lib/dom/DomSmith.js';
  * @exports module:src/ui/UI
  * @requires lib/dom/DomSmith
  * @author  Frank Kudermann - alphanull
- * @version 1.0.0
+ * @version 1.1.0
  * @license MIT
  */
 export default class UI {
@@ -19,6 +19,7 @@ export default class UI {
      * @property {number}  [autoHide=5]            Time (in seconds) after which the UI auto-hides (0 disables).
      * @property {boolean} [clickToPlay=true]      If `true`, clicking on the video element toggles play/pause.
      * @property {boolean} [showScaleSlider=true]  If `true`, the UI scale slider is shown in the settings popup.
+     * @property {string}  [iconStyle='default']   The style of the icons: 'default' or 'filled'.
      * @property {number}  [uiScale=1]             Initial scale factor for the UI.
      */
     #config = {
@@ -26,6 +27,7 @@ export default class UI {
         autoHide: 5,
         clickToPlay: true,
         showScaleSlider: true,
+        iconStyle: 'default',
         uiScale: 1
     };
 
@@ -80,6 +82,7 @@ export default class UI {
         hasFocus: true,
         playerWidth: 0,
         playerHeight: 0,
+        scale: 1,
         lastInput: ''
     };
 
@@ -129,11 +132,13 @@ export default class UI {
         this.#player.setState('ui.lastInput', { get: () => this.#state.lastInput }, this.#apiKey);
         this.#player.setState('ui.playerWidth', { get: () => this.#state.playerWidth }, this.#apiKey);
         this.#player.setState('ui.playerHeight', { get: () => this.#state.playerHeight }, this.#apiKey);
+        this.#player.setState('ui.scale', { get: () => this.#state.scale }, this.#apiKey);
 
         this.#player.setApi('ui.hide', this.#hide, this.#apiKey);
         this.#player.setApi('ui.show', this.#show, this.#apiKey);
         this.#player.setApi('ui.disableAutoHide', this.#disableAutoHide, this.#apiKey);
         this.#player.setApi('ui.enableAutoHide', this.#enableAutoHide, this.#apiKey);
+        this.#player.setApi('ui.resize', this.#resize, this.#apiKey);
 
         this.#rootEle = player.dom.getElement(apiKey);
         this.#rootEle.addEventListener('keydown', this.#onInput);
@@ -143,6 +148,10 @@ export default class UI {
         // (for example, could be used it with keyboard navigation)
         this.#rootEle.addEventListener('focus', this.#onFocus, true);
         document.addEventListener('focus', this.#onFocus, true);
+
+        if (this.#config.iconStyle === 'filled') {
+            this.#rootEle.classList.add('icon-filled');
+        }
 
         this.#subscriptions = [
             this.#player.subscribe('dom/ready', this.#onDomReady),
@@ -202,6 +211,11 @@ export default class UI {
                 }]
             }, { ele: this.#settingsPopup.getElement('bottom'), insertMode: 'top' });
         }
+
+        if (this.#config.uiScale !== 1) {
+            this.#setUiScale({ target: { value: this.#config.uiScale } });
+        }
+
     };
 
     /**
@@ -229,6 +243,7 @@ export default class UI {
         this.#menu.scaleLabel.textContent = ` (x${value})`;
         this.#menu.slider.setAttribute('aria-valuetext', `x${value}`);
         this.#rootEle.style.setProperty('--vip-ui-scale', value);
+        this.#state.scale = value;
         this.#player.publish('ui/resize', { width: this.#state.playerWidth, height: this.#state.playerHeight }, this.#apiKey);
 
     };
@@ -260,9 +275,12 @@ export default class UI {
      * @param {Event} event  The event which called this handler.
      * @fires module:src/ui/UI#ui/show
      */
-    #show = event => {
+    #show = ({ type, pointerType, relatedTarget } = {}) => {
 
-        if (event && event.pointerType === 'touch' && this.#state.visibility !== 'visible') {
+        // dont accidentally show if mouseenter comes from within (e.g. when coming from closing the popup)
+        if (this.#state.visibility === 'visible' || type === 'pointerenter' && (!relatedTarget || !relatedTarget.isConnected || this.#rootEle.contains(relatedTarget))) return;
+
+        if (pointerType === 'touch' && this.#state.visibility !== 'visible') {
             this.#suppressNextTouch = true;
         }
 
@@ -279,13 +297,12 @@ export default class UI {
      */
     #hide = ({ relatedTarget } = {}) => {
 
-        if (typeof relatedTarget !== 'undefined' && (relatedTarget === null || relatedTarget.tagName === 'SELECT')) return;
+        if (this.#state.visibility === 'hidden' || typeof relatedTarget !== 'undefined' && (relatedTarget === null || relatedTarget.tagName === 'SELECT')) return;
 
-        if (this.#state.visibility === 'visible') {
-            this.#state.visibility = 'hidden';
-            this.#rootEle.classList.add('ui-hidden');
-            this.#player.publish('ui/hide', this.#apiKey);
-        }
+        this.#state.visibility = 'hidden';
+        this.#rootEle.classList.add('ui-hidden');
+        this.#player.publish('ui/hide', this.#apiKey);
+
     };
 
     /**
@@ -504,7 +521,7 @@ export default class UI {
         this.#player.dom.getElement(this.#apiKey).removeEventListener('keydown', this.#onInput);
         this.#player.dom.getElement(this.#apiKey).removeEventListener('pointerdown', this.#onInput);
         this.#player.unsubscribe(this.#subscriptions);
-        this.#player.removeApi(['ui.hide', 'ui.show', 'ui.disableAutoHide', 'ui.enableAutoHide'], this.#apiKey);
+        this.#player.removeApi(['ui.hide', 'ui.show', 'ui.disableAutoHide', 'ui.enableAutoHide', 'ui.resize'], this.#apiKey);
         this.#player.removeState(['ui'], this.#apiKey);
         this.#player = this.#rootEle = this.#apiKey = null;
 

@@ -9,7 +9,7 @@ import { clamp, convertRange } from '../../lib/util/math.js';
  * @requires module:lib/dom/DomSmith
  * @requires module:lib/util/math
  * @author   Frank Kudermann - alphanull
- * @version  1.0.0
+ * @version  1.0.1
  * @license  MIT
  */
 export default class Keyboard {
@@ -130,9 +130,10 @@ export default class Keyboard {
      * @function
      * @param {KeyboardEvent} event  The native `keydown` event.
      */
-    #onKeyDown = ({ code, keyCode }) => {
+    #onKeyDown = event => {
 
-        const hasFocus = this.#player.getState('ui.hasFocus'),
+        const { code, keyCode } = event,
+              hasFocus = this.#player.getState('ui.hasFocus'),
               action = Object.entries(this.#config).find(([key, value]) => key.startsWith('key') && (value === code || value === keyCode))?.[0];
 
         // allow space in sliders otherwise do not process key events when focus is on input or select
@@ -145,6 +146,9 @@ export default class Keyboard {
               duration = this.#player.getState('media.duration');
 
         if (!action || liveStream && action.startsWith('keySeek')) return; // abort when no matching key found
+
+        event.preventDefault();
+        event.stopPropagation();
 
         let newVolume, newSeek;
 

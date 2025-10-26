@@ -1,3 +1,5 @@
+/* stylelint-disable @stylistic/max-line-length */
+
 @use '../lib/mixins' as *;
 @use '../core/mixins' as *;
 @use '../core/vars' as *;
@@ -6,7 +8,6 @@ vision-player {
 
     .vip-volume-slider {
 
-        /* stylelint-disable-next-line @stylistic/max-line-length */
         @include icon-masked('player/vol-slider.svg', [var(--vip-volume-slider-width),  var(--vip-icon-height)], var(--color-contrast5), 0, '::after');
         @include transition('opacity, width, transform');
 
@@ -70,5 +71,11 @@ vision-player {
         > .icon.volume { @include icon-masked('player/vol-full.svg', var(--vip-icon-height), var(--vip-icon-color), 0 0 0 0); }
         > .icon.volume.is-half { @include icon-masked('player/vol-half.svg', var(--vip-icon-height), var(--vip-icon-color), 0 0 0 0); }
         > .icon.volume.is-muted { @include icon-masked('player/vol-muted.svg', var(--vip-icon-height), var(--vip-icon-color), 0 0 0 0); }
+    }
+
+    &.icon-filled .vip-volume-wrapper {
+        > .icon.volume { @include icon-masked('player-filled/vol-full.svg', var(--vip-icon-height), var(--vip-icon-color), 0 0 0 0); }
+        > .icon.volume.is-half { @include icon-masked('player-filled/vol-half.svg', var(--vip-icon-height), var(--vip-icon-color), 0 0 0 0); }
+        > .icon.volume.is-muted { @include icon-masked('player-filled/vol-muted.svg', var(--vip-icon-height), var(--vip-icon-color), 0 0 0 0); }
     }
 }

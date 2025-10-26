@@ -9,7 +9,8 @@ Configuration example with defaults:
 ```javascript
 const playerConfig = {
     overlays: {
-        adaptLayout: true
+        adaptLayout: true,
+        sanitizeHTML: true
     }
 };
 ```
@@ -17,6 +18,7 @@ const playerConfig = {
 | Setting Name  | Type    | Description                                                  |
 | ------------- | ------- | ------------------------------------------------------------ |
 | `adaptLayout` | Boolean | Aligns overlay position with controller and title visibility state. |
+| `sanitizeHTML | Boolean | Sanitizes the HTML of the overlay to prevent XSS attacks. |
 
 ## Media Data
 
@@ -24,11 +26,16 @@ This component extends the Media Format:
 
 ```javascript
 const mediaData = {
-    // ... other media data ... 
+    // ... other media data ...
     overlays: [
         {
             type: 'poster',
             src: '/path/to/poster.jpg',
+            scale: 'cover'
+        },
+        {
+            type: 'html',
+            src: '<p><a href="https://visionplayer.io">VisionPlayer</a></p>',
             scale: 'cover'
         },
         {
@@ -48,7 +55,7 @@ const mediaData = {
 | Overlayitem Property | Type   | Required | Description                                                  |
 | -------------------- | ------ | -------- | ------------------------------------------------------------ |
 | `type`               | String | Yes      | Overlay type, currently supported are `poster` (Poster Image displayed at the beginning), `poster-end` (Poster Image displayed at the end) or `image` (Image displayed either permanetly or during a specified time span) |
-| `src`                | String | Yes      | URL of the overlay image.                                    |
+| `src`                | String | Yes      | URL of the overlay image, or HTML code for type `html`.      |
 | `className`          | String |          | Custom classname for this overla item.                       |
 | `alt`                | String |          | Additional `alt` text for the overlay image.                 |
 | `placement`          | String |          | Defines the placement of the image in the viewport. Currently supported are: `center`, `top`, `bottom`, `left`, `right`, `top-left`, `top-right`, `center-left`, `center-right`, `bottom-left`, `bottom-right` |
@@ -61,7 +68,7 @@ In addition, a standard poster image can be specified using this shortcut:
 
 ```javascript
 const mediaData = {
-  	poster: '/demo/trailer/overlays/mediaplayer-trailer-poster.jpg',  
+  	poster: '/demo/trailer/overlays/mediaplayer-trailer-poster.jpg',
     // equivalent to:
     overlays: [
         {

@@ -5,6 +5,36 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org) and follows the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
 
 ---
+## [1.2.0] – 2025-10-26
+
+### Added
+
+- Playlist: prev / next icons will be greyed out when navigation is not possible (i.e. last segment is reached)
+- UI: new API `ui.resize` (which forces recalculating player width and height)
+- Overlays: added type `html` for HTML-based overlays
+- Overlays: added option `sanitizeHTML` to prevent XSS attacks from unsafe HTML (enabled by default and enforced in the secure build). This (severely) limits the allowed HTML.
+- Demo: added link on the logo to the new vision.player.io microsite
+- Added new default iconset
+- Added options in the UI component to change the iconset back to the filled version
+
+### Changed
+
+- Updated dev dependencies
+- More CSS resets to make player more resilient to outside CSS
+- Updated screenshot in README.md
+
+### Fixed
+
+- When UI autohide is enabled, the UI no longer reappears immediately when a popup was open at the time of hiding
+- Prevent default event handling in the keyboard component when an action is detected, so it does not interfere with scrolling etc.
+- Thumbnail positioning should now also work when using non pixel units for scrubber width
+- UI scale should now honor the respective player config setting
+- Additional minor CSS fixes
+- Fixed docs in Media.md and Media.js
+- Fixed links to docs in demo
+- Removed broken link in HLS demo
+- Additional fixes in demo
+
 ## [1.1.1] – 2025-10-15
 
 ### Fixed
@@ -12,7 +42,7 @@ This project adheres to [Semantic Versioning](https://semver.org) and follows th
 - Playlist title now retained when switching player language
 - Thumbnail positioning in scrubber should be properly centered now
 - Thumbnail positioning fixed when switching playlist media
-- small typo in english translation
+- Small typo in English translation
 - Fixed JSDocs in ScrubberTooltip.js
 
 ### Changed

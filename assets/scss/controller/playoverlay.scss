@@ -39,6 +39,7 @@ vision-player {
         }
 
         .icon.play {
+            @include icon-masked('player/play-overlay.svg', var(--vip-icon-height), var(--vip-icon-color));
             @include transition('opacity, transform');
 
             position: absolute;

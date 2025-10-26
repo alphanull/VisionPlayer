@@ -6,7 +6,7 @@ The Dash component integrates [dash.js](https://github.com/Dash-Industry-Forum/d
 
 This component uses  [dash.js](https://github.com/Dash-Industry-Forum/dash.js) (supports both versions 4.7.x and 5.x though at the moment of writing 4.7.4 is recommended) and requires the library to be present. This can be done using two ways:
 
-1. By using the [streaming build](../../Setup.md#Builds), which includes both dash.js and hls.js
+1. By using the [streaming build](../../Setup.md), which includes both dash.js and hls.js
 2. By using a customized build only including the Dash component, and loading the library separately before loading the player:
 
 ```html

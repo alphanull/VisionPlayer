@@ -9,7 +9,7 @@ import DomSmith from '../../lib/dom/DomSmith.js';
  * @requires lib/util/object
  * @requires lib/dom/DomSmith
  * @author   Frank Kudermann - alphanull
- * @version  1.0.0
+ * @version  1.0.1
  * @license  MIT
  */
 export default class Chapters {
@@ -277,11 +277,13 @@ export default class Chapters {
               lang = this.#player.getConfig('locale.lang'),
               chapterText = isObject(chapter.title) ? chapter.title[lang] || chapter.title[Object.keys(chapter.title)[0]] : chapter.title;
 
+        this.#controller.navPrev.disabled = currentTime < 3;
+        this.#controller.navNext.disabled = this.#chapter >= this.#chapters.length - 1;
+
         if (!this.#config.showInController || this.#controller.wrapperText.nodeValue === chapterText) return;
 
         this.#controller.wrapperText.nodeValue = chapterText;
         this.#controller.textWrapper.setAttribute('aria-label', `${this.#player.locale.t('misc.chapter')}: ${chapterText}`);
-        this.#controller.navNext.disabled = this.#chapter >= this.#chapters.length - 1;
 
     };
 
@@ -310,8 +312,8 @@ export default class Chapters {
 
         if (!this.#config.showInController) return;
 
-        this.#controller.navNext.disabled = false;
-        this.#controller.navPrev.disabled = false;
+        if (this.#chapter < this.#chapters.length - 1) this.#controller.navNext.disabled = false;
+        if (this.#player.getState('media.currentTime') > 3) this.#controller.navPrev.disabled = false;
 
     };
 

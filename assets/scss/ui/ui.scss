@@ -9,8 +9,10 @@ vision-player {
     h1, h2, h3, p {
         @include font-normal;
 
+        width: auto;
         margin: 0;
         margin-bottom: var(--spacing3);
+        border: none;
         font-size: var(--vip-font-size);
         color: var(--color-text);
         text-align: start;
@@ -92,6 +94,15 @@ vision-player {
                 transform: scale(1.25);
             }
         }
+    }
+
+    &.icon-filled {
+        .icon.play { @include icon-masked('player-filled/play.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        .icon.pause { @include icon-masked('player-filled/pause.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        .icon.subtitles { @include icon-masked('player-filled/subtitles.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        .icon.settings { @include icon-masked('player-filled/settings.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        .icon.fullscreen-enter { @include icon-masked('player-filled/fs-enter.svg', var(--vip-icon-height), var(--vip-icon-color)); }
+        .icon.fullscreen-exit { @include icon-masked('player-filled/fs-exit.svg', var(--vip-icon-height), var(--vip-icon-color)); }
     }
 
     // Popup

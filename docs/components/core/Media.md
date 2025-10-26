@@ -52,7 +52,7 @@ The following properties are exposed to the player's global `player.state` objec
 | `remainingTime` | Number        | Time left in the media.                                      |
 | `paused`        | Boolean       | Whether the media is currently paused.                       |
 | `ended`         | Boolean       | Whether the media has ended.                                 |
-| `looped`        | Boolean       | Whether looping is enabled.                                  |
+| `loop`          | Boolean       | Whether looping is enabled.                                  |
 | `muted`         | Boolean       | Whether the media is muted.                                  |
 | `volume`        | Number        | Current volume (0 to 1).                                     |
 | `playbackRate`  | Number        | Playback speed.                                              |

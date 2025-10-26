@@ -13,7 +13,7 @@
 
 # VisionPlayer
 
-The **VisionPlayer** by **[alphanull](https://alphanull.de)** is a highly modular, lightweight, and feature-rich JavaScript video player for the modern web. Designed as a flexible component system, the player allows for deep customization, simple integration, and full control over both appearance and functionality. Whether you're building a minimal player for a single video or a complex interface supporting multilingual, multi-quality streaming with overlays and playlist management — this player adapts to your needs.
+The **VisionPlayer** by **[alphanull](https://alphanull.de)** is a highly modular, lightweight, and feature-rich JavaScript media player for the modern web. Designed as a flexible component system, the player allows for deep customization, simple integration, and full control over both appearance and functionality. Whether you're building a minimal player for a single video or a complex interface supporting multilingual, multi-quality streaming with overlays and playlist management — this player adapts to your needs.
 
 ## Features
 
@@ -51,7 +51,7 @@ The **VisionPlayer** by **[alphanull](https://alphanull.de)** is a highly modula
 
 ## Demo
 
-Just hop over to **[visionplayer.io](https://visionplayer.io)** to take a test drive! Right now, the page features demos identical to the ones coming with the development server, but in the future this site will deliver more information about the VisionPlayer, so stay tuned.
+Just hop over to **[visionplayer.io](https://visionplayer.io)** to take a test drive or watch some feature demos. The documentation is [also available there](https://visionplayer.io/docs/).
 
 ## Installation
 

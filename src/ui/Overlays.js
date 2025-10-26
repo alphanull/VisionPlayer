@@ -1,5 +1,6 @@
 import DomSmith from '../../lib/dom/DomSmith.js';
 import convertTime from '../util/convertTime.js';
+import { sanitizeHTML } from '../../lib/util/sanitize.js';
 
 /**
  * The Overlays component displays layered visual elements—such as logos or posters—on top of the player viewport.
@@ -10,7 +11,7 @@ import convertTime from '../util/convertTime.js';
  * @requires lib/dom/DomSmith
  * @requires src/util/convertTime
  * @author   Frank Kudermann - alphanull
- * @version  1.0.0
+ * @version  1.1.0
  * @license  MIT
  */
 export default class Overlays {
@@ -18,10 +19,12 @@ export default class Overlays {
     /**
      * Holds the instance configuration for this component.
      * @type     {Object}
-     * @property {boolean} [adaptLayout=true]  Aligns overlay positioning with controller and title visibility state.
+     * @property {boolean} [adaptLayout=true]    Aligns overlay positioning with controller and title visibility state.
+     * @property {boolean} [sanitizeHTML=false]  Sanitizes the HTML of the overlay to prevent XSS attacks.
      */
     #config = {
-        adaptLayout: true
+        adaptLayout: true,
+        sanitizeHTML: false
     };
 
     /**
@@ -57,9 +60,14 @@ export default class Overlays {
      */
     constructor(player, parent, { apiKey }) {
 
+        const sanitizeDefault = this.#config.sanitizeHTML;
+
         this.#config = player.initConfig('overlays', this.#config);
 
         if (!this.#config) return [false];
+
+        // if sanitizeHTML defaults are already set, prevent further change
+        if (sanitizeDefault && apiKey) this.#config.sanitizeHTML = sanitizeDefault;
 
         this.#player = player;
 
@@ -188,8 +196,10 @@ export default class Overlays {
                 break;
 
             case 'html':
-                this.#player.data.error('Only image overlays are supported at this time.');
-                return;
+                ovItem.ele = document.createElement('div');
+                ovItem.ele.innerHTML = this.#config.sanitizeHTML ? sanitizeHTML(src) : src;
+                ovItem.loaded = true;
+                break;
 
             default:
                 this.#player.data.error(`Unknown overlay type: ${type}`);
@@ -199,6 +209,7 @@ export default class Overlays {
 
         ovItem.ele.style.padding = `${ovItem.margin}px`;
         ovItem.ele.className = `vip-overlay-item
+            ${type === 'html' ? 'is-html ' : ''}
             ${type === 'poster' ? 'is-poster ' : 'is-hidden '}
             ${ovItem.placement.replace('-', ' ')}
             ${ovItem.scale ? ` scale-${ovItem.scale.toLowerCase()}` : ''}

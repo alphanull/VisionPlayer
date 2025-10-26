@@ -153,6 +153,21 @@ a:hover {
     color: white;
 }
 
+.vip-logo-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-origin: left center;
+    transition-property: transform;
+    transition-duration: var(--transition-duration, 0.3s);
+    transition-timing-function: ease-in-out;
+}
+
+.vip-logo-link:hover {
+    background-color: transparent;
+    transform: scale(1.05);
+}
+
 main a {
     color: var(--color-1st);
 }
