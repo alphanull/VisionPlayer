@@ -14,7 +14,8 @@ const playerConfig = {
         adaptLayout: true,
         fontSize: 'medium',
         showFontSizeControl: true,
-        showPlaceholder: false
+        showPlaceholder: false,
+        preferredSubtitles: false
     }
 };
 ```
@@ -27,6 +28,7 @@ const playerConfig = {
 | `fontSize`        | String  | Text size setting: `'small'`, `'medium'`, `'big'`.           |
 | `showFontSizeControl` | Boolean | Enables UI to let the user change subtitle size.             |
 | `showPlaceholder`     | Boolean | If enabled, display a 'not available' placeholder if no subtitles are available, otherwise completely hide the menu. |
+| `preferredSubtitles`     | Boolean | If enabled, try to display subtitles: if `true`, use the player locale as default, or use a string as language code and try to match with available subs. |
 
 ## Media Data
 

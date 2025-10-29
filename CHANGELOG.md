@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org) and follows the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
 
 ---
+## [1.2.1] - 2025-10-29
+
+### Added
+
+- The player can now be initialized only if it is actually visible in the viewport (using Intersection Observer on the target element). Use the config `player.initOnIntersection` and set it to `true` (or specify a specific observer config) to enable this feature. This is especially useful if you have several players below the fold and want to avoid impact on page load.
+- In addition, the player initialization can also be deferred using the new `player.initOnIdle` config option. In this case, the player will be initialized using the `window.requestIdleCallback()` method (not available in Safari, using rAF fallback in this case).
+- Both methods can also be combined. In this case, the first trigger "wins", and the player will be initialized only once.
+
+### Fixed
+
+- Some minor typos in the docs
+
 ## [1.2.0] – 2025-10-26
 
 ### Added

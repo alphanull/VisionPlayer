@@ -20,7 +20,7 @@
         "logoDark": "./assets/svg/logo/VisionPlayerLogoDocsWhite.svg",
         "favicon": "./assets/svg/logo/favicon.svg",
         "css": "./scripts/docs/vision-player.css",
-        "footer": "<p><b>VisionPlayer Version 1.2.0</b> Copyright © 2025-present <a href='https://alphanull.de' target=_blank>alphanull</a> - Frank Kudermann</p>",
+        "footer": "<p><b>VisionPlayer Version 1.2.1</b> Copyright © 2025-present <a href='https://alphanull.de' target=_blank>alphanull</a> - Frank Kudermann</p>",
         "skin": "visionplayer",
         "skinLabel": "VisionPlayer Skin",
         "showFolded": true,

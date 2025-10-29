@@ -1,7 +1,7 @@
 {
     "name": "@alphanull/visionplayer",
     "license": "MIT",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "VisionPlayer is a highly modular, lightweight, and feature-rich JavaScript media player for the modern web.",
     "keywords": [
         "media",

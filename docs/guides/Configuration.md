@@ -232,7 +232,9 @@ const defaultConfig = {
     },
     player: {
         id: '', // Defines custom player id
-        secureApi: false // If enabled, certain APIs are restricted to internal use.
+        secureApi: false, // If enabled, certain APIs are restricted to internal use
+        initOnIntersection: false, // Intersection Observer config
+        initOnIdle: false // If `true`, the player will be initialized only when the browser is idle.
     },
     playlist: {
         continuous: true, // Enables automatic playback of the next item after media ends
@@ -271,7 +273,8 @@ const defaultConfig = {
         mode: 'custom', // Either 'custom' (player renderer) or 'native' (browser engine).
         fontSize: 'medium', // Text size setting: 'small', 'medium', 'big'
         showFontSizeControl: true, // Enables UI to let the user change subtitle size
-        showPlaceholder: false // display a 'not available' placeholder if no subtitles are available
+        showPlaceholder: false, // display a 'not available' placeholder if no subtitles are available
+        preferredSubtitles: false //  If enabled, try to display subtitles
     },
     subtitlesVTT: {
         forceSnapToLines: false // Forces cues to snap to grid lines
