@@ -175,8 +175,8 @@ export default class Player {
 
         if (this.#config.player.initOnIdle) {
             const options = this.#config.player.initOnIntersection ? { timeout: 2000 } : { timeout: 200 };
-            if (window.requestIdleCallback) window.requestIdleCallback(() => { this.#initialise(mergedData); }, options);
-            else window.requestAnimationFrame(() => { this.#initialise(mergedData); });
+            if (window.requestIdleCallback) this.#idleCallback = window.requestIdleCallback(() => { this.#initialise(mergedData); }, options);
+            else this.#idleCallback = window.requestAnimationFrame(() => { this.#initialise(mergedData); });
         }
 
         if (!this.#config.player.initOnIntersection && !this.#config.player.initOnIdle) this.#initialise(mergedData);
@@ -571,7 +571,10 @@ export default class Player {
 
         this.#removeComponents();
         if (this.#config.player.initOnIntersection) this.#intersectionObserver.disconnect();
-        if (this.#config.player.initOnIdle) window.cancelIdleCallback(this.#idleCallback);
+        if (this.#config.player.initOnIdle) {
+            if (window.requestIdleCallback) window.cancelIdleCallback(this.#idleCallback);
+            else window.cancelAnimationFrame(this.#idleCallback);
+        }
 
         try {
             this.#state = this.#components = this.#config = this.#namespaces = this.#apiKey = this.#apiMethods = null;

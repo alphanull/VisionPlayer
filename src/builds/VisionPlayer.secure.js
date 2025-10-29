@@ -10,7 +10,7 @@
  * - No subtitle HTML handling allowed, makes the player 100% XSS safe, since all text content is set via text nodes, including translations.
  * @exports module:src/builds/VisionPlayer-secure
  * @author   Frank Kudermann - alphanull
- * @version  1.2.1
+ * @version  1.2.2
  * @license  MIT
  */
 

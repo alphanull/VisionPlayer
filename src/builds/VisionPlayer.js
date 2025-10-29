@@ -28,7 +28,7 @@
  * @requires src/visualizer/VisualizerAmbient
  * @requires src/visualizer/VisualizerBar
  * @author   Frank Kudermann - alphanull
- * @version  1.2.0
+ * @version  1.2.2
  * @license  MIT
  */
 
