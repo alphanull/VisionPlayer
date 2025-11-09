@@ -18,7 +18,7 @@ const playerConfig = {
 | Setting Name  | Type    | Description                                                  |
 | ------------- | ------- | ------------------------------------------------------------ |
 | `adaptLayout` | Boolean | Aligns overlay position with controller and title visibility state. |
-| `sanitizeHTML | Boolean | Sanitizes the HTML of the overlay to prevent XSS attacks. |
+| `sanitizeHTML` | Boolean | Sanitizes the HTML of the overlay to prevent XSS attacks. |
 
 ## Media Data
 
@@ -59,8 +59,9 @@ const mediaData = {
 | `className`          | String |          | Custom classname for this overla item.                       |
 | `alt`                | String |          | Additional `alt` text for the overlay image.                 |
 | `placement`          | String |          | Defines the placement of the image in the viewport. Currently supported are: `center`, `top`, `bottom`, `left`, `right`, `top-left`, `top-right`, `center-left`, `center-right`, `bottom-left`, `bottom-right` |
-| `scale`              | String |          | Defines how to scale the overlay image. Currently supported are: cover, contain. |
+| `scale`              | String |          | Defines how to scale the overlay image. Currently supported are: `cover`, `contain`. |
 | `margin`             | Number |          | Margin (in pixels) which defines the distance of the overlay to the players' viewport. |
+| `show`             | String |            | When the overlay is shown:<ul><li>`always` (default): Overlay is always shown</li> <li>`start`: Overlay is shown at the start of the media (playback has to be paused as well)</li> <li>`end`: Overlay is shown at the end of the media (playback has to be paused as well)</li> <li>`play`: Overlay is shown when the media is playing</li><li>`paused`: Overlay is shown when the media is paused</li></ul> Note that when `cueIn` or `cueOut` are specified, the `show` property is overridden. |
 | `cueIn`              | Number |          | Time (in seconds) at which this overlay item should be displayed. |
 | `cueOut`             | Number |          | Time (in seconds) at which this overlay item should be hidden. |
 

@@ -14,7 +14,7 @@ const catcher = error => {
  * @requires lib/dom/DomSmith
  * @requires lib/ui/Popup
  * @author   Frank Kudermann - alphanull
- * @version  1.0.0
+ * @version  1.0.1
  * @license  MIT
  */
 export default class Playlist {
@@ -258,12 +258,12 @@ export default class Playlist {
                 _tag: 'menu',
                 _ref: 'list',
                 className: 'is-grouped is-stretched is-vertical',
-                _nodes: this.#data.media.map((media, idx) => {
+                _nodes: this.#data.media.map(({ title, titleSecondary, poster: pos, overlays, variants }, idx) => {
 
                     // find src and just display URL of the first stream TODO: make better, maybe via "getPreferredMetaData"????
-                    const title = resolve(media.title) ?? media.variants[0].src,
-                          titleSecondary = resolve(media.titleSecondary),
-                          poster = media.poster || (media.overlays && this.#config.showPoster ? media.overlays.find(ov => ov.type === 'poster').src : null);
+                    const titleText = resolve(title) ?? variants[0].src,
+                          titleSecondaryText = resolve(titleSecondary),
+                          poster = pos || (overlays && this.#config.showPoster ? overlays.find(ov => ov.type === 'poster' || ov.type === 'image' && ov.show === 'start')?.src : null);
 
                     if (poster) foundPoster = true;
 
@@ -281,12 +281,12 @@ export default class Playlist {
                         {
                             _tag: 'span',
                             className: 'vip-playlist-item-header',
-                            _nodes: [title]
+                            _nodes: [titleText]
                         },
                         titleSecondary ? {
                             _tag: 'span',
                             className: 'vip-playlist-item-text',
-                            _nodes: [titleSecondary]
+                            _nodes: [titleSecondaryText]
                         } : null]
                     };
                 })

@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org) and follows the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
 
 ---
+## [1.2.3] - 2026-11-09
+
+### Added
+
+- Overlays: there are new options to control when overlays are shown, by the new `show` property in the overlay item media data.
+  - `always` (default): Overlay is always shown
+  - `start`: Overlay is shown at the start of the media (playback has to be paused as well)
+  - `end`: Overlay is shown at the end of the media (playback has to be paused as well)
+  - `play`: Overlay is shown when the media is playing
+  - `paused`: Overlay is shown when the media is paused
+- Note that when `cueIn` or `cueOut` are specified, the `show` property is overridden.
+
+### Changed
+
+- Overlays: when applying `scale` to images, those are now rendered as regular images (using `object-size`) instead of background images
+- Updated dev dependencies
+
+### Fixed
+
+- Playlist: fixed error when overlays where present, but none of them was a poster image
+
 ## [1.2.2] - 2025-10-29
 
 ### Fixed
@@ -31,7 +52,7 @@ This project adheres to [Semantic Versioning](https://semver.org) and follows th
 - UI: new API `ui.resize` (which forces recalculating player width and height)
 - Overlays: added type `html` for HTML-based overlays
 - Overlays: added option `sanitizeHTML` to prevent XSS attacks from unsafe HTML (enabled by default and enforced in the secure build). This (severely) limits the allowed HTML.
-- Demo: added link on the logo to the new vision.player.io microsite
+- Demo: added link on the logo to the new visionplayer.io microsite
 - Added new default iconset
 - Added options in the UI component to change the iconset back to the filled version
 

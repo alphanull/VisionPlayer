@@ -11,7 +11,7 @@ import { sanitizeHTML } from '../../lib/util/sanitize.js';
  * @requires lib/dom/DomSmith
  * @requires src/util/convertTime
  * @author   Frank Kudermann - alphanull
- * @version  1.1.0
+ * @version  1.2.0
  * @license  MIT
  */
 export default class Overlays {
@@ -136,6 +136,7 @@ export default class Overlays {
             alt = 'VisionPlayer Overlay Image',
             scale = false,
             placement = 'center',
+            show,
             margin = 0,
             cueIn,
             cueOut
@@ -148,6 +149,7 @@ export default class Overlays {
             scale,
             placement,
             margin,
+            show: typeof cueIn !== 'undefined' || typeof cueOut !== 'undefined' ? 'cue' : show || 'always',
             cueIn: typeof cueIn === 'undefined' ? 0 : convertTime(cueIn).seconds,
             cueOut: typeof cueOut === 'undefined' ? Infinity : convertTime(cueOut).seconds,
             visible: false
@@ -159,13 +161,17 @@ export default class Overlays {
         }
 
         if (type.includes('poster')) {
-            ovItem.isPoster = true;
             ovItem.scale = ovItem.scale || 'contain';
             ovItem.background = true;
             ovItem.opaque = true;
             ovItem.cueIn = null;
             ovItem.cueOut = null;
-            if (type === 'poster') ovItem.visible = true;
+        }
+
+        if (type === 'poster') {
+            ovItem.show = 'start';
+        } else if (type === 'poster-end') {
+            ovItem.show = 'end';
         }
 
         switch (type) {
@@ -210,7 +216,7 @@ export default class Overlays {
         ovItem.ele.style.padding = `${ovItem.margin}px`;
         ovItem.ele.className = `vip-overlay-item
             ${type === 'html' ? 'is-html ' : ''}
-            ${type === 'poster' ? 'is-poster ' : 'is-hidden '}
+            ${show === 'start' ? 'is-start ' : 'is-hidden '}
             ${ovItem.placement.replace('-', ' ')}
             ${ovItem.scale ? ` scale-${ovItem.scale.toLowerCase()}` : ''}
             ${ovItem.background ? ' has-bg' : ''}
@@ -234,17 +240,14 @@ export default class Overlays {
               overlay = this.#overlays[Number(index)];
 
         overlay.loaded = true;
+        overlay.ele.removeEventListener('load', this.#onLoad);
 
         if (overlay.scale === 'cover' || overlay.scale === 'contain') {
-            overlay.img.removeEventListener('load', this.#onLoad);
             overlay.img = null;
             overlay.ele.style.backgroundImage = `url(${overlay.src})`;
-        } else {
-            if (overlay.cueOut === Infinity && overlay.cueIn === 0) {
-                overlay.ele.classList.remove('is-hidden');
-            }
-            overlay.ele.removeEventListener('load', this.#onLoad);
         }
+
+        this.#update();
 
     };
 
@@ -264,12 +267,14 @@ export default class Overlays {
 
         this.#overlays.forEach(overlay => {
 
-            const { type, cueIn, cueOut, loaded, ele, visible } = overlay;
+            const { show, cueIn, cueOut, loaded, ele, visible } = overlay;
 
-            if (type === 'poster' && isPaused && currentTime < 0.1
-              || type === 'poster-end' && isPaused && currentTime > duration - 0.1
-              || cueIn <= currentTime && cueOut >= currentTime
-              || cueOut === Infinity) {
+            if (show === 'always'
+              || show === 'start' && isPaused && currentTime < 0.1
+              || show === 'end' && isPaused && currentTime > duration - 0.1
+              || show === 'pause' && isPaused
+              || show === 'play' && !isPaused
+              || show === 'cue' && cueIn <= currentTime && cueOut >= currentTime) {
 
                 if (visible === false && loaded === true) {
                     ele.classList.remove('is-hidden');
@@ -340,6 +345,7 @@ export default class Overlays {
  * @property {HTMLElement}      ele                   The DOM element containing the overlay.
  * @property {string}           type                  Overlay type (e.g. 'image', 'poster', 'poster-end').
  * @property {string}           src                   Source URL of the overlay image (if applicable).
+ * @property {string}           [show]                Controls when the overlay should be displayed, e.g. 'begin', 'end', 'pause', 'play'.
  * @property {string}           [className=""]        Additional CSS classes to apply to the overlay element.
  * @property {string}           [scale]               Determines how to scale the overlay, e.g. 'cover" or 'contain'. If undefined, no scaling is applied.
  * @property {string}           [placement='center']  Controls overlay placement, e.g. 'top', 'bottom-right', etc.
@@ -347,7 +353,6 @@ export default class Overlays {
  * @property {number}           [cueIn=0]             Start time in seconds when this overlay should appear.
  * @property {number}           [cueOut=Infinity]     End time in seconds when this overlay should disappear.
  * @property {boolean}          visible               Whether the overlay is currently visible or not.
- * @property {boolean}          [isPoster]            True if this overlay is a poster overlay (special case).
  * @property {boolean}          [background]          True if the overlay uses a background image (for 'cover' / 'contain' scaling).
  * @property {boolean}          [opaque]              True if the overlay background is opaque (e.g. For a poster).
  * @property {boolean}          [loaded]              True if the overlay image has finished loading.
